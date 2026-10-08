@@ -1,26 +1,195 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --brand: #f86800;
+  --brand-dark: #d45800;
+  --brand-soft: #fff1e6;
+  --ink: #001f38;
+  --muted: #5a6b7d;
+  --surface: #f7f8fa;
+  --white: #ffffff;
+  --background: var(--white);
+  --foreground: var(--ink);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-brand: var(--brand);
+  --color-brand-dark: var(--brand-dark);
+  --color-brand-soft: var(--brand-soft);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-surface: var(--surface);
+  --font-sans: var(--font-plus-jakarta);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  overflow-x: clip;
+}
+
+@media (min-width: 640px) {
+  html {
+    font-size: 17px;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-plus-jakarta), ui-sans-serif, system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  overflow-x: clip;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.6s ease-out both;
+}
+
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+/* Soft fade of hero photo into white on the left — matches mockup */
+.hero-image-mask {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 18%,
+    black 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 18%,
+    black 100%
+  );
+}
+
+@media (max-width: 1023px) {
+  .hero-image-mask {
+    -webkit-mask-image: linear-gradient(
+      to top,
+      black 55%,
+      black 85%,
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to top,
+      black 55%,
+      black 85%,
+      transparent 100%
+    );
+  }
+}
+
+@keyframes carousel-next {
+  from {
+    opacity: 0;
+    transform: translateX(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes carousel-prev {
+  from {
+    opacity: 0;
+    transform: translateX(-28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-carousel-next {
+  animation: carousel-next 0.35s ease-out both;
+}
+
+.animate-carousel-prev {
+  animation: carousel-prev 0.35s ease-out both;
+}
+
+/* —— Scroll reveals (transform + opacity only — no filter/clip, shadows stay intact) —— */
+.reveal {
+  opacity: 0;
+  overflow: visible;
+  will-change: transform, opacity;
+  transition-property: transform, opacity;
+  transition-duration: var(--reveal-duration, 800ms);
+  transition-delay: var(--reveal-delay, 0ms);
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+.reveal-up {
+  transform: translate3d(0, 28px, 0);
+}
+
+.reveal-down {
+  transform: translate3d(0, -22px, 0);
+}
+
+.reveal-left {
+  transform: translate3d(-32px, 0, 0);
+}
+
+.reveal-right {
+  transform: translate3d(32px, 0, 0);
+}
+
+.reveal-scale {
+  transform: scale(0.96);
+}
+
+.reveal-blur {
+  transform: translate3d(0, 18px, 0);
+  opacity: 0;
+}
+
+.reveal-clip {
+  transform: translate3d(0, 20px, 0);
+  opacity: 0;
+}
+
+.reveal-soft {
+  transform: translate3d(0, 16px, 0) scale(0.985);
+}
+
+.reveal-tilt {
+  transform: translate3d(0, 22px, 0) rotate(-1deg) scale(0.98);
+  transform-origin: 50% 80%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
