@@ -26,13 +26,14 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: 16px;
+  font-size: 15px;
   overflow-x: clip;
+  zoom: 0.92;
 }
 
 @media (min-width: 640px) {
   html {
-    font-size: 17px;
+    font-size: 15.5px;
   }
 }
 
