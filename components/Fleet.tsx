@@ -10,7 +10,7 @@ export default function Fleet() {
     <SectionBackdrop
       id="flota"
       variant="white"
-      className="pt-10 pb-8 sm:pt-20 sm:pb-10"
+      className="pt-16 pb-12 sm:pt-20 sm:pb-10"
     >
       <div id="preturi" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">

@@ -41,7 +41,7 @@ export default function B2BOffer() {
   }
 
   return (
-    <section id="contact" className="relative overflow-hidden py-10 sm:py-20 lg:py-24">
+    <section id="contact" className="relative overflow-hidden py-16 sm:py-20 lg:py-24">
       <div className="absolute inset-0">
         <Image
           src="/images/bg-urban.jpg"

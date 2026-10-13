@@ -28,22 +28,57 @@ const points = [
   },
 ];
 
+function Portrait({
+  name,
+  image,
+  className = "",
+}: {
+  name: string;
+  image?: string;
+  className?: string;
+}) {
+  return (
+    <div className={`relative mx-auto aspect-square w-[88%] sm:w-[92%] lg:w-full ${className}`}>
+      <div
+        aria-hidden
+        className="despre-shape-a absolute -bottom-[6%] -right-[8%] z-0 size-[86%] rounded-[1.5rem] bg-ink sm:rounded-[2rem] lg:rounded-[2.25rem]"
+      />
+      <div
+        aria-hidden
+        className="despre-shape-b absolute -left-[10%] -top-[8%] z-0 size-[54%] rounded-[1.35rem] bg-brand sm:rounded-[1.75rem] lg:rounded-[2rem]"
+      />
+      <div className="absolute inset-0 z-[1] overflow-hidden rounded-[1.5rem] bg-slate-200 shadow-[0_18px_40px_rgba(0,31,56,0.14)] sm:rounded-[2rem] lg:rounded-[2.25rem]">
+        {image ? (
+          <Image
+            src={image}
+            alt={`${name}, administrator ChirieDube`}
+            fill
+            className="object-cover object-[42%_8%] transition duration-700 ease-out will-change-transform hover:scale-[1.03]"
+            sizes="(max-width: 640px) 80vw, (max-width: 1024px) 400px, 440px"
+            quality={100}
+            priority
+          />
+        ) : null}
+      </div>
+    </div>
+  );
+}
+
 export default function Team() {
   const member = team[0];
 
   return (
     <section
       id="despre"
-      className="relative overflow-hidden bg-white py-12 sm:py-16 lg:py-20"
+      className="relative overflow-hidden bg-white py-16 sm:py-16 lg:py-20"
     >
-      {/* Soft brand wash — mobile atmosphere */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-brand-soft/70 to-transparent sm:h-48"
       />
 
       <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 sm:gap-12 sm:px-8 lg:grid-cols-2 lg:gap-16 lg:px-8">
-        {/* Copy */}
+        {/* Copy column */}
         <div className="min-w-0">
           <div className="max-w-[520px]">
             <Reveal variant="up" delay={30}>
@@ -68,7 +103,17 @@ export default function Team() {
               </p>
             </Reveal>
 
-            <ul className="mt-7 space-y-3.5 sm:mt-9 sm:space-y-4">
+            {/* Mobile: photo between intro and bullets */}
+            <Reveal
+              variant="soft"
+              delay={130}
+              duration={900}
+              className="mx-auto mt-8 w-full max-w-[320px] sm:max-w-[360px] lg:hidden"
+            >
+              <Portrait name={member.name} image={member.image} />
+            </Reveal>
+
+            <ul className="mt-8 space-y-3.5 sm:mt-9 sm:space-y-4">
               {points.map((point, index) => {
                 const Icon = point.icon;
                 const isBrand = point.tone === "brand";
@@ -76,7 +121,7 @@ export default function Team() {
                   <Reveal
                     key={point.title}
                     variant="left"
-                    delay={140 + index * 90}
+                    delay={160 + index * 90}
                     duration={650}
                   >
                     <li className="group flex items-start gap-3.5 rounded-2xl border border-transparent bg-transparent p-2.5 transition duration-300 hover:border-brand/15 hover:bg-brand-soft/50 sm:gap-4 sm:p-3">
@@ -113,41 +158,14 @@ export default function Team() {
           </div>
         </div>
 
-        {/* Photo — sits above features on very small? keep after copy; tighten for mobile */}
+        {/* Desktop photo */}
         <Reveal
           variant="soft"
           delay={120}
           duration={1000}
-          className="relative mx-auto w-full max-w-[340px] sm:max-w-[400px] lg:mx-0 lg:max-w-[440px]"
+          className="relative mx-auto hidden w-full max-w-[440px] lg:mx-0 lg:block lg:max-w-[440px]"
         >
-          <div className="relative mx-auto aspect-square w-[88%] sm:w-[92%] lg:w-full">
-            {/* Shape 1 — ink blue */}
-            <div
-              aria-hidden
-              className="despre-shape-a absolute -bottom-[6%] -right-[8%] z-0 size-[86%] rounded-[1.5rem] bg-ink sm:rounded-[2rem] lg:rounded-[2.25rem]"
-            />
-
-            {/* Shape 2 — brand orange */}
-            <div
-              aria-hidden
-              className="despre-shape-b absolute -left-[10%] -top-[8%] z-0 size-[54%] rounded-[1.35rem] bg-brand sm:rounded-[1.75rem] lg:rounded-[2rem]"
-            />
-
-            {/* Photo */}
-            <div className="absolute inset-0 z-[1] overflow-hidden rounded-[1.5rem] bg-slate-200 shadow-[0_18px_40px_rgba(0,31,56,0.14)] sm:rounded-[2rem] lg:rounded-[2.25rem]">
-              {member.image ? (
-                <Image
-                  src={member.image}
-                  alt={`${member.name}, administrator ChirieDube`}
-                  fill
-                  className="object-cover object-[42%_8%] transition duration-700 ease-out will-change-transform hover:scale-[1.03]"
-                  sizes="(max-width: 640px) 80vw, (max-width: 1024px) 400px, 440px"
-                  quality={100}
-                  priority
-                />
-              ) : null}
-            </div>
-          </div>
+          <Portrait name={member.name} image={member.image} />
         </Reveal>
       </div>
     </section>

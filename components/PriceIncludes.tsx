@@ -16,7 +16,7 @@ export default function PriceIncludes() {
     <SectionBackdrop
       id="preturi-include"
       variant="white"
-      className="py-10 sm:py-16 lg:py-20"
+      className="py-16 sm:py-16 lg:py-20"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header: full width */}

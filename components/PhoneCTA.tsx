@@ -36,7 +36,7 @@ export default function PhoneCTA() {
         }}
       />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 pb-8 pt-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 pb-14 pt-16 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
         <div className="max-w-xl lg:max-w-[48%]">
           <Reveal variant="clip">
             <SectionLabel icon={Phone} tone="light">
