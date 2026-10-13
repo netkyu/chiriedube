@@ -151,6 +151,41 @@ body {
   animation: carousel-prev 0.35s ease-out both;
 }
 
+@keyframes despre-drift-a {
+  0%,
+  100% {
+    transform: rotate(5deg) translate(0, 0);
+  }
+  50% {
+    transform: rotate(3deg) translate(-4px, -6px);
+  }
+}
+
+@keyframes despre-drift-b {
+  0%,
+  100% {
+    transform: rotate(-8deg) translate(0, 0);
+  }
+  50% {
+    transform: rotate(-5deg) translate(5px, 4px);
+  }
+}
+
+.despre-shape-a {
+  animation: despre-drift-a 7s ease-in-out infinite;
+}
+
+.despre-shape-b {
+  animation: despre-drift-b 5.5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .despre-shape-a,
+  .despre-shape-b {
+    animation: none;
+  }
+}
+
 /* —— Scroll reveals (transform + opacity only — no filter/clip, shadows stay intact) —— */
 .reveal {
   opacity: 0;

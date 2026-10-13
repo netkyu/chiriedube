@@ -501,7 +501,7 @@ export const team = [
   {
     name: "Dumitru",
     role: "Administrator",
-    bio: "Sunt din Satu Mare și mă ocup personal de rezervări și predări. Îmi spui ce ai de mutat și îți spun ce ți se potrivește din flotă și cât costă.",
+    bio: "Numele meu este Dumitru și mă ocup personal de întreaga activitate de închirieri dube. De la întreținerea flotei, până la comunicarea cu clienții și livrarea dubei, sunt implicat direct pentru ca totul să fie simplu, transparent și fără probleme.",
     phone: contact.phoneDisplay,
     email: contact.email,
     image: "/images/team-dumitru.jpg",
