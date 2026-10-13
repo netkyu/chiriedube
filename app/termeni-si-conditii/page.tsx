@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     "Termenii și condițiile de închiriere a dubelor pe chiriedube.ro, operate de DUAL SKYTECH SRL.",
   alternates: { canonical: `${siteConfig.url}/termeni-si-conditii` },
   openGraph: {
-    title: "Termeni și condiții — chiriedube.ro",
+    title: "Termeni și condiții, chiriedube.ro",
     description:
       "Condiții de rezervare, plată, garanție, răspundere și anulare pentru închirierea de dube.",
     url: `${siteConfig.url}/termeni-si-conditii`,
@@ -45,7 +45,7 @@ export default function TermeniPage() {
             Sediu social: <strong>{company.address}</strong>
           </li>
           <li>
-            IBAN: <strong>{company.iban}</strong> — {company.bank}
+            IBAN: <strong>{company.iban}</strong>, {company.bank}
           </li>
           <li>
             Email:{" "}
@@ -142,14 +142,18 @@ export default function TermeniPage() {
       <LegalSection id="preturi" title="5. Prețuri, plăți și facturare">
         <ul>
           <li>
-            Tariful zilnic include, în condițiile afișate: RCA, pachetul de km
-            incluși ({pricingRules.kmIncludedPerDay} km/zi, cumulat pe perioadă),
-            conform detaliilor din ofertă.
+            Tariful zilnic pentru autovehicule include, în condițiile afișate:
+            RCA, rovignetă RO și pachetul de km incluși (
+            {pricingRules.kmIncludedPerDay} km/zi, cumulat pe perioadă). Remorcile
+            nu au limită de kilometri.
           </li>
           <li>
-            Extra-kilometri: în general{" "}
-            <strong>{pricingRules.extraKmLei.toFixed(2).replace(".", ",")} lei/km</strong>,
-            dacă nu se convine altfel în scris.
+            Extra-kilometri (autovehicule):{" "}
+            <strong>
+              {pricingRules.extraKmBlockLei} lei pentru fiecare{" "}
+              {pricingRules.extraKmBlockSize} km
+            </strong>{" "}
+            peste pachetul inclus, pe lângă tariful zilnic.
           </li>
           <li>
             Politica combustibil: <strong>{pricingRules.fuelPolicy}</strong>.
@@ -157,16 +161,15 @@ export default function TermeniPage() {
             pieței.
           </li>
           <li>
-            Plățile se pot face numerar, transfer bancar în contul{" "}
-            <strong>{company.iban}</strong> ({company.bank}) sau alte metode
-            comunicate de Prestator.
+            Plățile pentru închiriere: card, numerar (cash) sau transfer bancar
+            (OP) în contul <strong>{company.iban}</strong> ({company.bank}).
           </li>
           <li>
             Pentru persoane juridice se emit facturi fiscale conform legislației
             române. Datele de facturare trebuie să fie corecte și complete.
           </li>
           <li>
-            Reducerile pe durată (ex. 3–6 zile, 7+ zile) se aplică doar dacă sunt
+            Reducerile pe durată (ex. 3-6 zile, 7+ zile) se aplică doar dacă sunt
             menționate în ofertă și rezervarea este confirmată.
           </li>
         </ul>
@@ -174,10 +177,11 @@ export default function TermeniPage() {
 
       <LegalSection id="garantie" title="6. Garanție (depozit)">
         <p>
-          La preluare, Clientul constituie o garanție rambursabilă, de regulă{" "}
-          <strong>{pricingRules.depositLei} lei</strong> (sau altă sumă
-          comunicată pentru vehiculul ales). Garanția poate fi reținută parțial
-          sau total pentru:
+          La preluare, pentru autoutilitare și autoturisme, Clientul constituie
+          o garanție rambursabilă de regulă{" "}
+          <strong>{pricingRules.depositVehicleLei} lei</strong>, plătibilă{" "}
+          <strong>doar cash</strong>. Remorcile nu necesită garanție. Garanția
+          poate fi reținută parțial sau total pentru:
         </p>
         <ul>
           <li>daune, lipsuri sau uzură anormală față de starea la preluare;</li>
@@ -196,8 +200,8 @@ export default function TermeniPage() {
       <LegalSection id="preluare" title="7. Preluare și predare">
         <ul>
           <li>
-            Locul și ora se stabilesc în confirmarea rezervării (de regulă în
-            zona Ardud / județul Satu Mare, dacă nu se convine altfel).
+            Locul și ora se stabilesc în confirmarea rezervării (de regulă{" "}
+            {company.address}, dacă nu se convine altfel).
           </li>
           <li>
             La preluare se întocmește un proces-verbal privind starea vehiculului

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Phone } from "lucide-react";
 import { contact } from "@/lib/data";
+import SectionLabel from "./SectionLabel";
 import Reveal from "./Reveal";
 
 export default function PhoneCTA() {
@@ -9,7 +10,7 @@ export default function PhoneCTA() {
       <div className="absolute inset-0 sm:inset-y-0 sm:right-0 sm:left-auto sm:w-[78%] lg:w-[75%]">
         <Image
           src="/images/cta-fleet-branded-v3.jpg"
-          alt="Flota chiriedube.ro — dube Mercedes, Ford și VW"
+          alt="Flota chiriedube.ro, dube Mercedes, Ford și VW"
           fill
           className="object-cover object-[58%_center]"
           sizes="(max-width: 640px) 100vw, 78vw"
@@ -17,7 +18,7 @@ export default function PhoneCTA() {
         />
       </div>
 
-      {/* Mobile: bottom→top solid. Desktop: left→right wash — navy brand ink */}
+      {/* Mobile: bottom→top solid. Desktop: left→right wash, navy brand ink */}
       <div
         aria-hidden
         className="absolute inset-0 sm:hidden"
@@ -35,35 +36,34 @@ export default function PhoneCTA() {
         }}
       />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 pb-8 pt-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
         <div className="max-w-xl lg:max-w-[48%]">
           <Reveal variant="clip">
-            <span className="inline-flex items-center gap-2 text-[12px] font-extrabold uppercase tracking-[0.14em] text-orange-300">
-              <Phone className="size-3.5" strokeWidth={2.4} aria-hidden />
+            <SectionLabel icon={Phone} tone="light">
               Contact rapid
-            </span>
+            </SectionLabel>
           </Reveal>
 
           <Reveal variant="up" delay={80}>
-            <h2 className="mt-3 text-[2rem] font-extrabold leading-[1.05] tracking-tight text-white sm:text-[2.92rem]">
-              Hai să vorbim —{" "}
-              <span className="text-brand">rezervarea e la un apel</span>
+            <h2 className="mt-2.5 text-[24px] font-extrabold leading-[1.08] tracking-tight text-white sm:mt-3 sm:text-[2.92rem]">
+              Ai nevoie de o dubă?{" "}
+              <span className="text-brand">Sună sau scrie</span>
             </h2>
           </Reveal>
 
           <Reveal variant="blur" delay={160}>
-            <p className="mt-3 max-w-lg text-[16px] font-medium leading-relaxed text-slate-300">
-              Spune-ne ce ai de mutat sau transportat și îți găsim duba potrivită
-              în câteva minute.
+            <p className="mt-2 max-w-lg text-[14px] font-medium leading-relaxed text-slate-300 sm:mt-3 sm:text-[16px]">
+              Spune ce ai de mutat și în ce perioadă. Îți răspundem cu ce e liber
+              și cu prețul.
             </p>
           </Reveal>
 
           <Reveal variant="up" delay={220}>
             <a
               href={contact.phoneHref}
-              className="mt-6 inline-flex items-baseline gap-3 text-white transition hover:text-brand-soft"
+              className="mt-4 inline-flex min-h-11 items-baseline gap-3 text-white transition hover:text-brand-soft sm:mt-6"
             >
-              <span className="whitespace-nowrap text-[1.85rem] font-extrabold tracking-tight sm:text-[3.2rem] lg:text-[3.6rem]">
+              <span className="whitespace-nowrap text-[1.75rem] font-extrabold tracking-tight sm:text-[3.2rem] lg:text-[3.6rem]">
                 {contact.phoneDisplay}
               </span>
             </a>

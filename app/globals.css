@@ -26,14 +26,33 @@
 
 html {
   scroll-behavior: smooth;
+  /* Mobile: no zoom (keeps vw/dvh/fixed exact). Slightly smaller rem. */
   font-size: 15px;
   overflow-x: clip;
-  zoom: 0.92;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 @media (min-width: 640px) {
   html {
     font-size: 15.5px;
+    zoom: 0.92;
+  }
+}
+
+/* Avoid blank SSR content before reveal hydrates */
+html:not([data-hydrated]) .reveal {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+/* Mobile: avoid iOS auto-zoom on focus (inputs < 16px) without changing the look */
+@media (max-width: 639px) {
+  input,
+  select,
+  textarea {
+    font-size: 16px;
   }
 }
 
@@ -187,10 +206,48 @@ body {
   transform-origin: 50% 80%;
 }
 
+/* Mobile: short vertical reveals only — no sideways travel, tiny travel distance */
+@media (max-width: 639px) {
+  .reveal {
+    will-change: auto;
+    transition-duration: min(var(--reveal-duration, 800ms), 400ms);
+    transition-delay: min(var(--reveal-delay, 0ms), 60ms);
+    transition-timing-function: cubic-bezier(0.25, 0.9, 0.3, 1);
+  }
+
+  .reveal-up,
+  .reveal-blur,
+  .reveal-clip,
+  .reveal-left,
+  .reveal-right,
+  .reveal-soft,
+  .reveal-tilt {
+    transform: translate3d(0, 8px, 0);
+  }
+
+  .reveal-down {
+    transform: translate3d(0, -6px, 0);
+  }
+
+  .reveal-scale {
+    transform: none;
+  }
+
+  .animate-fade-up {
+    animation-duration: 0.35s;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+
+  .animate-fade-up,
+  .animate-carousel-next,
+  .animate-carousel-prev {
+    animation: none;
   }
 }

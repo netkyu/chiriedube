@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     canonical: `${siteConfig.url}/politica-de-confidentialitate`,
   },
   openGraph: {
-    title: "Politica de confidențialitate — chiriedube.ro",
+    title: "Politica de confidențialitate, chiriedube.ro",
     description:
       "Informații GDPR: ce date colectăm, de ce, cât le păstrăm și ce drepturi ai.",
     url: `${siteConfig.url}/politica-de-confidentialitate`,
@@ -31,8 +31,7 @@ export default function ConfidentialitatePage() {
           <strong>{company.address}</strong>, email{" "}
           <a href={`mailto:${contact.privacyEmail}`}>
             {contact.privacyEmail}
-          </a>
-          , telefon{" "}
+          </a>, telefon{" "}
           <a href={contact.phoneHref}>{contact.phoneDisplay}</a>.
         </p>
         <p>
@@ -61,13 +60,13 @@ export default function ConfidentialitatePage() {
             preluare/predare, preferințe (cu/fără șofer), mesaje WhatsApp;
           </li>
           <li>
-            <strong>Date de facturare / plată:</strong> pentru PJ — CUI, sediu,
+            <strong>Date de facturare / plată:</strong> pentru PJ, CUI, sediu,
             IBAN; dovezi de plată; nu stocăm integral datele cardului pe site
             (plățile card, dacă există, rulează prin procesatori terți);
           </li>
           <li>
             <strong>Date tehnice:</strong> adresă IP, tip dispozitiv/browser,
-            pagini vizitate, identificatori cookie — vezi{" "}
+            pagini vizitate, identificatori cookie, vezi{" "}
             <a href="/politica-cookies">Politica de cookies</a>;
           </li>
           <li>
@@ -120,7 +119,7 @@ export default function ConfidentialitatePage() {
           </li>
           <li>
             platforme de mesagerie folosite de tine pentru a ne contacta
-            (ex. WhatsApp / Meta) — conform politicilor lor.
+            (ex. WhatsApp / Meta), conform politicilor lor.
           </li>
         </ul>
         <p>

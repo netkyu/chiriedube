@@ -14,7 +14,7 @@ const plusJakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "chiriedube.ro — Închirieri dube în Satu Mare",
+    default: "chiriedube.ro | Autoutilitare și remorci în Satu Mare",
     template: "%s | chiriedube.ro",
   },
   description: siteConfig.description,
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     locale: siteConfig.locale,
     url: siteConfig.url,
     siteName: siteConfig.name,
-    title: "chiriedube.ro — Închirieri dube în Satu Mare",
+    title: "chiriedube.ro | Autoutilitare și remorci în Satu Mare",
     description: siteConfig.description,
     images: [
       {
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "chiriedube.ro — Închirieri dube în Satu Mare",
+    title: "chiriedube.ro | Autoutilitare și remorci în Satu Mare",
     description: siteConfig.description,
     images: ["/images/hero-hq-v3.jpg"],
   },

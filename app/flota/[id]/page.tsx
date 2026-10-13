@@ -36,10 +36,10 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { id } = await params;
   const van = getVanById(id);
-  if (!van) return { title: "Dubă negăsită" };
+  if (!van) return { title: "Vehicul negăsit" };
 
-  const title = `${van.name} — închiriere din ${van.priceFrom} lei/zi`;
-  const description = `${van.description} Volum ${van.volumeM3} m³, dimensiuni ${van.lengthCm}×${van.widthCm}×${van.heightCm} cm. Rezervă pe chiriedube.ro.`;
+  const title = `${van.name} | ${van.categoryLabel} din ${van.priceFrom} lei/zi`;
+  const description = `${van.description} Rezervă pe chiriedube.ro.`;
 
   return {
     title,
@@ -68,7 +68,7 @@ export default async function VanDetailPage({ params }: PageProps) {
     image: van.gallery.map((item) => `${siteConfig.url}${item.src}`),
     description: van.description,
     brand: { "@type": "Brand", name: van.brand },
-    category: "Închiriere dubă",
+    category: van.categoryLabel,
     offers: {
       "@type": "Offer",
       priceCurrency: "RON",
@@ -84,10 +84,10 @@ export default async function VanDetailPage({ params }: PageProps) {
       <Header />
       <main className="flex-1 bg-white">
         <section className="border-b border-slate-100 bg-[#F8FAFC]">
-          <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl px-4 py-2.5 sm:px-6 sm:py-4 lg:px-8">
             <a
               href="/flota"
-              className="inline-flex items-center gap-1.5 text-[13px] font-bold text-brand transition hover:text-brand-dark"
+              className="inline-flex min-h-[32px] items-center gap-1.5 text-[13px] font-bold text-brand transition hover:text-brand-dark sm:min-h-0"
             >
               <ArrowLeft className="size-3.5" strokeWidth={2.4} aria-hidden />
               Înapoi la flotă
@@ -95,96 +95,127 @@ export default async function VanDetailPage({ params }: PageProps) {
           </div>
         </section>
 
-        <section className="mx-auto max-w-7xl px-4 py-5 sm:px-6 sm:py-6 lg:px-8">
-          <div className="grid gap-5 lg:grid-cols-[1.08fr_0.92fr] lg:items-start lg:gap-6">
-            <Reveal variant="up">
-              <div className="overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-[0_10px_28px_rgba(15,23,42,0.05)]">
-                <VanGallery
-                  images={van.gallery}
-                  vanName={van.name}
-                  badge={`${van.sizeLabel} · ${van.year}`}
-                />
+        <section className="mx-auto max-w-7xl px-4 py-4 sm:px-6 sm:py-6 lg:px-8">
+          {/*
+            Mobile (single column, via `contents` wrappers + order):
+              title → gallery → booking → specs
+            Desktop: gallery+specs in the left column, title+booking (sticky) on the right.
+          */}
+          <div className="grid gap-4 sm:gap-5 lg:grid-cols-[1.08fr_0.92fr] lg:items-start lg:gap-6">
+            <div className="contents lg:block lg:overflow-hidden lg:rounded-2xl lg:shadow-[0_10px_28px_rgba(15,23,42,0.05)]">
+              <Reveal variant="up" className="order-2 lg:order-none">
+                <div className="overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-[0_10px_28px_rgba(15,23,42,0.05)] lg:rounded-b-none lg:border-b-0 lg:shadow-none">
+                  <VanGallery
+                    images={van.gallery}
+                    vanName={van.name}
+                    badge={`${van.categoryLabel} · ${van.year}`}
+                  />
+                </div>
+              </Reveal>
 
-                <div className="border-t border-slate-100 p-3.5 sm:p-4">
-                  <h2 className="text-[14px] font-extrabold text-ink">
+              <Reveal variant="up" delay={60} className="order-4 lg:order-none">
+                <div className="rounded-2xl border border-slate-100 bg-white p-3 shadow-[0_10px_28px_rgba(15,23,42,0.05)] sm:p-4 lg:rounded-t-none lg:border-t lg:shadow-none">
+                  <h2 className="text-[13.5px] font-extrabold text-ink sm:text-[14px]">
                     Specificații
                   </h2>
-                  <ul className="mt-2.5 grid gap-2 sm:grid-cols-2">
+                  <ul className="mt-2 grid grid-cols-2 gap-1.5 sm:mt-2.5 sm:gap-2">
                     <li className="rounded-lg bg-[#F8FAFC] px-3 py-2.5">
                       <p className="flex items-center gap-1.5 text-[10px] font-extrabold uppercase tracking-[0.1em] text-brand">
                         <Box className="size-3" aria-hidden />
-                        Volum
+                        Tip
                       </p>
                       <p className="mt-0.5 text-[13px] font-extrabold text-ink">
-                        {van.volume.replace("Volum: ", "")}
+                        {van.volume}
                       </p>
                     </li>
                     <li className="rounded-lg bg-[#F8FAFC] px-3 py-2.5">
                       <p className="flex items-center gap-1.5 text-[10px] font-extrabold uppercase tracking-[0.1em] text-brand">
                         <Weight className="size-3" aria-hidden />
-                        Sarcină utilă
+                        Detalii
                       </p>
                       <p className="mt-0.5 text-[13px] font-extrabold text-ink">
                         {van.payload.replace("Sarcină utilă: ", "")}
                       </p>
                     </li>
-                    <li className="rounded-lg bg-[#F8FAFC] px-3 py-2.5 sm:col-span-2">
+                    <li className="rounded-lg bg-[#F8FAFC] px-3 py-2.5 col-span-2">
                       <p className="flex items-center gap-1.5 text-[10px] font-extrabold uppercase tracking-[0.1em] text-brand">
                         <Ruler className="size-3" aria-hidden />
-                        Dimensiuni interioare
+                        Dimensiuni
                       </p>
                       <p className="mt-0.5 text-[13px] font-extrabold text-ink">
-                        {van.lengthCm} × {van.widthCm} × {van.heightCm} cm
-                        <span className="ml-1 text-[11px] font-semibold text-muted">
-                          (L × l × Î)
-                        </span>
+                        {van.heightCm > 0
+                          ? `${van.lengthCm} × ${van.widthCm} × ${van.heightCm} cm`
+                          : `${van.lengthCm} × ${van.widthCm} cm`}
                       </p>
                     </li>
                     <li className="rounded-lg bg-[#F8FAFC] px-3 py-2.5">
                       <p className="flex items-center gap-1.5 text-[10px] font-extrabold uppercase tracking-[0.1em] text-brand">
                         <Users className="size-3" aria-hidden />
-                        Locuri & permis
+                        Locuri / permis
                       </p>
                       <p className="mt-0.5 text-[13px] font-extrabold text-ink">
-                        {van.seats} · {pricingRules.license}
+                        {van.category === "remorca"
+                          ? "Talon vehicul tractare"
+                          : `${van.seats} · ${pricingRules.license}`}
                       </p>
                     </li>
                     <li className="rounded-lg bg-[#F8FAFC] px-3 py-2.5">
                       <p className="flex items-center gap-1.5 text-[10px] font-extrabold uppercase tracking-[0.1em] text-brand">
                         <Settings2 className="size-3" aria-hidden />
-                        Transmisie
+                        Propulsie / tip
                       </p>
                       <p className="mt-0.5 text-[13px] font-extrabold text-ink">
                         {van.transmission}
                       </p>
                     </li>
+                    {van.accessories.length > 0 ? (
+                      <li className="rounded-lg bg-[#F8FAFC] px-3 py-2.5 col-span-2">
+                        <p className="text-[10px] font-extrabold uppercase tracking-[0.1em] text-brand">
+                          Accesorii
+                        </p>
+                        <p className="mt-0.5 text-[13px] font-extrabold text-ink">
+                          {van.accessories.join(" · ")}
+                        </p>
+                      </li>
+                    ) : null}
+                    <li className="rounded-lg bg-[#F8FAFC] px-3 py-2.5 col-span-2">
+                      <p className="text-[10px] font-extrabold uppercase tracking-[0.1em] text-brand">
+                        Km & garanție
+                      </p>
+                      <p className="mt-0.5 text-[13px] font-extrabold text-ink">
+                        {van.hasKmLimit
+                          ? `${pricingRules.kmIncludedPerDay} km/zi · garanție ${van.depositLei} lei (cash)`
+                          : `Fără limită km · fără garanție`}
+                      </p>
+                    </li>
                   </ul>
                 </div>
-              </div>
-            </Reveal>
+              </Reveal>
+            </div>
 
-            <Reveal
-              variant="right"
-              delay={80}
-              className="space-y-4 lg:sticky lg:top-24"
-            >
-              <div>
-                <h1 className="text-[1.65rem] font-extrabold leading-[1.08] tracking-tight text-ink sm:text-[2.1rem]">
-                  {van.name}
-                </h1>
-                <p className="mt-2 text-[14px] font-medium leading-snug text-muted">
-                  {van.description}
-                </p>
-                <p className="mt-2.5 text-[13px] font-semibold text-muted">
-                  de la{" "}
-                  <span className="text-[1.55rem] font-extrabold text-ink">
-                    {van.priceFrom} lei
-                  </span>
-                  /zi
-                </p>
-              </div>
-              <BookingPanel defaultVanId={van.id} />
-            </Reveal>
+            <div className="contents lg:block lg:sticky lg:top-24 lg:space-y-4">
+              <Reveal variant="up" className="order-1 lg:order-none">
+                <div>
+                  <h1 className="text-[1.5rem] font-extrabold leading-[1.1] tracking-tight text-ink sm:text-[2.1rem]">
+                    {van.name}
+                  </h1>
+                  <p className="mt-1.5 text-[13.5px] font-medium leading-snug text-muted sm:mt-2 sm:text-[14px]">
+                    {van.description}
+                  </p>
+                  <p className="mt-2 text-[13px] font-semibold text-muted sm:mt-2.5">
+                    de la{" "}
+                    <span className="text-[1.45rem] font-extrabold text-ink sm:text-[1.55rem]">
+                      {van.priceFrom} lei
+                    </span>
+                    /zi
+                  </p>
+                </div>
+              </Reveal>
+
+              <Reveal variant="right" delay={80} className="order-3 lg:order-none">
+                <BookingPanel defaultVanId={van.id} />
+              </Reveal>
+            </div>
           </div>
 
           <div className="mt-5">

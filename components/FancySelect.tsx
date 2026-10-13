@@ -52,7 +52,7 @@ export default function FancySelect({
 
   return (
     <div ref={rootRef} className="relative block">
-      <span className="mb-1.5 block text-[12px] font-extrabold uppercase tracking-[0.1em] text-muted">
+      <span className="mb-1 block text-[11px] font-extrabold uppercase tracking-[0.1em] text-muted sm:mb-1.5 sm:text-[12px]">
         {label}
       </span>
       <button
@@ -61,7 +61,7 @@ export default function FancySelect({
         aria-expanded={open}
         aria-controls={listId}
         onClick={() => setOpen((prev) => !prev)}
-        className={`flex w-full items-center justify-between rounded-2xl border bg-[#F8FAFC] px-4 py-3.5 text-left outline-none transition ${
+        className={`flex min-h-[46px] w-full items-center justify-between rounded-xl border bg-[#F8FAFC] px-3.5 py-2.5 text-left outline-none transition sm:rounded-2xl sm:px-4 sm:py-3.5 ${
           open
             ? "border-brand bg-white ring-2 ring-brand/20"
             : "border-slate-200 hover:border-slate-300"
@@ -69,7 +69,7 @@ export default function FancySelect({
       >
         <span className="min-w-0">
           <span
-            className={`block truncate text-[15px] font-extrabold ${
+            className={`block truncate text-[14px] font-extrabold sm:text-[15px] ${
               selected ? "text-ink" : "text-slate-400"
             }`}
           >
@@ -99,7 +99,7 @@ export default function FancySelect({
         <ul
           id={listId}
           role="listbox"
-          className="mt-2 max-h-64 overflow-auto rounded-2xl border border-slate-200 bg-white p-2 shadow-[0_22px_50px_rgba(15,23,42,0.16)]"
+          className="mt-2 max-h-[min(16rem,50dvh)] overflow-auto overscroll-contain rounded-2xl border border-slate-200 bg-white p-1.5 shadow-[0_22px_50px_rgba(15,23,42,0.16)] sm:p-2"
         >
           {options.map((option) => {
             const isSelected = option.value === value;
@@ -111,14 +111,14 @@ export default function FancySelect({
                     onChange(option.value);
                     setOpen(false);
                   }}
-                  className={`flex w-full items-center justify-between gap-3 rounded-xl px-3.5 py-3 text-left transition ${
+                  className={`flex min-h-[44px] w-full items-center justify-between gap-3 rounded-xl px-3 py-2 text-left transition sm:px-3.5 sm:py-3 ${
                     isSelected
                       ? "bg-brand-soft text-brand"
                       : "text-ink hover:bg-surface"
                   }`}
                 >
                   <span className="min-w-0">
-                    <span className="block truncate text-[15px] font-extrabold">
+                    <span className="block truncate text-[14px] font-extrabold sm:text-[15px]">
                       {option.label}
                     </span>
                     {option.hint ? (

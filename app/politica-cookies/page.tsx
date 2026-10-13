@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     "Ce cookies folosește chiriedube.ro, de ce, și cum îți poți gestiona consimțământul.",
   alternates: { canonical: `${siteConfig.url}/politica-cookies` },
   openGraph: {
-    title: "Politica de cookies — chiriedube.ro",
+    title: "Politica de cookies, chiriedube.ro",
     description:
       "Informații despre cookies esențiale, analitice și preferințe pe chiriedube.ro.",
     url: `${siteConfig.url}/politica-cookies`,

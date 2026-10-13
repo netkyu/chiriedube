@@ -31,20 +31,15 @@ function buildDiff(left: FleetVan, right: FleetVan): DiffRow[] {
             : "right",
     },
     {
-      label: "Volum",
-      left: `${left.volumeM3} m³`,
-      right: `${right.volumeM3} m³`,
-      better:
-        left.volumeM3 === right.volumeM3
-          ? "same"
-          : left.volumeM3 > right.volumeM3
-            ? "left"
-            : "right",
+      label: "Tip",
+      left: left.volume,
+      right: right.volume,
+      better: "same",
     },
     {
-      label: "Sarcină",
-      left: `${left.payloadKg} kg`,
-      right: `${right.payloadKg} kg`,
+      label: "Detalii",
+      left: left.payload.replace("Sarcină utilă: ", ""),
+      right: right.payload.replace("Sarcină utilă: ", ""),
       better:
         left.payloadKg === right.payloadKg
           ? "same"
@@ -53,22 +48,21 @@ function buildDiff(left: FleetVan, right: FleetVan): DiffRow[] {
             : "right",
     },
     {
-      label: "Interior",
-      left: `${left.lengthCm}×${left.widthCm}×${left.heightCm}`,
-      right: `${right.lengthCm}×${right.widthCm}×${right.heightCm}`,
-      better:
-        left.lengthCm * left.widthCm * left.heightCm ===
-        right.lengthCm * right.widthCm * right.heightCm
-          ? "same"
-          : left.lengthCm * left.widthCm * left.heightCm >
-              right.lengthCm * right.widthCm * right.heightCm
-            ? "left"
-            : "right",
+      label: "Dimensiuni",
+      left:
+        left.heightCm > 0
+          ? `${left.lengthCm}×${left.widthCm}×${left.heightCm}`
+          : `${left.lengthCm}×${left.widthCm}`,
+      right:
+        right.heightCm > 0
+          ? `${right.lengthCm}×${right.widthCm}×${right.heightCm}`
+          : `${right.lengthCm}×${right.widthCm}`,
+      better: "same",
     },
     {
-      label: "Clasă",
-      left: left.sizeLabel,
-      right: right.sizeLabel,
+      label: "Categorie",
+      left: left.categoryLabel,
+      right: right.categoryLabel,
       better: "same",
     },
     {

@@ -18,13 +18,32 @@ export function tierForDays(days: number) {
   );
 }
 
-export function calculateRental(van: FleetVan, days: number) {
+export function calculateExtraKmLei(extraKm: number) {
+  if (extraKm <= 0) return 0;
+  const blocks = Math.ceil(extraKm / pricingRules.extraKmBlockSize);
+  return blocks * pricingRules.extraKmBlockLei;
+}
+
+export function calculateRental(
+  van: FleetVan,
+  days: number,
+  neededKm = 0,
+) {
   const tier = tierForDays(days);
   const daily = van.priceFrom;
   const subtotal = daily * days;
   const discountLei = Math.round(subtotal * tier.discount);
-  const total = subtotal - discountLei;
-  const kmIncluded = pricingRules.kmIncludedPerDay * days;
+  const rentalTotal = subtotal - discountLei;
+
+  const kmIncluded = van.hasKmLimit
+    ? pricingRules.kmIncludedPerDay * days
+    : 0;
+  const extraKm = van.hasKmLimit
+    ? Math.max(0, neededKm - kmIncluded)
+    : 0;
+  const extraKmLei = calculateExtraKmLei(extraKm);
+  const total = rentalTotal + extraKmLei;
+  const depositLei = van.depositLei;
 
   return {
     days,
@@ -33,9 +52,14 @@ export function calculateRental(van: FleetVan, days: number) {
     discountLei,
     discountPercent: tier.discount,
     tierLabel: tier.label,
+    rentalTotal,
+    neededKm: van.hasKmLimit ? neededKm : null,
+    kmIncluded: van.hasKmLimit ? kmIncluded : null,
+    extraKm: van.hasKmLimit ? extraKm : null,
+    extraKmLei,
     total,
-    kmIncluded,
-    depositLei: pricingRules.depositLei,
+    depositLei,
+    hasKmLimit: van.hasKmLimit,
   };
 }
 
@@ -44,7 +68,7 @@ export function formatLei(amount: number) {
 }
 
 export function formatDateRo(iso: string) {
-  if (!iso) return "—";
+  if (!iso) return "…";
   const d = new Date(`${iso}T12:00:00`);
   return d.toLocaleDateString("ro-RO", {
     day: "2-digit",

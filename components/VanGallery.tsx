@@ -31,7 +31,7 @@ export default function VanGallery({
         <Image
           key={current.src}
           src={current.src}
-          alt={`${vanName} — ${current.alt}`}
+          alt={`${vanName}, ${current.alt}`}
           fill
           priority
           className="object-cover object-center"
@@ -52,7 +52,15 @@ export default function VanGallery({
         </div>
       </div>
 
-      <div className="grid grid-cols-4 gap-1 border-t border-slate-100 bg-white p-1.5 sm:gap-1.5 sm:p-2">
+      <div
+        className={`grid gap-1 border-t border-slate-100 bg-white p-1.5 sm:gap-1.5 sm:p-2 ${
+          images.length <= 2
+            ? "grid-cols-2"
+            : images.length === 3
+              ? "grid-cols-3"
+              : "grid-cols-4"
+        }`}
+      >
         {images.map((image, index) => {
           const isActive = index === active;
           return (
@@ -73,7 +81,7 @@ export default function VanGallery({
                 alt=""
                 fill
                 className="object-cover"
-                sizes="120px"
+                sizes="220px"
               />
               <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent px-0.5 pb-1 pt-3 text-center text-[10px] font-extrabold leading-tight text-white">
                 {image.label}

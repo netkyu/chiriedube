@@ -37,17 +37,25 @@ export default function Reveal({
   once = true,
 }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
+  // Start visible so SSR / first paint isn't blank; animate only after mount on desktop
+  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
+    document.documentElement.setAttribute("data-hydrated", "");
+
     const node = ref.current;
     if (!node) return;
 
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduced) {
+    const mobile = window.matchMedia("(max-width: 639px)").matches;
+
+    // Mobile: keep content visible (subtle CSS transition only if already in view)
+    if (reduced || mobile) {
       setVisible(true);
       return;
     }
+
+    setVisible(false);
 
     const observer = new IntersectionObserver(
       ([entry]) => {

@@ -78,7 +78,10 @@ type DatePickerProps = {
   onChange: (value: string) => void;
   min?: string;
   max?: string;
+  /** "top" only applies from lg up; on small screens the calendar always opens below. */
   placement?: "top" | "bottom";
+  /** Horizontal anchor of the popover relative to the field. */
+  align?: "left" | "right";
 };
 
 export default function DatePicker({
@@ -88,6 +91,7 @@ export default function DatePicker({
   min,
   max,
   placement = "bottom",
+  align = "left",
 }: DatePickerProps) {
   const [open, setOpen] = useState(false);
   const [viewMonth, setViewMonth] = useState(() =>
@@ -144,7 +148,7 @@ export default function DatePicker({
 
   return (
     <div ref={rootRef} className="relative block">
-      <span className="mb-1.5 block text-[12px] font-extrabold uppercase tracking-[0.1em] text-muted">
+      <span className="mb-1 block text-[11px] font-extrabold uppercase tracking-[0.1em] text-muted sm:mb-1.5 sm:text-[12px]">
         {label}
       </span>
       <button
@@ -153,18 +157,18 @@ export default function DatePicker({
         aria-expanded={open}
         aria-controls={listId}
         onClick={() => setOpen((prev) => !prev)}
-        className={`flex w-full items-center gap-3 rounded-2xl border bg-[#F8FAFC] px-4 py-3 text-left outline-none transition ${
+        className={`flex min-h-[46px] w-full items-center gap-2.5 rounded-xl border bg-[#F8FAFC] px-3 py-2.5 text-left outline-none transition sm:gap-3 sm:rounded-2xl sm:px-4 sm:py-3 ${
           open
             ? "border-brand bg-white ring-2 ring-brand/20"
             : "border-slate-200 hover:border-slate-300"
         }`}
       >
-        <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-xl bg-brand/10 text-brand">
+        <span className="inline-flex size-8 shrink-0 items-center justify-center rounded-lg bg-brand/10 text-brand sm:size-9 sm:rounded-xl">
           <CalendarDays className="size-4" strokeWidth={2.2} aria-hidden />
         </span>
         <span className="min-w-0">
           <span
-            className={`block truncate text-[15px] font-extrabold ${
+            className={`block truncate text-[14px] font-extrabold sm:text-[15px] ${
               value ? "text-ink" : "text-slate-400"
             }`}
           >
@@ -174,9 +178,13 @@ export default function DatePicker({
       </button>
 
       <div
-        className={`absolute z-50 origin-top transition duration-150 ${
-          placement === "top" ? "bottom-[calc(100%+0.5rem)]" : "top-full mt-2"
-        } left-0 right-auto w-[min(100vw-2rem,20rem)] max-w-[calc(100vw-2rem)] sm:right-0 sm:w-auto sm:max-w-none ${
+        className={`absolute z-50 transition duration-150 ${
+          placement === "top"
+            ? "top-full mt-2 origin-top lg:top-auto lg:bottom-[calc(100%+0.5rem)] lg:mt-0 lg:origin-bottom"
+            : "top-full mt-2 origin-top"
+        } ${
+          align === "right" ? "right-0 left-auto" : "left-0 right-auto"
+        } w-[min(100vw-2rem,19rem)] max-w-[calc(100vw-2rem)] sm:left-0 sm:right-0 sm:w-auto sm:max-w-none ${
           open
             ? "pointer-events-auto scale-100 opacity-100"
             : "pointer-events-none scale-[0.98] opacity-0"
@@ -186,7 +194,7 @@ export default function DatePicker({
           id={listId}
           role="dialog"
           aria-label={`Calendar ${label}`}
-          className="overflow-hidden rounded-2xl border border-slate-200 bg-white p-3 shadow-[0_22px_50px_rgba(15,23,42,0.16)]"
+          className="overflow-hidden rounded-2xl border border-slate-200 bg-white p-2.5 shadow-[0_22px_50px_rgba(15,23,42,0.16)] sm:p-3"
         >
           <div className="mb-3 flex items-center justify-between gap-2">
             <button

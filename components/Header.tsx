@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-import { CalendarDays, Menu, X } from "lucide-react";
+import { CalendarDays, Menu, MessageCircle, Phone, X } from "lucide-react";
 import { contact, navLinks } from "@/lib/data";
 
 function sectionId(href: string) {
@@ -74,20 +74,21 @@ export default function Header() {
   }, [pathname]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-100 bg-white">
-      <div className="mx-auto flex h-[68px] max-w-6xl items-center justify-between gap-2 px-4 sm:h-[84px] sm:gap-4 sm:px-6 lg:px-8">
+    <header className="sticky top-0 z-50 border-b border-slate-100 bg-white pt-[env(safe-area-inset-top,0px)]">
+      <div className="mx-auto flex h-[60px] max-w-6xl items-center justify-between gap-2 px-4 sm:h-[84px] sm:gap-4 sm:px-6 lg:px-8">
         <a
           href="/"
           className="flex shrink-0 items-center py-1.5 sm:py-2"
         >
-          <span className="relative block h-[44px] w-[128px] sm:h-[58px] sm:w-[168px] lg:h-[62px] lg:w-[180px]">
+          <span className="relative block h-[40px] w-[118px] sm:h-[58px] sm:w-[168px] lg:h-[62px] lg:w-[180px]">
             <Image
               src="/images/logo-chiriedube-v2.png"
-              alt="ChirieDube.ro — Dube, platforme, auto"
+              alt="ChirieDube.ro, Dube, platforme, auto"
               fill
               priority
+              unoptimized
               className="object-contain object-left"
-              sizes="(max-width: 640px) 128px, 180px"
+              sizes="(max-width: 640px) 118px, 180px"
             />
           </span>
         </a>
@@ -111,12 +112,12 @@ export default function Header() {
           })}
         </nav>
 
-        <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
+        <div className="flex shrink-0 items-center gap-1 sm:gap-2">
           <a
             href={contact.whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-xl bg-brand px-3 py-2 text-[0.875rem] font-semibold text-white transition hover:bg-brand-dark sm:gap-2 sm:px-4 sm:py-2.5 sm:text-[0.9375rem]"
+            className="inline-flex h-[40px] items-center gap-1.5 rounded-xl bg-brand px-3 text-[13px] font-bold text-white transition hover:bg-brand-dark sm:h-auto sm:gap-2 sm:px-4 sm:py-2.5 sm:text-[0.9375rem] sm:font-semibold"
           >
             <CalendarDays className="size-4" strokeWidth={2.2} aria-hidden />
             <span className="hidden sm:inline">Rezervă acum</span>
@@ -124,7 +125,7 @@ export default function Header() {
           </a>
           <button
             type="button"
-            className="inline-flex items-center justify-center p-2 text-ink md:hidden"
+            className="-mr-2 inline-flex size-[44px] items-center justify-center rounded-xl text-ink transition active:bg-surface md:hidden"
             aria-label={open ? "Închide meniul" : "Deschide meniul"}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
@@ -135,26 +136,53 @@ export default function Header() {
       </div>
 
       {open && (
-        <div className="max-h-[calc(100dvh-4rem)] overflow-y-auto border-t border-slate-100 bg-white px-4 py-4 md:hidden">
-          <nav className="flex flex-col gap-1">
+        <div className="max-h-[calc(100dvh-60px)] overflow-y-auto border-t border-slate-100 bg-white px-3 pb-[max(1rem,env(safe-area-inset-bottom,0px))] pt-2 md:hidden">
+          <nav className="flex flex-col">
             {navLinks.map((link) => {
               const isActive = active === link.href;
               return (
                 <a
                   key={link.href}
                   href={link.href}
-                  className={`rounded-lg px-2 py-2.5 text-[0.9375rem] transition ${
+                  className={`flex min-h-[44px] items-center justify-between rounded-xl px-3 py-2 transition ${
                     isActive
-                      ? "bg-brand-soft font-extrabold text-brand"
-                      : "font-medium text-ink hover:bg-surface"
+                      ? "bg-brand-soft text-brand"
+                      : "text-ink hover:bg-surface"
                   }`}
                   onClick={() => setOpen(false)}
                 >
-                  {link.label}
+                  <span
+                    className={`text-[15px] ${isActive ? "font-extrabold" : "font-semibold"}`}
+                  >
+                    {link.label}
+                  </span>
+                  {link.subtitle ? (
+                    <span className="text-[12px] font-medium text-muted">
+                      {link.subtitle}
+                    </span>
+                  ) : null}
                 </a>
               );
             })}
           </nav>
+          <div className="mt-2 grid grid-cols-2 gap-2 border-t border-slate-100 pt-3">
+            <a
+              href={contact.phoneHref}
+              className="inline-flex h-[44px] items-center justify-center gap-2 rounded-xl border border-brand bg-white text-[14px] font-extrabold text-brand"
+            >
+              <Phone className="size-4" strokeWidth={2.2} aria-hidden />
+              Sună
+            </a>
+            <a
+              href={contact.whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-[44px] items-center justify-center gap-2 rounded-xl bg-[#25D366] text-[14px] font-extrabold text-white"
+            >
+              <MessageCircle className="size-4" strokeWidth={2.2} aria-hidden />
+              WhatsApp
+            </a>
+          </div>
         </div>
       )}
     </header>

@@ -90,34 +90,34 @@ export default function CookieConsent() {
 
   return (
     <div
-      className="fixed inset-x-0 z-[60] px-3 sm:px-4 sm:pr-28"
+      className="fixed inset-x-0 z-[60] px-0 sm:px-4 sm:pr-28"
       style={{
-        bottom:
-          "max(5.25rem, calc(env(safe-area-inset-bottom, 0px) + 4.25rem))",
+        bottom: "max(0px, env(safe-area-inset-bottom, 0px))",
       }}
       role="dialog"
       aria-labelledby="cookie-title"
       aria-describedby="cookie-desc"
     >
-      <div className="mx-auto max-w-3xl overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_20px_50px_rgba(15,23,42,0.18)]">
-        <div className="flex items-start gap-3 px-4 py-4 sm:px-5">
-          <span className="mt-0.5 inline-flex size-10 shrink-0 items-center justify-center rounded-xl bg-brand-soft text-brand">
+      <div className="mx-auto max-h-[calc(100dvh-5rem)] max-w-3xl overflow-y-auto rounded-t-2xl border border-slate-200 bg-white shadow-[0_20px_50px_rgba(15,23,42,0.18)] sm:rounded-2xl">
+        <div className="flex items-start gap-2.5 px-3.5 py-3 sm:gap-3 sm:px-5 sm:py-4">
+          <span className="mt-0.5 hidden size-10 shrink-0 items-center justify-center rounded-xl bg-brand-soft text-brand sm:inline-flex">
             <Cookie className="size-5" aria-hidden />
           </span>
           <div className="min-w-0 flex-1">
             <div className="flex items-start justify-between gap-3">
               <h2
                 id="cookie-title"
-                className="text-[1.05rem] font-extrabold text-ink"
+                className="inline-flex items-center gap-1.5 text-[14px] font-extrabold text-ink sm:text-[1.05rem]"
               >
-                Cookies pe chiriedube.ro
+                <Cookie className="size-4 text-brand sm:hidden" aria-hidden />
+                Cookies
               </h2>
               {panel ? (
                 <button
                   type="button"
                   aria-label="Închide setările"
                   onClick={() => setPanel(false)}
-                  className="rounded-lg p-1 text-muted transition hover:bg-surface hover:text-ink"
+                  className="-mr-1 -mt-1 inline-flex size-8 items-center justify-center rounded-lg text-muted transition hover:bg-surface hover:text-ink"
                 >
                   <X className="size-4" />
                 </button>
@@ -125,28 +125,20 @@ export default function CookieConsent() {
             </div>
             <p
               id="cookie-desc"
-              className="mt-1.5 text-[13px] font-medium leading-snug text-muted sm:text-[14px]"
+              className="mt-1 line-clamp-2 text-[12px] font-medium leading-snug text-muted sm:mt-1.5 sm:line-clamp-none sm:text-[14px]"
             >
-              Folosim cookies esențiale pentru funcționarea site-ului. Cu acordul
-              tău putem folosi și cookies analitice / de marketing. Detalii în{" "}
+              Folosim cookies esențiale. Cu acordul tău și analitice / marketing.{" "}
               <a
                 href="/politica-cookies"
                 className="font-extrabold text-brand underline-offset-2 hover:underline"
               >
-                Politica de cookies
-              </a>{" "}
-              și{" "}
-              <a
-                href="/politica-de-confidentialitate"
-                className="font-extrabold text-brand underline-offset-2 hover:underline"
-              >
-                Confidențialitate
+                Detalii
               </a>
               .
             </p>
 
             {panel ? (
-              <div className="mt-4 space-y-3 rounded-xl bg-surface p-3">
+              <div className="mt-3 space-y-2.5 rounded-xl bg-surface p-3 sm:mt-4 sm:space-y-3">
                 <label className="flex items-start gap-3">
                   <input
                     type="checkbox"
@@ -198,37 +190,38 @@ export default function CookieConsent() {
               </div>
             ) : null}
 
-            <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
+            <div className="mt-2.5 grid grid-cols-[1fr_1fr_auto] gap-2 sm:mt-4 sm:flex sm:flex-row sm:flex-wrap">
               <button
                 type="button"
                 onClick={acceptAll}
-                className="inline-flex items-center justify-center rounded-xl bg-brand px-4 py-2.5 text-[14px] font-extrabold text-white transition hover:bg-brand-dark"
+                className="inline-flex min-h-[44px] items-center justify-center rounded-xl bg-brand px-3 py-2 text-[13px] font-extrabold text-white transition hover:bg-brand-dark sm:min-h-0 sm:px-4 sm:py-2.5 sm:text-[14px]"
               >
-                Acceptă toate
+                Acceptă
               </button>
               <button
                 type="button"
                 onClick={essentialOnly}
-                className="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-[14px] font-extrabold text-ink transition hover:bg-surface"
+                className="inline-flex min-h-[44px] items-center justify-center rounded-xl border border-slate-200 bg-white px-3 py-2 text-[13px] font-extrabold text-ink transition hover:bg-surface sm:min-h-0 sm:px-4 sm:py-2.5 sm:text-[14px]"
               >
-                Doar esențiale
+                Esențiale
               </button>
               {panel ? (
                 <button
                   type="button"
                   onClick={savePreferences}
-                  className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-ink px-4 py-2.5 text-[14px] font-extrabold text-white transition hover:bg-slate-800"
+                  className="col-span-3 inline-flex min-h-[44px] items-center justify-center gap-1.5 rounded-xl bg-ink px-3 py-2 text-[13px] font-extrabold text-white transition hover:bg-slate-800 sm:col-span-1 sm:min-h-0 sm:px-4 sm:py-2.5 sm:text-[14px]"
                 >
-                  Salvează preferințele
+                  Salvează
                 </button>
               ) : (
                 <button
                   type="button"
                   onClick={() => setPanel(true)}
-                  className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-[14px] font-extrabold text-ink transition hover:bg-surface"
+                  aria-label="Personalizează cookies"
+                  className="inline-flex size-[44px] items-center justify-center rounded-xl border border-slate-200 bg-white text-ink transition hover:bg-surface sm:h-auto sm:w-auto sm:gap-1.5 sm:px-4 sm:py-2.5 sm:text-[14px] sm:font-extrabold"
                 >
                   <Settings2 className="size-4" aria-hidden />
-                  Personalizează
+                  <span className="hidden sm:inline">Personalizează</span>
                 </button>
               )}
             </div>

@@ -8,13 +8,59 @@ import VanCard from "./VanCard";
 const GAP = 16;
 const LOOP = [...fleet, ...fleet, ...fleet];
 
-export default function FleetCarousel() {
+function MobileSnapCarousel() {
+  const scrollerRef = useRef<HTMLDivElement>(null);
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    const el = scrollerRef.current;
+    if (!el) return;
+
+    function onScroll() {
+      if (!el) return;
+      const card = el.firstElementChild as HTMLElement | null;
+      if (!card) return;
+      const stride = card.offsetWidth + GAP;
+      const i = Math.round(el.scrollLeft / stride);
+      setActive(Math.max(0, Math.min(fleet.length - 1, i)));
+    }
+
+    el.addEventListener("scroll", onScroll, { passive: true });
+    return () => el.removeEventListener("scroll", onScroll);
+  }, []);
+
+  return (
+    <div className="relative w-full sm:hidden">
+      <div
+        ref={scrollerRef}
+        className="-mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-px-4 px-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+      >
+        {fleet.map((van) => (
+          <div key={van.id} className="w-[84%] shrink-0 snap-center">
+            <VanCard van={van} />
+          </div>
+        ))}
+      </div>
+      <div className="mt-3 flex items-center justify-center gap-1.5">
+        {fleet.map((van, i) => (
+          <span
+            key={van.id}
+            className={`block h-2 rounded-full transition-all ${
+              i === active ? "w-6 bg-brand" : "w-2 bg-slate-300"
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function DesktopCarousel() {
   const viewportRef = useRef<HTMLDivElement>(null);
   const [index, setIndex] = useState(fleet.length);
   const [cardWidth, setCardWidth] = useState(0);
   const [viewportWidth, setViewportWidth] = useState(0);
   const [animate, setAnimate] = useState(true);
-  const touchStartX = useRef<number | null>(null);
 
   useEffect(() => {
     const el = viewportRef.current;
@@ -23,11 +69,9 @@ export default function FleetCarousel() {
     const measure = () => {
       const w = el.clientWidth;
       setViewportWidth(w);
-      // Mobile: one nearly-full card. Tablet/desktop: peek neighbors.
-      const units = w < 640 ? 1 : w < 1024 ? 2.25 : 4;
-      const gaps = w < 640 ? 0 : w < 1024 ? 2 : 4;
-      const width = (w - GAP * gaps) / units;
-      setCardWidth(width);
+      const units = w < 1024 ? 2.25 : 4;
+      const gaps = w < 1024 ? 2 : 4;
+      setCardWidth((w - GAP * gaps) / units);
     };
 
     measure();
@@ -59,7 +103,6 @@ export default function FleetCarousel() {
   }, [index]);
 
   const stride = cardWidth + GAP;
-  // Center active card in the viewport
   const offset =
     cardWidth && viewportWidth
       ? index * stride - (viewportWidth - cardWidth) / 2
@@ -67,88 +110,81 @@ export default function FleetCarousel() {
   const activeDot = ((index % fleet.length) + fleet.length) % fleet.length;
 
   return (
-    <div className="relative w-full">
-      <div
-        ref={viewportRef}
-        className="relative w-full overflow-hidden sm:[mask-image:linear-gradient(to_right,transparent_0%,black_8%,black_92%,transparent_100%)] sm:[-webkit-mask-image:linear-gradient(to_right,transparent_0%,black_8%,black_92%,transparent_100%)]"
-        onTouchStart={(e) => {
-          touchStartX.current = e.changedTouches[0]?.clientX ?? null;
-        }}
-        onTouchEnd={(e) => {
-          const start = touchStartX.current;
-          const end = e.changedTouches[0]?.clientX;
-          touchStartX.current = null;
-          if (start == null || end == null) return;
-          const delta = end - start;
-          if (Math.abs(delta) < 40) return;
-          go(delta < 0 ? "next" : "prev");
-        }}
-      >
+    <div className="relative hidden w-full overflow-visible sm:block">
+      <div className="relative overflow-visible">
         <div
-          className="flex will-change-transform"
-          style={{
-            gap: GAP,
-            transform: cardWidth
-              ? `translate3d(-${offset}px, 0, 0)`
-              : undefined,
-            transition: animate
-              ? "transform 550ms cubic-bezier(0.22, 1, 0.36, 1)"
-              : "none",
-          }}
+          ref={viewportRef}
+          className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,black_8%,black_92%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_right,transparent_0%,black_8%,black_92%,transparent_100%)]"
         >
-          {LOOP.map((van, i) => (
-            <div
-              key={`${van.id}-${i}`}
-              className="shrink-0"
-              style={{
-                width: cardWidth || undefined,
-                minWidth: cardWidth || "85%",
-              }}
-            >
-              <VanCard van={van} />
-            </div>
-          ))}
+          <div
+            className="flex will-change-transform"
+            style={{
+              gap: GAP,
+              transform: cardWidth ? `translate3d(-${offset}px, 0, 0)` : undefined,
+              transition: animate
+                ? "transform 550ms cubic-bezier(0.22, 1, 0.36, 1)"
+                : "none",
+            }}
+          >
+            {LOOP.map((van, i) => (
+              <div
+                key={`${van.id}-${i}`}
+                className="shrink-0"
+                style={{ width: cardWidth || undefined }}
+              >
+                <VanCard van={van} />
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
 
-      <div className="mt-4 flex items-center justify-center gap-3">
         <button
           type="button"
           aria-label="Dube anterioare"
           onClick={() => go("prev")}
-          className="flex size-10 items-center justify-center rounded-full border border-slate-200 bg-white text-brand shadow-[0_6px_18px_rgba(248,104,0,0.14)] transition hover:bg-brand hover:text-white sm:size-11"
+          className="absolute -left-5 top-1/2 z-10 flex size-11 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white text-brand shadow-[0_8px_24px_rgba(15,23,42,0.14)] transition hover:bg-brand hover:text-white lg:-left-7 lg:size-12 xl:-left-9"
         >
           <ChevronLeft className="size-5" strokeWidth={2.4} />
         </button>
-
-        <div className="flex items-center justify-center gap-2">
-          {fleet.map((van, i) => (
-            <button
-              key={van.id}
-              type="button"
-              aria-label={`Mergi la ${van.name}`}
-              onClick={() => {
-                setAnimate(true);
-                setIndex(fleet.length + i);
-              }}
-              className={`h-2 rounded-full transition-all duration-300 ${
-                i === activeDot
-                  ? "w-7 bg-brand"
-                  : "w-2 bg-slate-300 hover:bg-brand/50"
-              }`}
-            />
-          ))}
-        </div>
-
         <button
           type="button"
           aria-label="Dube următoare"
           onClick={() => go("next")}
-          className="flex size-10 items-center justify-center rounded-full border border-slate-200 bg-white text-brand shadow-[0_6px_18px_rgba(248,104,0,0.14)] transition hover:bg-brand hover:text-white sm:size-11"
+          className="absolute -right-5 top-1/2 z-10 flex size-11 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white text-brand shadow-[0_8px_24px_rgba(15,23,42,0.14)] transition hover:bg-brand hover:text-white lg:-right-7 lg:size-12 xl:-right-9"
         >
           <ChevronRight className="size-5" strokeWidth={2.4} />
         </button>
       </div>
+
+      <div className="mt-4 flex items-center justify-center gap-2">
+        {fleet.map((van, i) => (
+          <button
+            key={van.id}
+            type="button"
+            aria-label={`Mergi la ${van.name}`}
+            onClick={() => {
+              setAnimate(true);
+              setIndex(fleet.length + i);
+            }}
+            className="flex h-[36px] items-center"
+          >
+            <span
+              className={`block h-2 rounded-full transition-all duration-300 ${
+                i === activeDot ? "w-7 bg-brand" : "w-2 bg-slate-300 hover:bg-brand/50"
+              }`}
+            />
+          </button>
+        ))}
+      </div>
     </div>
+  );
+}
+
+export default function FleetCarousel() {
+  return (
+    <>
+      <MobileSnapCarousel />
+      <DesktopCarousel />
+    </>
   );
 }
