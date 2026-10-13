@@ -34,7 +34,7 @@ export default function Fleet() {
           <Reveal variant="right" delay={180} className="hidden sm:block">
             <a
               href="/flota"
-              className="inline-flex w-full shrink-0 items-center justify-center gap-2 rounded-xl bg-brand px-5 py-3 text-[15px] font-extrabold text-white transition hover:bg-brand-dark sm:w-auto"
+              className="inline-flex w-full shrink-0 items-center justify-center gap-2 rounded-xl bg-ink px-5 py-3 text-[15px] font-extrabold text-white transition hover:bg-ink/90 sm:w-auto"
             >
               Vezi toată flota
               <ArrowRight className="size-4" strokeWidth={2.6} aria-hidden />
@@ -56,7 +56,7 @@ export default function Fleet() {
         <Reveal variant="up" delay={120} className="mt-4 sm:hidden">
           <a
             href="/flota"
-            className="inline-flex h-[46px] w-full items-center justify-center gap-2 rounded-xl bg-brand px-5 text-[14px] font-extrabold text-white transition hover:bg-brand-dark"
+            className="inline-flex h-[46px] w-full items-center justify-center gap-2 rounded-xl bg-ink px-5 text-[14px] font-extrabold text-white transition hover:bg-ink/90"
           >
             Vezi toată flota
             <ArrowRight className="size-4" strokeWidth={2.6} aria-hidden />

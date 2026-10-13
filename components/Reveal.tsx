@@ -37,7 +37,7 @@ export default function Reveal({
   once = true,
 }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
-  // Start visible so SSR / first paint isn't blank; animate only after mount on desktop
+  // Start visible for SSR; hide after mount then reveal on scroll
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
@@ -47,10 +47,7 @@ export default function Reveal({
     if (!node) return;
 
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const mobile = window.matchMedia("(max-width: 639px)").matches;
-
-    // Mobile: keep content visible (subtle CSS transition only if already in view)
-    if (reduced || mobile) {
+    if (reduced) {
       setVisible(true);
       return;
     }
@@ -66,7 +63,7 @@ export default function Reveal({
           setVisible(false);
         }
       },
-      { threshold: 0.12, rootMargin: "0px 0px -6% 0px" },
+      { threshold: 0.08, rootMargin: "0px 0px -4% 0px" },
     );
 
     observer.observe(node);

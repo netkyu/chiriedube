@@ -76,10 +76,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-slate-100 bg-white pt-[env(safe-area-inset-top,0px)]">
       <div className="mx-auto flex h-[60px] max-w-6xl items-center justify-between gap-2 px-4 sm:h-[84px] sm:gap-4 sm:px-6 lg:px-8">
-        <a
-          href="/"
-          className="flex shrink-0 items-center py-1.5 sm:py-2"
-        >
+        <a href="/" className="flex shrink-0 items-center py-1.5 sm:py-2">
           <span className="relative block h-[40px] w-[118px] sm:h-[58px] sm:w-[168px] lg:h-[62px] lg:w-[180px]">
             <Image
               src="/images/logo-chiriedube-v2.png"
@@ -100,10 +97,10 @@ export default function Header() {
               <a
                 key={link.href}
                 href={link.href}
-                className={`relative pb-1 text-[15px] transition lg:text-[16px] ${
+                className={`relative pb-1 text-[15px] transition-colors duration-200 lg:text-[16px] ${
                   isActive
-                    ? "font-extrabold text-brand after:absolute after:inset-x-0 after:-bottom-0.5 after:h-[3px] after:rounded-full after:bg-brand"
-                    : "font-medium text-ink hover:text-brand"
+                    ? "font-extrabold text-brand after:absolute after:inset-x-0 after:-bottom-0.5 after:h-[3px] after:origin-left after:scale-x-100 after:rounded-full after:bg-brand after:transition-transform after:duration-300"
+                    : "font-medium text-ink after:absolute after:inset-x-0 after:-bottom-0.5 after:h-[3px] after:origin-left after:scale-x-0 after:rounded-full after:bg-brand after:transition-transform after:duration-300 hover:text-brand hover:after:scale-x-100"
                 }`}
               >
                 {link.label}
@@ -117,7 +114,7 @@ export default function Header() {
             href={contact.whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex h-[40px] items-center gap-1.5 rounded-xl bg-brand px-3 text-[13px] font-bold text-white transition hover:bg-brand-dark sm:h-auto sm:gap-2 sm:px-4 sm:py-2.5 sm:text-[0.9375rem] sm:font-semibold"
+            className="inline-flex h-[40px] items-center gap-1.5 rounded-xl bg-brand px-3 text-[13px] font-bold text-white transition duration-200 hover:bg-brand-dark active:scale-[0.97] sm:h-auto sm:gap-2 sm:px-4 sm:py-2.5 sm:text-[0.9375rem] sm:font-semibold"
           >
             <CalendarDays className="size-4" strokeWidth={2.2} aria-hidden />
             <span className="hidden sm:inline">Rezervă acum</span>
@@ -125,66 +122,108 @@ export default function Header() {
           </a>
           <button
             type="button"
-            className="-mr-2 inline-flex size-[44px] items-center justify-center rounded-xl text-ink transition active:bg-surface md:hidden"
+            className="relative -mr-2 inline-flex size-[44px] items-center justify-center rounded-xl text-ink transition duration-200 active:bg-surface md:hidden"
             aria-label={open ? "Închide meniul" : "Deschide meniul"}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
           >
-            {open ? <X className="size-6" /> : <Menu className="size-6" />}
+            <Menu
+              className={`absolute size-6 transition duration-300 ease-out ${
+                open
+                  ? "rotate-90 scale-75 opacity-0"
+                  : "rotate-0 scale-100 opacity-100"
+              }`}
+              aria-hidden
+            />
+            <X
+              className={`absolute size-6 transition duration-300 ease-out ${
+                open
+                  ? "rotate-0 scale-100 opacity-100"
+                  : "-rotate-90 scale-75 opacity-0"
+              }`}
+              aria-hidden
+            />
           </button>
         </div>
       </div>
 
-      {open && (
-        <div className="max-h-[calc(100dvh-60px)] overflow-y-auto border-t border-slate-100 bg-white px-3 pb-[max(1rem,env(safe-area-inset-bottom,0px))] pt-2 md:hidden">
-          <nav className="flex flex-col">
-            {navLinks.map((link) => {
-              const isActive = active === link.href;
-              return (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className={`flex min-h-[44px] items-center justify-between rounded-xl px-3 py-2 transition ${
-                    isActive
-                      ? "bg-brand-soft text-brand"
-                      : "text-ink hover:bg-surface"
-                  }`}
-                  onClick={() => setOpen(false)}
-                >
-                  <span
-                    className={`text-[15px] ${isActive ? "font-extrabold" : "font-semibold"}`}
+      {/* Mobile menu — always mounted for open/close animation */}
+      <div
+        className={`grid overflow-hidden border-slate-100 bg-white transition-[grid-template-rows,border-color] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] md:hidden ${
+          open
+            ? "grid-rows-[1fr] border-t"
+            : "grid-rows-[0fr] border-t border-transparent"
+        }`}
+      >
+        <div className="min-h-0 overflow-hidden">
+          <div
+            className={`max-h-[calc(100dvh-60px)] overflow-y-auto px-3 pb-[max(1rem,env(safe-area-inset-bottom,0px))] pt-2 transition duration-300 ${
+              open ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            <nav className="flex flex-col">
+              {navLinks.map((link, index) => {
+                const isActive = active === link.href;
+                return (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    style={{
+                      transitionDelay: open ? `${60 + index * 45}ms` : "0ms",
+                    }}
+                    className={`flex min-h-[44px] items-center justify-between rounded-xl px-3 py-2 transition duration-300 ease-out ${
+                      open
+                        ? "translate-y-0 opacity-100"
+                        : "translate-y-2 opacity-0"
+                    } ${
+                      isActive
+                        ? "bg-brand-soft text-brand"
+                        : "text-ink hover:bg-surface"
+                    }`}
+                    onClick={() => setOpen(false)}
                   >
-                    {link.label}
-                  </span>
-                  {link.subtitle ? (
-                    <span className="text-[12px] font-medium text-muted">
-                      {link.subtitle}
+                    <span
+                      className={`text-[15px] ${isActive ? "font-extrabold" : "font-semibold"}`}
+                    >
+                      {link.label}
                     </span>
-                  ) : null}
-                </a>
-              );
-            })}
-          </nav>
-          <div className="mt-2 grid grid-cols-2 gap-2 border-t border-slate-100 pt-3">
-            <a
-              href={contact.phoneHref}
-              className="inline-flex h-[44px] items-center justify-center gap-2 rounded-xl border border-brand bg-white text-[14px] font-extrabold text-brand"
+                    {link.subtitle ? (
+                      <span className="text-[12px] font-medium text-muted">
+                        {link.subtitle}
+                      </span>
+                    ) : null}
+                  </a>
+                );
+              })}
+            </nav>
+            <div
+              style={{
+                transitionDelay: open ? `${60 + navLinks.length * 45}ms` : "0ms",
+              }}
+              className={`mt-2 grid grid-cols-2 gap-2 border-t border-slate-100 pt-3 transition duration-300 ease-out ${
+                open ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0"
+              }`}
             >
-              <Phone className="size-4" strokeWidth={2.2} aria-hidden />
-              Sună
-            </a>
-            <a
-              href={contact.whatsappHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex h-[44px] items-center justify-center gap-2 rounded-xl bg-[#25D366] text-[14px] font-extrabold text-white"
-            >
-              <MessageCircle className="size-4" strokeWidth={2.2} aria-hidden />
-              WhatsApp
-            </a>
+              <a
+                href={contact.phoneHref}
+                className="inline-flex h-[44px] items-center justify-center gap-2 rounded-xl border border-brand bg-white text-[14px] font-extrabold text-brand transition active:scale-[0.98]"
+              >
+                <Phone className="size-4" strokeWidth={2.2} aria-hidden />
+                Sună
+              </a>
+              <a
+                href={contact.whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-[44px] items-center justify-center gap-2 rounded-xl bg-[#25D366] text-[14px] font-extrabold text-white transition active:scale-[0.98]"
+              >
+                <MessageCircle className="size-4" strokeWidth={2.2} aria-hidden />
+                WhatsApp
+              </a>
+            </div>
           </div>
         </div>
-      )}
+      </div>
     </header>
   );
 }
