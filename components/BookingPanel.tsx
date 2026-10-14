@@ -39,7 +39,9 @@ export default function BookingPanel({
   const [vanId, setVanId] = useState(defaultVanId);
   const [pickup, setPickup] = useState(initialPickup);
   const [dropoff, setDropoff] = useState(addDaysIso(initialPickup, 1));
-  const [neededKm, setNeededKm] = useState(300);
+  // Keep as string so the field can be cleared while typing (no sticky "0")
+  const [neededKmInput, setNeededKmInput] = useState("300");
+  const neededKm = Math.max(0, Number(neededKmInput) || 0);
 
   const van = useMemo(
     () => fleet.find((item) => item.id === vanId) as FleetVan | undefined,
@@ -125,8 +127,20 @@ export default function BookingPanel({
               inputMode="numeric"
               min={0}
               step={50}
-              value={neededKm}
-              onChange={(e) => setNeededKm(Math.max(0, Number(e.target.value) || 0))}
+              value={neededKmInput}
+              onChange={(e) => {
+                const raw = e.target.value;
+                // Allow empty while editing; block negatives
+                if (raw === "") {
+                  setNeededKmInput("");
+                  return;
+                }
+                if (!/^\d*$/.test(raw)) return;
+                setNeededKmInput(raw);
+              }}
+              onBlur={() => {
+                if (neededKmInput === "") setNeededKmInput("0");
+              }}
               className="w-full rounded-xl border border-slate-200 bg-surface px-3.5 py-2.5 text-[15px] font-semibold text-ink outline-none transition focus:border-brand focus:bg-white focus:ring-2 focus:ring-brand/20 sm:py-3"
             />
             <span className="mt-1 block text-[11px] font-medium text-muted">
