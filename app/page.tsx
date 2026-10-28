@@ -12,7 +12,7 @@ import PickupReady from "@/components/PickupReady";
 import ContactCTA from "@/components/ContactCTA";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
-import { faqs } from "@/lib/data";
+import { faqAnswerText, faqs } from "@/lib/data";
 
 const faqLd = {
   "@context": "https://schema.org",
@@ -22,7 +22,7 @@ const faqLd = {
     name: item.question,
     acceptedAnswer: {
       "@type": "Answer",
-      text: item.answer,
+      text: faqAnswerText(item),
     },
   })),
 };

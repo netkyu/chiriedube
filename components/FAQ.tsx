@@ -116,8 +116,22 @@ export default function FAQ() {
                       <div className="min-h-0 overflow-hidden">
                         <div className="border-t border-slate-100 px-3 pb-3.5 pt-2.5 sm:px-5 sm:pb-4 sm:pl-[3.75rem] sm:pt-3">
                           <p className="text-[13px] font-medium leading-relaxed text-muted sm:text-[15px]">
-                            {faq.answer}
+                            {faq.intro}
                           </p>
+                          <ul className="mt-2 space-y-1.5 sm:mt-2.5 sm:space-y-2">
+                            {faq.points.map((point) => (
+                              <li
+                                key={point}
+                                className="flex gap-2.5 text-[13px] font-medium leading-snug text-muted sm:gap-3 sm:text-[15px] sm:leading-relaxed"
+                              >
+                                <span
+                                  className="mt-[0.45em] size-1.5 shrink-0 rounded-full bg-brand sm:mt-[0.5em]"
+                                  aria-hidden
+                                />
+                                <span>{point}</span>
+                              </li>
+                            ))}
+                          </ul>
                         </div>
                       </div>
                     </div>

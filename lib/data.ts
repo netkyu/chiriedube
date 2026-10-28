@@ -191,11 +191,11 @@ export const fleet = [
     brand: "Opel",
     category: "autoutilitara" as const,
     categoryLabel: "Autoutilitară",
-    image: "/images/fleet-movano-front.jpg",
+    image: "/images/fleet-movano-front-v8.jpg",
     gallery: [
-      { src: "/images/fleet-movano-front.jpg", label: "Față", alt: "Opel Movano L3H2, unghi față" },
-      { src: "/images/fleet-movano-side.jpg", label: "Lateral", alt: "Opel Movano L3H2, profil" },
-      { src: "/images/fleet-movano-rear.jpg", label: "Spate", alt: "Opel Movano L3H2, unghi spate" },
+      { src: "/images/fleet-movano-front-v8.jpg", label: "Față", alt: "Opel Movano L3H2, unghi față" },
+      { src: "/images/fleet-movano-side-v8.jpg", label: "Lateral", alt: "Opel Movano L3H2, profil" },
+      { src: "/images/fleet-movano-rear-v8.jpg", label: "Spate", alt: "Opel Movano L3H2, unghi spate" },
     ],
     volume: "Caroserie L3H2",
     volumeM3: 14,
@@ -214,7 +214,7 @@ export const fleet = [
     depositLei: 1000,
     accessories: [] as string[],
     description:
-      "Opel Movano L3H2 din 2013, 150 CP. Bună pentru mutări și transport marfă.",
+      "Opel Movano L3H2 roșie (SM 47 DAL), 150 CP. Bună pentru mutări și transport marfă.",
   },
   {
     id: "master",
@@ -222,11 +222,11 @@ export const fleet = [
     brand: "Renault",
     category: "autoutilitara" as const,
     categoryLabel: "Autoutilitară",
-    image: "/images/fleet-master-front.jpg",
+    image: "/images/fleet-master-front-v8.jpg",
     gallery: [
-      { src: "/images/fleet-master-front.jpg", label: "Față", alt: "Renault Master L2H2, unghi față" },
-      { src: "/images/fleet-master-side.jpg", label: "Lateral", alt: "Renault Master L2H2, profil" },
-      { src: "/images/fleet-master-rear.jpg", label: "Spate", alt: "Renault Master L2H2, unghi spate" },
+      { src: "/images/fleet-master-front-v8.jpg", label: "Față", alt: "Renault Master L2H2, unghi față" },
+      { src: "/images/fleet-master-side-v8.jpg", label: "Lateral", alt: "Renault Master L2H2, profil" },
+      { src: "/images/fleet-master-rear-v8.jpg", label: "Spate", alt: "Renault Master L2H2, unghi spate" },
     ],
     volume: "Caroserie L2H2",
     volumeM3: 12,
@@ -245,7 +245,7 @@ export const fleet = [
     depositLei: 1000,
     accessories: [] as string[],
     description:
-      "Renault Master L2H2 din 2011, 125 CP. Potrivită pentru oraș și drumuri pe județ.",
+      "Renault Master L2H2 roșie-portocalie (SM 66 DAL), 125 CP. Potrivită pentru oraș și drumuri pe județ.",
   },
   {
     id: "trailer-45",
@@ -253,11 +253,11 @@ export const fleet = [
     brand: "Remorcă",
     category: "remorca" as const,
     categoryLabel: "Remorcă",
-    image: "/images/fleet-trailer-45-front.jpg",
+    image: "/images/fleet-trailer-45-front-v10.jpg",
     gallery: [
-      { src: "/images/fleet-trailer-45-front.jpg", label: "Față", alt: "Remorcă 4,5 m, unghi față" },
-      { src: "/images/fleet-trailer-45-side.jpg", label: "Lateral", alt: "Remorcă 4,5 m, profil" },
-      { src: "/images/fleet-trailer-45-rear.jpg", label: "Spate", alt: "Remorcă 4,5 m, unghi spate" },
+      { src: "/images/fleet-trailer-45-front-v10.jpg", label: "Față", alt: "Remorcă 4,5 m, unghi față" },
+      { src: "/images/fleet-trailer-45-side-v10.jpg", label: "Lateral", alt: "Remorcă 4,5 m, profil" },
+      { src: "/images/fleet-trailer-45-rear-v10.jpg", label: "Spate", alt: "Remorcă 4,5 m, unghi spate" },
     ],
     volume: "Platformă 4,5 m · 2 axe",
     volumeM3: 0,
@@ -284,11 +284,11 @@ export const fleet = [
     brand: "Remorcă",
     category: "remorca" as const,
     categoryLabel: "Remorcă",
-    image: "/images/fleet-trailer-40-front.jpg",
+    image: "/images/fleet-trailer-40-front-v8.jpg",
     gallery: [
-      { src: "/images/fleet-trailer-40-front.jpg", label: "Față", alt: "Remorcă 4 m, unghi față" },
-      { src: "/images/fleet-trailer-40-side.jpg", label: "Lateral", alt: "Remorcă 4 m, profil" },
-      { src: "/images/fleet-trailer-40-rear.jpg", label: "Spate", alt: "Remorcă 4 m, unghi spate" },
+      { src: "/images/fleet-trailer-40-front-v8.jpg", label: "Față", alt: "Remorcă 4 m, unghi față" },
+      { src: "/images/fleet-trailer-40-side-v8.jpg", label: "Lateral", alt: "Remorcă 4 m, profil" },
+      { src: "/images/fleet-trailer-40-rear-v8.jpg", label: "Spate", alt: "Remorcă 4 m, unghi spate" },
     ],
     volume: "Platformă 4 m · 2 axe",
     volumeM3: 0,
@@ -311,26 +311,26 @@ export const fleet = [
   },
   {
     id: "trailer-bplus",
-    name: "Remorcă B+ · 1350 kg",
+    name: "Trailer auto · 1300 kg",
     brand: "Remorcă",
     category: "remorca" as const,
     categoryLabel: "Remorcă",
-    image: "/images/fleet-trailer-bplus-front.jpg",
+    image: "/images/fleet-trailer-bplus-front-v8.jpg",
     gallery: [
-      { src: "/images/fleet-trailer-bplus-front.jpg", label: "Față", alt: "Remorcă B+, unghi față" },
-      { src: "/images/fleet-trailer-bplus-side.jpg", label: "Lateral", alt: "Remorcă B+, profil" },
-      { src: "/images/fleet-trailer-bplus-rear.jpg", label: "Spate", alt: "Remorcă B+, unghi spate" },
+      { src: "/images/fleet-trailer-bplus-front-v8.jpg", label: "Față", alt: "Trailer auto 1300 kg, unghi față" },
+      { src: "/images/fleet-trailer-bplus-side-v8.jpg", label: "Lateral", alt: "Trailer auto 1300 kg, profil" },
+      { src: "/images/fleet-trailer-bplus-rear-v8.jpg", label: "Spate", alt: "Trailer auto 1300 kg, unghi spate" },
     ],
-    volume: "1 ax · categoria B+",
+    volume: "Platformă 3,5 m util · 1 ax",
     volumeM3: 0,
-    payload: "Sarcină utilă: 1350 kg",
-    payloadKg: 1350,
+    payload: "Sarcină utilă: 1300 kg",
+    payloadKg: 1300,
     seats: "Nu e cazul",
     transmission: "1 ax · Cat. B+",
     priceFrom: 100,
     size: "medie" as const,
     sizeLabel: "Remorcă",
-    lengthCm: 300,
+    lengthCm: 350,
     widthCm: 180,
     heightCm: 0,
     year: 2019,
@@ -338,7 +338,7 @@ export const fleet = [
     depositLei: 0,
     accessories: ["Chingi"],
     description:
-      "Remorcă pe 1 ax, categoria B+, 1350 kg. Fără limită de km. Se cere talonul vehiculului de tractare.",
+      "Trailer auto 1300 kg, ~3,5 m utili, 1 ax (cat. B+). Fără limită de km. Se cere talonul vehiculului de tractare.",
   },
   {
     id: "trailer-750",
@@ -346,11 +346,11 @@ export const fleet = [
     brand: "Remorcă",
     category: "remorca" as const,
     categoryLabel: "Remorcă",
-    image: "/images/fleet-trailer-750-front.jpg",
+    image: "/images/fleet-trailer-750-front-v8.jpg",
     gallery: [
-      { src: "/images/fleet-trailer-750-front.jpg", label: "Față", alt: "Remorcă 750 kg, unghi față" },
-      { src: "/images/fleet-trailer-750-side.jpg", label: "Lateral", alt: "Remorcă 750 kg, profil" },
-      { src: "/images/fleet-trailer-750-rear.jpg", label: "Spate", alt: "Remorcă 750 kg, unghi spate" },
+      { src: "/images/fleet-trailer-750-front-v8.jpg", label: "Față", alt: "Remorcă 750 kg, unghi față" },
+      { src: "/images/fleet-trailer-750-side-v8.jpg", label: "Lateral", alt: "Remorcă 750 kg, profil" },
+      { src: "/images/fleet-trailer-750-rear-v8.jpg", label: "Spate", alt: "Remorcă 750 kg, unghi spate" },
     ],
     volume: "Platformă 1,3 × 2 m",
     volumeM3: 0,
@@ -377,11 +377,11 @@ export const fleet = [
     brand: "Volkswagen",
     category: "autoturism" as const,
     categoryLabel: "Autoturism",
-    image: "/images/fleet-jetta-front.jpg",
+    image: "/images/fleet-jetta-front-v8.jpg",
     gallery: [
-      { src: "/images/fleet-jetta-front.jpg", label: "Față", alt: "Volkswagen Jetta, unghi față" },
-      { src: "/images/fleet-jetta-side.jpg", label: "Lateral", alt: "Volkswagen Jetta, profil" },
-      { src: "/images/fleet-jetta-rear.jpg", label: "Spate", alt: "Volkswagen Jetta, unghi spate" },
+      { src: "/images/fleet-jetta-front-v8.jpg", label: "Față", alt: "Volkswagen Jetta, unghi față" },
+      { src: "/images/fleet-jetta-side-v8.jpg", label: "Lateral", alt: "Volkswagen Jetta, profil" },
+      { src: "/images/fleet-jetta-rear-v8.jpg", label: "Spate", alt: "Volkswagen Jetta, unghi spate" },
     ],
     volume: "Sedan · 5 locuri",
     volumeM3: 0,
@@ -400,21 +400,21 @@ export const fleet = [
     depositLei: 1000,
     accessories: [] as string[],
     description:
-      "VW Jetta 1.6 diesel din 2011, cutie manuală. Autoturism simplu pentru deplasări.",
+      "VW Jetta gri (SM 65 DAL), 1.6 diesel, cutie manuală. Autoturism simplu pentru deplasări.",
   },
   {
     id: "passat",
-    name: "Volkswagen Passat 2.0 TDI",
+    name: "Volkswagen Passat Variant",
     brand: "Volkswagen",
     category: "autoturism" as const,
     categoryLabel: "Autoturism",
-    image: "/images/fleet-passat-front.jpg",
+    image: "/images/fleet-passat-front-v8.jpg",
     gallery: [
-      { src: "/images/fleet-passat-front.jpg", label: "Față", alt: "Volkswagen Passat, unghi față" },
-      { src: "/images/fleet-passat-side.jpg", label: "Lateral", alt: "Volkswagen Passat, profil" },
-      { src: "/images/fleet-passat-rear.jpg", label: "Spate", alt: "Volkswagen Passat, unghi spate" },
+      { src: "/images/fleet-passat-front-v8.jpg", label: "Față", alt: "Volkswagen Passat Variant, unghi față" },
+      { src: "/images/fleet-passat-side-v8.jpg", label: "Lateral", alt: "Volkswagen Passat Variant, profil" },
+      { src: "/images/fleet-passat-rear-v8.jpg", label: "Spate", alt: "Volkswagen Passat Variant, unghi spate" },
     ],
-    volume: "Sedan · 5 locuri",
+    volume: "Break · 5 locuri",
     volumeM3: 0,
     payload: "2.0 TDI",
     payloadKg: 0,
@@ -431,7 +431,7 @@ export const fleet = [
     depositLei: 1000,
     accessories: [] as string[],
     description:
-      "VW Passat 2.0 TDI din 2010, cutie DSG. Potrivit când ai de mers mai mult.",
+      "VW Passat Variant albastru (SM 09 DAL), 2.0 TDI, cutie DSG. Potrivit când ai de mers mai mult.",
   },
 ];
 
@@ -541,33 +541,67 @@ export const reviews = [
 
 export const faqs = [
   {
-    question: "Ce tipuri de vehicule pot închiria?",
-    answer:
-      "Autoutilitare (Opel Movano, Renault Master), remorci de mai multe dimensiuni și autoturisme (Jetta, Passat). Pe pagina produsului le găsești ca „autoutilitară”, „remorcă” sau „autoturism”.",
-  },
-  {
-    question: "Există o limită de kilometri?",
-    answer:
-      "Da, pentru autoutilitare și autoturisme: 300 km/zi incluși. Peste limită plătești 50 lei pentru fiecare 100 km. Remorcile nu au limită de kilometri.",
+    question: "Cum rezerv un vehicul?",
+    intro: "Rezervarea se face în câțiva pași simpli:",
+    points: [
+      "Alegeți vehiculul potrivit din flotă",
+      "Ne scrieți pe WhatsApp perioada dorită și kilometrii estimați",
+      "Confirmăm disponibilitatea și detaliile",
+      "Ridicați vehiculul de pe Str. Fabricii nr. 29, semnați contractul și puteți pleca",
+    ],
   },
   {
     question: "Ce documente sunt necesare?",
-    answer:
-      "Buletin/CI și permis categoria B (vârsta minimă 21 ani). Pentru remorci: talonul vehiculului de tractare, necesar la asigurare în caz de daună. Pentru firme: datele societății.",
+    intro: "La preluare aveți nevoie de:",
+    points: [
+      "Carte de identitate sau pașaport",
+      "Permis de conducere categoria B (vârsta minimă: 21 de ani)",
+      "Pentru remorci: talonul autovehiculului cu care tractați",
+      "Pentru persoane juridice: CUI și datele societății",
+    ],
   },
   {
-    question: "Cât e garanția și cum se plătește?",
-    answer:
-      "1000 lei pentru autoutilitare și autoturisme, doar cash. Remorcile nu necesită garanție. Restul plății (închirierea) se poate face card, cash sau OP.",
+    question: "Câți kilometri sunt incluși?",
+    intro: "Regula de kilometraj diferă în funcție de tipul de vehicul:",
+    points: [
+      "Autoutilitare și autoturisme: 300 km incluși pe zi",
+      "Depășire: 50 lei pentru fiecare 100 km suplimentari",
+      "Remorci: fără limită de kilometri",
+    ],
   },
   {
-    question: "Ce include prețul?",
-    answer:
-      "RCA și rovigneta pentru România. Pentru alte țări putem adăuga asigurări/taxe la cerere. Combustibil: plin la preluare / plin la predare la autovehicule.",
+    question: "Cât este garanția și cum se plătește?",
+    intro: "Condițiile de plată sunt următoarele:",
+    points: [
+      "Garanție: 1.000 lei, exclusiv cash, pentru autoutilitare și autoturisme",
+      "Garanția se restituie la predare, dacă vehiculul este în stare corespunzătoare",
+      "Remorcile nu necesită garanție",
+      "Tariful de închiriere se poate achita cu cardul, cash sau transfer bancar (OP)",
+    ],
   },
   {
-    question: "Pot cumpăra un abonament de tractare?",
-    answer:
-      "Da. Contactați-ne pe WhatsApp sau telefon pentru ofertă, în funcție de zonă și tipul vehiculului. Detalii pe pagina de tractare.",
+    question: "Ce este inclus în prețul pe zi?",
+    intro: "Tariful zilnic cuprinde:",
+    points: [
+      "Asigurare RCA și rovignetă valabilă pe teritoriul României",
+      "Pachetul de 300 km pe zi (autoutilitare și autoturisme)",
+      "Politica de combustibil: plin la preluare, plin la predare",
+      "Asistență rutieră pe raza județului Satu Mare",
+      "Asigurări și taxe pentru alte țări: disponibile la cerere",
+    ],
+  },
+  {
+    question: "Oferiți abonamente de tractare?",
+    intro: "Da. Putem pregăti o ofertă personalizată:",
+    points: [
+      "Contactați-ne pe WhatsApp sau telefon",
+      "Oferta depinde de zonă și de tipul vehiculului",
+      "Detalii suplimentare găsiți pe pagina Abonamente de tractare",
+    ],
   },
 ];
+
+/** Text plat pentru schema FAQPage / SEO */
+export function faqAnswerText(faq: (typeof faqs)[number]) {
+  return [faq.intro, ...faq.points].join(" ");
+}
