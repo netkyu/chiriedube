@@ -131,10 +131,12 @@ export default async function VanDetailPage({ params }: PageProps) {
                     <li className="rounded-lg bg-[#F8FAFC] px-3 py-2.5">
                       <p className="flex items-center gap-1.5 text-[10px] font-extrabold uppercase tracking-[0.1em] text-brand">
                         <Weight className="size-3" aria-hidden />
-                        Detalii
+                        {van.payloadKg > 0 ? "Maxim autorizat" : "Detalii"}
                       </p>
                       <p className="mt-0.5 text-[13px] font-extrabold text-ink">
-                        {van.payload.replace("Sarcină utilă: ", "")}
+                        {van.payloadKg > 0
+                          ? `${van.payloadKg} kg`
+                          : van.payload}
                       </p>
                     </li>
                     <li className="rounded-lg bg-[#F8FAFC] px-3 py-2.5 col-span-2">

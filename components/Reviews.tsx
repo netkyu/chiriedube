@@ -1,156 +1,142 @@
-import Image from "next/image";
-import { MessageSquareQuote, Quote, Star } from "lucide-react";
-import { reviews } from "@/lib/data";
-import SectionBackdrop from "./SectionBackdrop";
+import { MessageSquarePlus, MessageSquareQuote, Star } from "lucide-react";
+import { createClient } from "@/lib/supabase/server";
+import type { Review } from "@/lib/reviews";
 import SectionLabel from "./SectionLabel";
 import Reveal from "./Reveal";
+import ReviewForm from "./ReviewForm";
+import ReviewsCarousel from "./ReviewsCarousel";
 
-function Stars({ rating, size = "size-4" }: { rating: number; size?: string }) {
+function StarsRow({ rating }: { rating: number }) {
   return (
-    <div className="flex gap-0.5 text-brand" aria-label={`${rating} stele`}>
-      {Array.from({ length: rating }).map((_, i) => (
-        <Star key={i} className={`${size} fill-brand`} aria-hidden />
+    <div className="flex gap-0.5 text-brand" role="img" aria-label={`${rating} din 5 stele`}>
+      {Array.from({ length: 5 }).map((_, i) => (
+        <Star
+          key={i}
+          className={`size-4 ${i < rating ? "fill-brand text-brand" : "fill-slate-100 text-slate-200"}`}
+          aria-hidden
+        />
       ))}
     </div>
   );
 }
 
-const cardVariants = ["up", "scale", "tilt"] as const;
+async function getApprovedReviews(): Promise<Review[]> {
+  try {
+    const supabase = await createClient();
+    const { data, error } = await supabase
+      .from("reviews")
+      .select(
+        "id, author_name, role, rating, body, image_url, avatar_url, status, source, created_at, updated_at, reviewed_at",
+      )
+      .eq("status", "approved")
+      .order("created_at", { ascending: false })
+      .limit(24);
 
-export default function Reviews() {
-  const [featured, ...rest] = reviews;
+    if (error || !data) return [];
+    return data as Review[];
+  } catch {
+    return [];
+  }
+}
+
+export default async function Reviews() {
+  const reviews = await getApprovedReviews();
+  const avg =
+    reviews.length > 0 ? reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length : 0;
 
   return (
-    <SectionBackdrop
-      id="recenzii"
-      variant="white"
-      className="py-16 sm:py-16 lg:py-20"
-    >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl">
-          <Reveal variant="clip">
-            <SectionLabel icon={MessageSquareQuote}>Recenzii</SectionLabel>
-          </Reveal>
-          <Reveal variant="up" delay={100}>
-            <h2 className="mt-2.5 text-[1.7rem] font-extrabold leading-[1.08] tracking-tight text-ink sm:mt-3 sm:text-[2.92rem]">
-              Ce zic <span className="text-brand">cei care au închiriat</span>
-            </h2>
-          </Reveal>
-          <Reveal variant="blur" delay={200}>
-            <p className="mt-2 text-[14px] font-medium leading-relaxed text-muted sm:mt-3 sm:text-[16px]">
-              Mutări, transport marfă și colaborări cu firme din zonă.
-            </p>
-          </Reveal>
-        </div>
+    <section id="recenzii" className="relative overflow-x-clip bg-white py-16 sm:py-20 lg:py-24">
+      {/* Soft brand wash at the top only. It lives behind everything and
+          the section never clips vertically, so the deck cannot be eaten. */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-56 bg-gradient-to-b from-brand-soft/90 via-brand-soft/35 to-transparent sm:h-64"
+      />
 
-        <Reveal variant="up" delay={140} duration={800} className="mt-5 overflow-visible sm:mt-8">
-          <blockquote className="relative overflow-hidden rounded-[20px] bg-brand sm:rounded-[22px]">
-            <div className="relative h-36 w-full sm:absolute sm:inset-y-0 sm:right-0 sm:h-auto sm:w-[62%]">
-              <Image
-                src="/images/review-move-v3.jpg"
-                alt="Mutare apartament cu dubă"
-                fill
-                className="object-cover object-[center_18%]"
-                sizes="(max-width: 640px) 100vw, 62vw"
-              />
-            </div>
-
-            <div
-              className="pointer-events-none absolute inset-0 hidden sm:block"
-              style={{
-                background:
-                  "linear-gradient(90deg, #f86800 0%, #f86800 42%, rgba(248,104,0,0.88) 56%, rgba(248,104,0,0.4) 70%, transparent 86%)",
-              }}
-            />
-
-            <div className="relative z-10 flex w-full max-w-xl flex-col justify-center px-4 py-4 sm:min-h-[260px] sm:px-7 sm:py-7 lg:max-w-[55%] lg:px-8">
-              <div className="flex items-center gap-3">
-                <span className="relative size-10 shrink-0 overflow-hidden rounded-xl sm:size-12">
-                  <Image
-                    src={featured.image}
-                    alt={featured.name}
-                    fill
-                    className="object-cover object-center"
-                    sizes="48px"
-                  />
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {reviews.length === 0 ? (
+          <div className="mx-auto max-w-2xl text-center">
+            <Reveal variant="clip">
+              <SectionLabel icon={MessageSquareQuote} className="justify-center">
+                Recenzii
+              </SectionLabel>
+            </Reveal>
+            <Reveal variant="up" delay={80}>
+              <h2 className="mt-3 text-[1.75rem] font-extrabold leading-[1.08] tracking-tight text-ink sm:text-[2.85rem]">
+                Încrederea <span className="text-brand">clienților</span>
+              </h2>
+            </Reveal>
+            <Reveal variant="up" delay={140}>
+              <p className="mx-auto mt-3 max-w-md text-[15px] font-medium leading-relaxed text-muted sm:text-[16px]">
+                Poveștile celor care au închiriat de la noi, de la prima discuție până la predarea mașinii.
+              </p>
+            </Reveal>
+            <Reveal variant="up" delay={200}>
+              <div className="mt-9 rounded-[1.4rem] border border-orange-100 bg-white px-6 py-12 text-center shadow-[0_20px_44px_-18px_rgba(0,31,56,0.16)]">
+                <span className="mx-auto inline-flex size-14 items-center justify-center rounded-2xl bg-brand text-white shadow-[0_10px_24px_rgba(248,104,0,0.3)]">
+                  <MessageSquarePlus className="size-7" strokeWidth={1.8} aria-hidden />
                 </span>
-                <div>
-                  <div className="flex gap-0.5" aria-label="5 stele">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <Star
-                        key={i}
-                        className="size-3.5 fill-white stroke-white"
-                        strokeWidth={0}
-                        aria-hidden
-                      />
-                    ))}
-                  </div>
-                  <cite className="mt-0.5 block text-[14px] font-extrabold not-italic text-white sm:mt-1 sm:text-[0.9375rem]">
-                    {featured.name}
-                  </cite>
-                  <p className="text-[12px] font-medium text-orange-100 sm:text-[13px]">
-                    {featured.role}
-                  </p>
+                <p className="mt-5 text-[17px] font-extrabold text-ink">Fii primul care povestește</p>
+                <p className="mx-auto mt-2 max-w-md text-[14px] font-medium leading-relaxed text-muted">
+                  Ai închiriat de la noi? Spune cum a fost, în câteva rânduri.
+                </p>
+                <div className="mt-6 flex justify-center">
+                  <ReviewForm />
                 </div>
               </div>
-
-              <Quote
-                className="mt-2.5 size-4 text-white/70 sm:mt-3 sm:size-5"
-                strokeWidth={2.2}
-                aria-hidden
-              />
-              <p className="mt-1.5 text-[14px] font-semibold leading-snug text-white sm:mt-2 sm:text-[16px]">
-                „{featured.text}”
-              </p>
-            </div>
-          </blockquote>
-        </Reveal>
-
-        <div className="mt-3 grid gap-3 sm:mt-4 sm:auto-rows-fr sm:gap-4 md:grid-cols-3">
-          {rest.map((review, index) => (
-            <Reveal
-              key={review.name}
-              variant={cardVariants[index % cardVariants.length]}
-              delay={120 + index * 110}
-              className="overflow-visible h-full"
-            >
-              <blockquote className="flex h-full flex-col rounded-2xl border border-slate-200/80 bg-white p-4 shadow-[0_12px_32px_rgba(15,23,42,0.04)] sm:rounded-[22px] sm:p-6">
-                <div className="flex items-center gap-3">
-                  <span className="relative size-10 shrink-0 overflow-hidden rounded-full ring-2 ring-brand/15 sm:size-12">
-                    <Image
-                      src={review.image}
-                      alt={review.name}
-                      fill
-                      className="object-cover"
-                      sizes="48px"
-                    />
-                  </span>
-                  <div className="min-w-0 flex-1">
-                    <cite className="block truncate text-[14px] font-extrabold not-italic text-ink sm:text-[0.9375rem]">
-                      {review.name}
-                    </cite>
-                    <p className="truncate text-[12px] font-semibold text-muted sm:text-[13px]">
-                      {review.role}
-                    </p>
-                  </div>
-                  {/* Mobile: stars inline with the name row */}
-                  <div className="sm:hidden">
-                    <Stars rating={review.rating} size="size-3" />
-                  </div>
-                </div>
-
-                <div className="mt-4 hidden sm:block">
-                  <Stars rating={review.rating} size="size-3.5" />
-                </div>
-
-                <p className="mt-2.5 flex-1 text-[13.5px] font-semibold leading-relaxed text-ink/90 sm:mt-3 sm:text-[16px]">
-                  „{review.text}”
-                </p>
-              </blockquote>
             </Reveal>
-          ))}
-        </div>
+          </div>
+        ) : (
+          <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-8 xl:gap-12">
+            {/* Left: title, rating, CTA */}
+            <div className="max-w-xl pt-1 lg:max-w-none lg:pt-0">
+              <Reveal variant="clip">
+                <SectionLabel icon={MessageSquareQuote}>Recenzii</SectionLabel>
+              </Reveal>
+
+              <Reveal variant="up" delay={80}>
+                <h2 className="mt-3 text-[1.75rem] font-extrabold leading-[1.08] tracking-tight text-ink sm:text-[2.65rem] lg:text-[2.9rem]">
+                  Încrederea <span className="text-brand">clienților</span>
+                </h2>
+              </Reveal>
+
+              <Reveal variant="blur" delay={150}>
+                <p className="mt-3 max-w-md text-[15px] font-medium leading-relaxed text-muted sm:text-[16.5px]">
+                  Poveștile celor care au închiriat de la noi, de la prima discuție până la predarea mașinii.
+                </p>
+              </Reveal>
+
+              <Reveal variant="up" delay={210}>
+                <div className="mt-6 inline-flex items-center gap-3.5 rounded-2xl border border-orange-100 bg-white py-3 pl-4 pr-5 shadow-[0_14px_30px_-14px_rgba(0,31,56,0.18)]">
+                  <span className="text-[26px] font-extrabold leading-none tracking-tight text-ink">
+                    {avg.toFixed(1).replace(".", ",")}
+                  </span>
+                  <span className="h-9 w-px bg-slate-100" aria-hidden />
+                  <span>
+                    <StarsRow rating={Math.round(avg)} />
+                    <span className="mt-1 block text-[12.5px] font-semibold leading-none text-muted">
+                      din {reviews.length} {reviews.length === 1 ? "recenzie" : "recenzii"}
+                    </span>
+                  </span>
+                </div>
+              </Reveal>
+
+              <Reveal variant="up" delay={270}>
+                <div className="mt-7">
+                  <ReviewForm />
+                </div>
+              </Reveal>
+            </div>
+
+            {/* Right: spread deck. overflow-visible so rotation is never cut. */}
+            <div className="min-w-0">
+              <Reveal variant="up" delay={120} className="overflow-visible">
+                <ReviewsCarousel reviews={reviews} />
+              </Reveal>
+            </div>
+          </div>
+        )}
       </div>
-    </SectionBackdrop>
+    </section>
   );
 }

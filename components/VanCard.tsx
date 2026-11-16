@@ -63,13 +63,17 @@ export default function VanCard({ van }: { van: FleetVan }) {
                   : `${van.lengthCm}×${van.widthCm} cm`}
               </span>
             </li>
-            <li className="flex min-w-0 items-center gap-1.5">
+            <li className="col-span-2 flex min-w-0 items-center gap-1.5 sm:col-span-1">
               <Weight
                 className="size-3.5 shrink-0 text-brand"
                 strokeWidth={2}
                 aria-hidden
               />
-              <span className="truncate">{van.payload}</span>
+              <span className="truncate">
+                {van.payloadKg > 0
+                  ? `Max. autorizat ${van.payloadKg} kg`
+                  : van.payload}
+              </span>
             </li>
             <li className="flex min-w-0 items-center gap-1.5">
               <Users

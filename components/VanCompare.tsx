@@ -37,9 +37,18 @@ function buildDiff(left: FleetVan, right: FleetVan): DiffRow[] {
       better: "same",
     },
     {
-      label: "Detalii",
-      left: left.payload.replace("Sarcină utilă: ", ""),
-      right: right.payload.replace("Sarcină utilă: ", ""),
+      label:
+        left.payloadKg > 0 || right.payloadKg > 0
+          ? "Maxim autorizat"
+          : "Detalii",
+      left:
+        left.payloadKg > 0
+          ? `${left.payloadKg} kg`
+          : left.payload,
+      right:
+        right.payloadKg > 0
+          ? `${right.payloadKg} kg`
+          : right.payload,
       better:
         left.payloadKg === right.payloadKg
           ? "same"

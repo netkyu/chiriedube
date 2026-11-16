@@ -9,7 +9,7 @@ export default function PhoneCTA() {
     <section className="relative overflow-x-clip bg-ink">
       <div className="absolute inset-0 sm:inset-y-0 sm:right-0 sm:left-auto sm:w-[78%] lg:w-[75%]">
         <Image
-          src="/images/cta-fleet-branded-v3.jpg"
+          src="/images/cta-fleet-branded-v5.jpg"
           alt="Flota chiriedube.ro, dube Mercedes, Ford și VW"
           fill
           className="object-cover object-[58%_center]"
