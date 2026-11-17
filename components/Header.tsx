@@ -209,7 +209,7 @@ export default function Header() {
                 className="inline-flex h-[44px] items-center justify-center gap-2 rounded-xl border border-brand bg-white text-[14px] font-extrabold text-brand transition active:scale-[0.98]"
               >
                 <Phone className="size-4" strokeWidth={2.2} aria-hidden />
-                Sună
+                {contact.phoneDisplay}
               </a>
               <a
                 href={contact.whatsappHref}

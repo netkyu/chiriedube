@@ -72,6 +72,7 @@ const localBusinessLd = {
     "@type": "AdministrativeArea",
     name: "Satu Mare",
   },
+  openingHours: [...contact.openingHours],
   priceRange: "$$",
 };
 

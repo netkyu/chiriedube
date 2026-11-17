@@ -54,7 +54,7 @@ export default function PhoneCTA() {
           <Reveal variant="blur" delay={160}>
             <p className="mt-2 max-w-lg text-[14px] font-medium leading-relaxed text-slate-300 sm:mt-3 sm:text-[16px]">
               Spune ce ai de mutat și în ce perioadă. Îți răspundem cu ce e liber
-              și cu prețul.
+              și cu prețul. Program: {contact.hoursShort}.
             </p>
           </Reveal>
 
@@ -66,6 +66,15 @@ export default function PhoneCTA() {
               <span className="whitespace-nowrap text-[1.75rem] font-extrabold tracking-tight sm:text-[3.2rem] lg:text-[3.6rem]">
                 {contact.phoneDisplay}
               </span>
+            </a>
+          </Reveal>
+
+          <Reveal variant="up" delay={280}>
+            <a
+              href={`mailto:${contact.email}`}
+              className="mt-2 inline-flex text-[14px] font-semibold text-slate-300 transition hover:text-white sm:text-[15px]"
+            >
+              {contact.email}
             </a>
           </Reveal>
         </div>

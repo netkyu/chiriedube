@@ -173,14 +173,13 @@ export default function Footer() {
                 Program
               </p>
               <p className="mt-3 text-[13.5px] font-semibold text-white sm:text-[16px]">
-                Luni până vineri, 08:00 la 18:00
+                {contact.hoursWeekdays}
               </p>
               <p className="mt-1 text-[12.5px] font-medium text-slate-400 sm:text-[15px]">
-                Sâmbătă 09:00 la 14:00 · Duminică închis
+                {contact.hoursWeekend}
               </p>
               <p className="mt-3 text-[12.5px] font-medium leading-relaxed text-slate-400 sm:mt-4 sm:text-[14px]">
-                Pentru urgențe în județul Satu Mare, ne poți contacta și în
-                afara programului.
+                {contact.hoursNote}
               </p>
             </div>
           </Reveal>

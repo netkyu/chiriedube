@@ -99,6 +99,16 @@ export default function PickupReady() {
             >
               WhatsApp
             </a>
+            {" · "}
+            <a
+              href={`mailto:${contact.email}`}
+              className="inline-flex min-h-8 items-center font-extrabold text-brand transition hover:text-brand-dark"
+            >
+              Email
+            </a>
+          </p>
+          <p className="mt-1.5 text-[13px] font-medium text-muted sm:text-[14px]">
+            {contact.hoursShort}
           </p>
         </Reveal>
       </div>

@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { Handshake, ShieldCheck, UserRound } from "lucide-react";
-import { team } from "@/lib/data";
+import { Clock3, Handshake, Mail, Phone, ShieldCheck, UserRound } from "lucide-react";
+import { contact, team } from "@/lib/data";
 import Reveal from "./Reveal";
 import SectionLabel from "./SectionLabel";
 
@@ -155,6 +155,29 @@ export default function Team() {
                 );
               })}
             </ul>
+
+            <Reveal variant="up" delay={430}>
+              <div className="mt-7 flex flex-col gap-2.5 border-t border-slate-200/80 pt-5 sm:mt-8 sm:gap-3 sm:pt-6">
+                <a
+                  href={contact.phoneHref}
+                  className="inline-flex items-center gap-2.5 text-[14px] font-extrabold text-ink transition hover:text-brand sm:text-[15px]"
+                >
+                  <Phone className="size-4 text-brand" strokeWidth={2.2} aria-hidden />
+                  {contact.phoneDisplay}
+                </a>
+                <a
+                  href={`mailto:${contact.email}`}
+                  className="inline-flex items-center gap-2.5 text-[14px] font-semibold text-muted transition hover:text-brand sm:text-[15px]"
+                >
+                  <Mail className="size-4 text-brand" strokeWidth={2.2} aria-hidden />
+                  {contact.email}
+                </a>
+                <p className="inline-flex items-center gap-2.5 text-[13.5px] font-semibold text-muted sm:text-[14px]">
+                  <Clock3 className="size-4 text-brand" strokeWidth={2.2} aria-hidden />
+                  {contact.hoursShort}
+                </p>
+              </div>
+            </Reveal>
           </div>
         </div>
 

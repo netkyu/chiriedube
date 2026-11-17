@@ -183,17 +183,24 @@ export default function TowSubscriptionsPage() {
                   ))}
                 </ol>
 
-                <div className="mt-7 border-t border-slate-200/80 pt-5">
-                  <p className="text-[14px] font-medium text-muted">
-                    Contact telefonic
-                  </p>
+                <div className="mt-7 space-y-2.5 border-t border-slate-200/80 pt-5">
+                  <p className="text-[14px] font-medium text-muted">Contact</p>
                   <a
                     href={contact.phoneHref}
-                    className="mt-1 inline-flex items-center gap-2 text-[17px] font-extrabold text-ink transition hover:text-brand"
+                    className="inline-flex items-center gap-2 text-[17px] font-extrabold text-ink transition hover:text-brand"
                   >
                     <Phone className="size-4 text-brand" strokeWidth={2.4} aria-hidden />
                     {contact.phoneDisplay}
                   </a>
+                  <a
+                    href={`mailto:${contact.email}`}
+                    className="block text-[14px] font-semibold text-muted transition hover:text-brand"
+                  >
+                    {contact.email}
+                  </a>
+                  <p className="text-[13.5px] font-semibold text-muted">
+                    {contact.hoursShort}
+                  </p>
                 </div>
               </div>
             </Reveal>

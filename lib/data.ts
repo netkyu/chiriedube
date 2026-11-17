@@ -19,14 +19,22 @@ export const company = {
 };
 
 export const contact = {
-  phoneDisplay: "0770 123 456",
-  phoneHref: "tel:+40770123456",
-  whatsappNumber: "40770123456",
-  whatsappHref: "https://wa.me/40770123456",
-  email: "contact@chiriedube.ro",
-  privacyEmail: "contact@chiriedube.ro",
+  phoneDisplay: "0746 949 866",
+  phoneHref: "tel:+40746949866",
+  whatsappNumber: "40746949866",
+  whatsappHref: "https://wa.me/40746949866",
+  email: "dual.vanzari@gmail.com",
+  privacyEmail: "dual.vanzari@gmail.com",
   location: "Satu Mare, Str. Fabricii Nr. 29",
   address: company.address,
+  /** Program afișat pe site */
+  hoursWeekdays: "Luni până vineri, 09:00 la 16:30",
+  hoursWeekend: "Sâmbătă–duminică închis",
+  hoursShort: "Luni–vineri 09:00–16:30",
+  hoursNote:
+    "Pentru urgențe în județul Satu Mare, ne poți contacta și în afara programului.",
+  /** Schema.org OpeningHoursSpecification */
+  openingHours: ["Mo-Fr 09:00-16:30"] as const,
 };
 
 export const siteConfig = {
@@ -609,6 +617,16 @@ export const faqs = [
       "Contactați-ne pe WhatsApp sau telefon",
       "Oferta depinde de zonă și de tipul vehiculului",
       "Detalii suplimentare găsiți pe pagina Abonamente de tractare",
+    ],
+  },
+  {
+    question: "Care este programul și cum ne contactați?",
+    intro: "Ne găsiți astfel:",
+    points: [
+      "Program: luni–vineri, 09:00–16:30 (weekend închis)",
+      "Telefon / WhatsApp: 0746 949 866",
+      "Email: dual.vanzari@gmail.com",
+      "Sediu: Str. Fabricii Nr. 29, Satu Mare",
     ],
   },
 ];
