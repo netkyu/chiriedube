@@ -2,8 +2,70 @@ import { company, contact, fleet, siteConfig } from "@/lib/data";
 
 type FleetVan = (typeof fleet)[number];
 
-function productOfferLd(van: FleetVan) {
-  const url = absoluteUrl(`/flota/${van.id}`);
+function productUrl(van: FleetVan) {
+  return absoluteUrl(`/flota/${van.id}`);
+}
+
+function rentalOfferLd(van: FleetVan) {
+  const url = productUrl(van);
+  const year = new Date().getFullYear();
+  const today = new Date().toISOString().slice(0, 10);
+
+  return {
+    "@type": "Offer" as const,
+    url,
+    price: van.priceFrom,
+    priceCurrency: "RON",
+    priceValidUntil: `${year}-12-31`,
+    validFrom: today,
+    availability: "https://schema.org/InStoreOnly",
+    itemCondition: "https://schema.org/UsedCondition",
+    businessFunction: "https://purl.org/goodrelations/v1#LeaseOut",
+    seller: {
+      "@type": "Organization" as const,
+      "@id": `${siteConfig.url}/#business`,
+      name: siteConfig.name,
+      url: siteConfig.url,
+    },
+    // Local pickup only (rental at Satu Mare) — satisfies merchant listing checks
+    shippingDetails: {
+      "@type": "OfferShippingDetails" as const,
+      shippingRate: {
+        "@type": "MonetaryAmount" as const,
+        value: 0,
+        currency: "RON",
+      },
+      shippingDestination: {
+        "@type": "DefinedRegion" as const,
+        addressCountry: "RO",
+      },
+      deliveryTime: {
+        "@type": "ShippingDeliveryTime" as const,
+        handlingTime: {
+          "@type": "QuantitativeValue" as const,
+          minValue: 0,
+          maxValue: 1,
+          unitCode: "DAY",
+        },
+        transitTime: {
+          "@type": "QuantitativeValue" as const,
+          minValue: 0,
+          maxValue: 0,
+          unitCode: "DAY",
+        },
+      },
+    },
+    hasMerchantReturnPolicy: {
+      "@type": "MerchantReturnPolicy" as const,
+      applicableCountry: "RO",
+      returnPolicyCategory: "https://schema.org/MerchantReturnNotPermitted",
+    },
+  };
+}
+
+/** Single Product definition per vehicle — reuse by @id elsewhere to avoid duplicates. */
+export function productOfferLd(van: FleetVan) {
+  const url = productUrl(van);
   return {
     "@type": "Product" as const,
     "@id": `${url}#product`,
@@ -12,22 +74,12 @@ function productOfferLd(van: FleetVan) {
     url,
     image: absoluteUrl(van.image),
     description: van.description,
-    brand: { "@type": "Brand" as const, name: van.brand },
-    category: van.categoryLabel,
-    offers: {
-      "@type": "Offer" as const,
-      url,
-      price: van.priceFrom,
-      priceCurrency: "RON",
-      priceValidUntil: `${new Date().getFullYear()}-12-31`,
-      availability: "https://schema.org/InStock",
-      itemCondition: "https://schema.org/UsedCondition",
-      seller: {
-        "@type": "Organization" as const,
-        name: siteConfig.name,
-        url: siteConfig.url,
-      },
+    brand: {
+      "@type": "Brand" as const,
+      name: van.brand,
     },
+    category: van.categoryLabel,
+    offers: rentalOfferLd(van),
   };
 }
 
@@ -129,17 +181,18 @@ export function organizationLd() {
         email: contact.email,
       },
     ],
+    // Reference products by @id only — full Product lives in fleetItemListLd
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Flota chiriedube.ro",
       itemListElement: fleet.map((van, index) => ({
         "@type": "Offer",
         position: index + 1,
-        url: absoluteUrl(`/flota/${van.id}`),
+        url: productUrl(van),
         price: van.priceFrom,
         priceCurrency: "RON",
-        availability: "https://schema.org/InStock",
-        itemOffered: productOfferLd(van),
+        availability: "https://schema.org/InStoreOnly",
+        itemOffered: { "@id": `${productUrl(van)}#product` },
       })),
     },
   };
