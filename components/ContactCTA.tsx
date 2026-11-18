@@ -14,7 +14,7 @@ export default function ContactCTA() {
         href={contact.whatsappHref}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex size-[52px] items-center justify-center gap-2 rounded-full bg-[#25D366] text-[0.9375rem] font-semibold text-white shadow-lg shadow-emerald-900/20 transition hover:bg-[#1ebe57] sm:size-auto sm:px-4 sm:py-3"
+        className="inline-flex size-[52px] items-center justify-center gap-2 rounded-full bg-[#128C7E] text-[0.9375rem] font-semibold text-white shadow-lg shadow-emerald-900/20 transition hover:bg-[#0e7368] sm:size-auto sm:px-4 sm:py-3"
         aria-label="Contactează-ne pe WhatsApp"
       >
         <MessageCircle className="size-5" aria-hidden />

@@ -119,37 +119,37 @@ export default function Team() {
                 return (
                   <Reveal
                     key={point.title}
+                    as="li"
                     variant="left"
                     delay={160 + index * 90}
                     duration={650}
+                    className="group flex items-start gap-3.5 rounded-2xl border border-transparent bg-transparent p-2.5 transition duration-300 hover:border-brand/15 hover:bg-brand-soft/50 sm:gap-4 sm:p-3"
                   >
-                    <li className="group flex items-start gap-3.5 rounded-2xl border border-transparent bg-transparent p-2.5 transition duration-300 hover:border-brand/15 hover:bg-brand-soft/50 sm:gap-4 sm:p-3">
-                      <span
-                        className={`flex size-11 shrink-0 items-center justify-center rounded-full transition duration-300 group-hover:scale-105 sm:size-12 ${
-                          isBrand
-                            ? "bg-brand text-white shadow-[0_8px_20px_rgba(248,104,0,0.28)]"
-                            : "bg-ink text-white shadow-[0_8px_20px_rgba(0,31,56,0.22)]"
+                    <span
+                      className={`flex size-11 shrink-0 items-center justify-center rounded-full transition duration-300 group-hover:scale-105 sm:size-12 ${
+                        isBrand
+                          ? "bg-brand-dark text-white shadow-[0_8px_20px_rgba(179,71,0,0.28)]"
+                          : "bg-ink text-white shadow-[0_8px_20px_rgba(0,31,56,0.22)]"
+                      }`}
+                    >
+                      <Icon
+                        className="size-[18px] sm:size-5"
+                        strokeWidth={2}
+                        aria-hidden
+                      />
+                    </span>
+                    <div className="min-w-0 pt-0.5">
+                      <p
+                        className={`text-[14.5px] font-extrabold leading-tight sm:text-[16px] ${
+                          isBrand ? "text-brand-dark" : "text-ink"
                         }`}
                       >
-                        <Icon
-                          className="size-[18px] sm:size-5"
-                          strokeWidth={2}
-                          aria-hidden
-                        />
-                      </span>
-                      <div className="min-w-0 pt-0.5">
-                        <p
-                          className={`text-[14.5px] font-extrabold leading-tight sm:text-[16px] ${
-                            isBrand ? "text-brand" : "text-ink"
-                          }`}
-                        >
-                          {point.title}
-                        </p>
-                        <p className="mt-1 text-[13px] font-medium leading-snug text-muted sm:text-[14px]">
-                          {point.detail}
-                        </p>
-                      </div>
-                    </li>
+                        {point.title}
+                      </p>
+                      <p className="mt-1 text-[13px] font-medium leading-snug text-muted sm:text-[14px]">
+                        {point.detail}
+                      </p>
+                    </div>
                   </Reveal>
                 );
               })}

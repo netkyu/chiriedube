@@ -241,14 +241,14 @@ export default function B2BOffer() {
                       Prin trimitere accepti{" "}
                       <a
                         href="/termeni-si-conditii"
-                        className="font-extrabold text-brand underline-offset-2 hover:underline"
+                        className="font-extrabold text-brand-dark underline-offset-2 hover:underline"
                       >
                         Termenii
                       </a>{" "}
                       și{" "}
                       <a
                         href="/politica-de-confidentialitate"
-                        className="font-extrabold text-brand underline-offset-2 hover:underline"
+                        className="font-extrabold text-brand-dark underline-offset-2 hover:underline"
                       >
                         Confidențialitatea
                       </a>

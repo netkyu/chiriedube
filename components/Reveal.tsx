@@ -2,6 +2,7 @@
 
 import {
   type CSSProperties,
+  type ElementType,
   type ReactNode,
   useEffect,
   useRef,
@@ -26,6 +27,8 @@ type RevealProps = {
   duration?: number;
   className?: string;
   once?: boolean;
+  /** Render as a different element (e.g. `li` inside lists). */
+  as?: ElementType;
 };
 
 export default function Reveal({
@@ -35,8 +38,9 @@ export default function Reveal({
   duration = 800,
   className = "",
   once = true,
+  as: Tag = "div",
 }: RevealProps) {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLElement | null>(null);
   // Start visible for SSR; hide after mount then reveal on scroll
   const [visible, setVisible] = useState(true);
 
@@ -76,12 +80,12 @@ export default function Reveal({
   } as CSSProperties;
 
   return (
-    <div
+    <Tag
       ref={ref}
       style={style}
       className={`reveal reveal-${variant} ${visible ? "is-in" : ""} ${className}`}
     >
       {children}
-    </div>
+    </Tag>
   );
 }

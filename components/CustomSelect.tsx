@@ -22,6 +22,7 @@ export default function CustomSelect({
   const [value, setValue] = useState("");
   const rootRef = useRef<HTMLDivElement>(null);
   const listId = useId();
+  const labelId = useId();
 
   useEffect(() => {
     if (!open) return;
@@ -46,13 +47,16 @@ export default function CustomSelect({
 
   return (
     <div ref={rootRef} className="relative block text-[14px] sm:text-[0.9375rem]">
-      <span className="mb-1.5 block font-extrabold text-ink">{label}</span>
+      <span id={labelId} className="mb-1.5 block font-extrabold text-ink">
+        {label}
+      </span>
       <input type="hidden" name={name} value={value} required={required} />
       <button
         type="button"
         aria-haspopup="listbox"
         aria-expanded={open}
         aria-controls={listId}
+        aria-labelledby={labelId}
         onClick={() => setOpen((prev) => !prev)}
         className={`flex min-h-[44px] w-full items-center justify-between rounded-xl border bg-surface px-3.5 py-2.5 text-left font-medium outline-none transition focus:border-brand focus:bg-white focus:ring-2 focus:ring-brand/20 sm:py-3 ${
           open
@@ -83,6 +87,7 @@ export default function CustomSelect({
         <ul
           id={listId}
           role="listbox"
+          aria-labelledby={labelId}
           className="mt-2 overflow-hidden rounded-xl border border-slate-200 bg-white p-1.5 shadow-[0_18px_40px_rgba(15,23,42,0.14)]"
         >
           {options.map((option) => {

@@ -223,7 +223,7 @@ export default function Header() {
                 href={contact.whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-[44px] items-center justify-center gap-2 rounded-xl bg-[#25D366] text-[14px] font-extrabold text-white transition active:scale-[0.98]"
+                className="inline-flex h-[44px] items-center justify-center gap-2 rounded-xl bg-[#128C7E] text-[14px] font-extrabold text-white transition active:scale-[0.98]"
               >
                 <MessageCircle className="size-4" strokeWidth={2.2} aria-hidden />
                 WhatsApp

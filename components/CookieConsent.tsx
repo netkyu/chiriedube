@@ -130,7 +130,7 @@ export default function CookieConsent() {
               Folosim cookies esențiale. Cu acordul tău și analitice / marketing.{" "}
               <a
                 href="/politica-cookies"
-                className="font-extrabold text-brand underline-offset-2 hover:underline"
+                className="font-extrabold text-brand-dark underline-offset-2 hover:underline"
               >
                 Detalii
               </a>
