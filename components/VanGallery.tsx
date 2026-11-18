@@ -78,7 +78,7 @@ export default function VanGallery({
             >
               <Image
                 src={image.src}
-                alt=""
+                alt={`${vanName}, ${image.alt}`}
                 fill
                 className="object-cover"
                 sizes="220px"

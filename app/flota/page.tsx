@@ -5,32 +5,60 @@ import Footer from "@/components/Footer";
 import ContactCTA from "@/components/ContactCTA";
 import FleetCatalog from "@/components/FleetCatalog";
 import Reveal from "@/components/Reveal";
-import { siteConfig } from "@/lib/data";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import JsonLd from "@/components/JsonLd";
+import {
+  breadcrumbLd,
+  fleetItemListLd,
+  pageOpenGraph,
+  pageTwitter,
+} from "@/lib/seo";
+
+const title = "Flotă";
+const description =
+  "Autoutilitare, remorci și auto de închiriat în Satu Mare. Filtrează după categorie, brand și preț. Rezervare pe WhatsApp.";
 
 export const metadata: Metadata = {
-  title: "Flotă",
-  description:
-    "Autoutilitare, remorci și auto de închiriat în Satu Mare. Filtrează după categorie, brand și preț.",
-  alternates: { canonical: `${siteConfig.url}/flota` },
-  openGraph: {
-    title: "Flotă | chiriedube.ro",
-    description:
-      "Autoutilitare, remorci și auto. Rezervare pe WhatsApp.",
-    url: `${siteConfig.url}/flota`,
-  },
+  title,
+  description,
+  alternates: { canonical: "/flota" },
+  openGraph: pageOpenGraph({
+    title: `${title} | chiriedube.ro`,
+    description,
+    path: "/flota",
+  }),
+  twitter: pageTwitter({
+    title: `${title} | chiriedube.ro`,
+    description,
+  }),
 };
 
 export default function FlotaPage() {
   return (
     <>
+      <JsonLd
+        data={breadcrumbLd([
+          { name: "Acasă", path: "/" },
+          { name: "Flotă", path: "/flota" },
+        ])}
+      />
+      <JsonLd data={fleetItemListLd()} />
       <Header />
       <main className="flex-1 bg-white">
         <section className="border-b border-slate-100 bg-[#F8FAFC]">
           <div className="mx-auto max-w-7xl px-4 py-5 sm:px-6 sm:py-12 lg:px-8">
             <Reveal variant="clip">
+              <Breadcrumbs
+                items={[
+                  { label: "Acasă", href: "/" },
+                  { label: "Flotă" },
+                ]}
+              />
+            </Reveal>
+            <Reveal variant="clip" delay={40}>
               <a
                 href="/#flota"
-                className="inline-flex min-h-[36px] items-center gap-1.5 text-[13px] font-bold text-brand transition hover:text-brand-dark sm:min-h-0 sm:text-[14px]"
+                className="mt-3 inline-flex min-h-[36px] items-center gap-1.5 text-[13px] font-bold text-brand transition hover:text-brand-dark sm:min-h-0 sm:text-[14px]"
               >
                 <ArrowLeft className="size-4" strokeWidth={2.4} aria-hidden />
                 Înapoi la pagina principală

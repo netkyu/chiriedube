@@ -13,6 +13,7 @@ import ContactCTA from "@/components/ContactCTA";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import { faqAnswerText, faqs } from "@/lib/data";
+import { fleetItemListLd } from "@/lib/seo";
 
 const faqLd = {
   "@context": "https://schema.org",
@@ -31,6 +32,7 @@ export default function Home() {
   return (
     <>
       <JsonLd data={faqLd} />
+      <JsonLd data={fleetItemListLd()} />
       <Header />
       <main className="flex-1">
         <Hero />

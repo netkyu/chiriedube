@@ -13,13 +13,40 @@ import Footer from "@/components/Footer";
 import ContactCTA from "@/components/ContactCTA";
 import Reveal from "@/components/Reveal";
 import SectionLabel from "@/components/SectionLabel";
-import { contact, siteConfig } from "@/lib/data";
+import { contact } from "@/lib/data";
+import JsonLd from "@/components/JsonLd";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import {
+  breadcrumbLd,
+  pageOpenGraph,
+  pageTwitter,
+  serviceLd,
+} from "@/lib/seo";
+
+const title = "Abonamente de tractare";
+const description =
+  "Abonamente de tractare în Satu Mare. Contactați-ne pe WhatsApp sau telefon pentru ofertă personalizată.";
 
 export const metadata: Metadata = {
-  title: "Abonamente de tractare",
-  description:
-    "Abonamente de tractare în Satu Mare. Contactați-ne pe WhatsApp sau telefon pentru ofertă personalizată.",
-  alternates: { canonical: `${siteConfig.url}/abonamente-tractare` },
+  title,
+  description,
+  alternates: { canonical: "/abonamente-tractare" },
+  openGraph: pageOpenGraph({
+    title: `${title} | chiriedube.ro`,
+    description,
+    path: "/abonamente-tractare",
+    images: [
+      {
+        url: "/images/tow-hero-gradient-v4.jpg",
+        alt: "Serviciu de tractare chiriedube.ro",
+      },
+    ],
+  }),
+  twitter: pageTwitter({
+    title: `${title} | chiriedube.ro`,
+    description,
+    images: ["/images/tow-hero-gradient-v4.jpg"],
+  }),
 };
 
 const covers = [
@@ -50,13 +77,20 @@ const steps = [
 export default function TowSubscriptionsPage() {
   return (
     <>
+      <JsonLd
+        data={breadcrumbLd([
+          { name: "Acasă", path: "/" },
+          { name: "Abonamente de tractare", path: "/abonamente-tractare" },
+        ])}
+      />
+      <JsonLd data={serviceLd()} />
       <Header />
       <main className="flex-1 bg-white">
         <section className="relative min-h-[340px] overflow-hidden border-b border-slate-100 sm:min-h-[400px]">
           <div className="absolute inset-0">
             <Image
               src="/images/tow-hero-gradient-v4.jpg"
-              alt=""
+              alt="Vehicul de tractare disponibil prin abonament chiriedube.ro"
               fill
               priority
               className="object-cover object-[65%_center]"
@@ -78,9 +112,17 @@ export default function TowSubscriptionsPage() {
 
           <div className="relative z-10 mx-auto flex min-h-[340px] max-w-7xl flex-col justify-center px-4 py-10 sm:min-h-[400px] sm:px-6 sm:py-14 lg:px-8 lg:py-16">
             <Reveal variant="clip">
+              <Breadcrumbs
+                items={[
+                  { label: "Acasă", href: "/" },
+                  { label: "Tractare" },
+                ]}
+              />
+            </Reveal>
+            <Reveal variant="clip" delay={40}>
               <a
                 href="/"
-                className="inline-flex items-center gap-1.5 text-[14px] font-bold text-brand transition hover:text-brand-dark"
+                className="mt-3 inline-flex items-center gap-1.5 text-[14px] font-bold text-brand transition hover:text-brand-dark"
               >
                 <ArrowLeft className="size-4" strokeWidth={2.4} aria-hidden />
                 Înapoi acasă

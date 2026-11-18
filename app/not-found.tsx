@@ -1,9 +1,16 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, Home, MessageCircle, Truck } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ContactCTA from "@/components/ContactCTA";
 import { contact } from "@/lib/data";
+
+export const metadata: Metadata = {
+  title: "Pagină negăsită",
+  description: "Pagina căutată nu există pe chiriedube.ro.",
+  robots: { index: false, follow: true },
+};
 
 export default function NotFound() {
   return (

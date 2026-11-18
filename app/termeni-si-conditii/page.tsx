@@ -7,16 +7,24 @@ import {
   siteConfig,
 } from "@/lib/data";
 
+const title = "Termeni și condiții";
+const description =
+  "Termenii și condițiile de închiriere a dubelor pe chiriedube.ro, operate de DUAL SKYTECH SRL.";
+
 export const metadata: Metadata = {
-  title: "Termeni și condiții",
-  description:
-    "Termenii și condițiile de închiriere a dubelor pe chiriedube.ro, operate de DUAL SKYTECH SRL.",
-  alternates: { canonical: `${siteConfig.url}/termeni-si-conditii` },
+  title,
+  description,
+  alternates: { canonical: "/termeni-si-conditii" },
   openGraph: {
-    title: "Termeni și condiții, chiriedube.ro",
+    title: `${title} | chiriedube.ro`,
     description:
       "Condiții de rezervare, plată, garanție, răspundere și anulare pentru închirierea de dube.",
     url: `${siteConfig.url}/termeni-si-conditii`,
+  },
+  twitter: {
+    card: "summary",
+    title: `${title} | chiriedube.ro`,
+    description,
   },
 };
 

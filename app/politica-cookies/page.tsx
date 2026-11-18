@@ -2,16 +2,24 @@ import type { Metadata } from "next";
 import LegalShell, { LegalSection } from "@/components/LegalShell";
 import { company, contact, siteConfig } from "@/lib/data";
 
+const title = "Politica de cookies";
+const description =
+  "Ce cookies folosește chiriedube.ro, de ce, și cum îți poți gestiona consimțământul.";
+
 export const metadata: Metadata = {
-  title: "Politica de cookies",
-  description:
-    "Ce cookies folosește chiriedube.ro, de ce, și cum îți poți gestiona consimțământul.",
-  alternates: { canonical: `${siteConfig.url}/politica-cookies` },
+  title,
+  description,
+  alternates: { canonical: "/politica-cookies" },
   openGraph: {
-    title: "Politica de cookies, chiriedube.ro",
+    title: `${title} | chiriedube.ro`,
     description:
       "Informații despre cookies esențiale, analitice și preferințe pe chiriedube.ro.",
     url: `${siteConfig.url}/politica-cookies`,
+  },
+  twitter: {
+    card: "summary",
+    title: `${title} | chiriedube.ro`,
+    description,
   },
 };
 

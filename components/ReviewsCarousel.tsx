@@ -31,7 +31,13 @@ function Avatar({ name, url }: { name: string; url?: string | null }) {
   if (url) {
     return (
       <span className="relative size-10 shrink-0 overflow-hidden rounded-full bg-slate-100 ring-2 ring-white">
-        <Image src={url} alt="" fill className="object-cover" sizes="40px" />
+        <Image
+          src={url}
+          alt={`Avatar ${name}`}
+          fill
+          className="object-cover"
+          sizes="40px"
+        />
       </span>
     );
   }

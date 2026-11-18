@@ -2,18 +2,24 @@ import type { Metadata } from "next";
 import LegalShell, { LegalSection } from "@/components/LegalShell";
 import { company, contact, pricingRules, siteConfig } from "@/lib/data";
 
+const title = "Politica de confidențialitate";
+const description =
+  "Cum prelucrează DUAL SKYTECH SRL (chiriedube.ro) datele cu caracter personal, conform GDPR.";
+
 export const metadata: Metadata = {
-  title: "Politica de confidențialitate",
-  description:
-    "Cum prelucrează DUAL SKYTECH SRL (chiriedube.ro) datele cu caracter personal, conform GDPR.",
-  alternates: {
-    canonical: `${siteConfig.url}/politica-de-confidentialitate`,
-  },
+  title,
+  description,
+  alternates: { canonical: "/politica-de-confidentialitate" },
   openGraph: {
-    title: "Politica de confidențialitate, chiriedube.ro",
+    title: `${title} | chiriedube.ro`,
     description:
       "Informații GDPR: ce date colectăm, de ce, cât le păstrăm și ce drepturi ai.",
     url: `${siteConfig.url}/politica-de-confidentialitate`,
+  },
+  twitter: {
+    card: "summary",
+    title: `${title} | chiriedube.ro`,
+    description,
   },
 };
 

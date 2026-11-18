@@ -1,79 +1,75 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
-import { company, contact, siteConfig } from "@/lib/data";
+import { siteConfig } from "@/lib/data";
 import JsonLd from "@/components/JsonLd";
 import CookieConsent from "@/components/CookieConsent";
+import {
+  ogImage,
+  organizationLd,
+  pageOpenGraph,
+  pageTwitter,
+  websiteLd,
+} from "@/lib/seo";
 import "./globals.css";
 
 const plusJakarta = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
 });
+
+const homeTitle = "chiriedube.ro | Autoutilitare și remorci în Satu Mare";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "chiriedube.ro | Autoutilitare și remorci în Satu Mare",
+    default: homeTitle,
     template: "%s | chiriedube.ro",
   },
   description: siteConfig.description,
+  applicationName: siteConfig.name,
+  authors: [{ name: "DUAL SKYTECH SRL", url: siteConfig.url }],
+  creator: "DUAL SKYTECH SRL",
+  publisher: "DUAL SKYTECH SRL",
+  category: "vehicle rental",
+  keywords: [
+    "închirieri dube Satu Mare",
+    "închirieri remorci",
+    "autoutilitare de închiriat",
+    "chiriedube",
+    "închirieri auto Satu Mare",
+  ],
   alternates: {
     canonical: "/",
+    languages: { "ro-RO": siteConfig.url },
   },
-  openGraph: {
-    type: "website",
-    locale: siteConfig.locale,
-    url: siteConfig.url,
-    siteName: siteConfig.name,
-    title: "chiriedube.ro | Autoutilitare și remorci în Satu Mare",
+  openGraph: pageOpenGraph({
+    title: homeTitle,
     description: siteConfig.description,
-    images: [
-      {
-        url: "/images/hero-hq-v3.jpg",
-        width: 2560,
-        height: 1440,
-        alt: "Flota chiriedube.ro",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "chiriedube.ro | Autoutilitare și remorci în Satu Mare",
+    path: "/",
+  }),
+  twitter: pageTwitter({
+    title: homeTitle,
     description: siteConfig.description,
-    images: ["/images/hero-hq-v3.jpg"],
-  },
+  }),
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
-};
-
-const localBusinessLd = {
-  "@context": "https://schema.org",
-  "@type": "AutoRental",
-  name: siteConfig.name,
-  legalName: company.legalName,
-  taxID: company.cif,
-  vatID: `RO${company.cif}`,
-  url: siteConfig.url,
-  telephone: contact.phoneHref.replace("tel:", ""),
-  email: contact.email,
-  image: `${siteConfig.url}/images/hero-hq-v3.jpg`,
-  description: siteConfig.description,
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: company.street,
-    addressLocality: company.addressLocality,
-    addressRegion: company.addressRegion,
-    addressCountry: "RO",
+  icons: {
+    icon: "/icon.png",
   },
-  areaServed: {
-    "@type": "AdministrativeArea",
-    name: "Satu Mare",
+  other: {
+    "og:image:alt": ogImage.alt,
   },
-  openingHours: [...contact.openingHours],
-  priceRange: "$$",
 };
 
 export default function RootLayout({
@@ -84,7 +80,8 @@ export default function RootLayout({
   return (
     <html lang="ro" className={`${plusJakarta.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col font-sans">
-        <JsonLd data={localBusinessLd} />
+        <JsonLd data={organizationLd()} />
+        <JsonLd data={websiteLd()} />
         {children}
         <CookieConsent />
       </body>

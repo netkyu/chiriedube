@@ -45,7 +45,7 @@ export default function B2BOffer() {
       <div className="absolute inset-0">
         <Image
           src="/images/bg-urban.jpg"
-          alt=""
+          alt="Fundal urban pentru oferta B2B chiriedube.ro"
           fill
           className="object-cover object-center scale-105"
           sizes="100vw"

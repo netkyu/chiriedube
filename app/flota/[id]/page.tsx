@@ -6,6 +6,7 @@ import VanGallery from "@/components/VanGallery";
 import VanCompare from "@/components/VanCompare";
 import JsonLd from "@/components/JsonLd";
 import Reveal from "@/components/Reveal";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import {
   ArrowLeft,
   Box,
@@ -20,6 +21,12 @@ import {
   pricingRules,
   siteConfig,
 } from "@/lib/data";
+import {
+  absoluteUrl,
+  breadcrumbLd,
+  pageOpenGraph,
+  pageTwitter,
+} from "@/lib/seo";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
@@ -38,21 +45,25 @@ export async function generateMetadata({
   const van = getVanById(id);
   if (!van) return { title: "Vehicul negăsit" };
 
-  const title = `${van.name} | ${van.categoryLabel} din ${van.priceFrom} lei/zi`;
-  const description = `${van.description} Rezervă pe chiriedube.ro.`;
+  const title = `${van.name} — ${van.categoryLabel} de la ${van.priceFrom} lei/zi`;
+  const description = `${van.description} Închiriere în Satu Mare. Rezervă pe WhatsApp pe chiriedube.ro.`;
+  const path = `/flota/${van.id}`;
 
   return {
     title,
     description,
-    alternates: { canonical: `${siteConfig.url}/flota/${van.id}` },
-    openGraph: {
+    alternates: { canonical: path },
+    openGraph: pageOpenGraph({
       title,
       description,
-      url: `${siteConfig.url}/flota/${van.id}`,
+      path,
       images: [{ url: van.image, alt: van.name }],
-      type: "website",
-      locale: siteConfig.locale,
-    },
+    }),
+    twitter: pageTwitter({
+      title,
+      description,
+      images: [van.image],
+    }),
   };
 }
 
@@ -64,8 +75,10 @@ export default async function VanDetailPage({ params }: PageProps) {
   const productLd = {
     "@context": "https://schema.org",
     "@type": "Product",
+    "@id": absoluteUrl(`/flota/${van.id}`),
     name: van.name,
-    image: van.gallery.map((item) => `${siteConfig.url}${item.src}`),
+    sku: van.id,
+    image: van.gallery.map((item) => absoluteUrl(item.src)),
     description: van.description,
     brand: { "@type": "Brand", name: van.brand },
     category: van.categoryLabel,
@@ -73,21 +86,41 @@ export default async function VanDetailPage({ params }: PageProps) {
       "@type": "Offer",
       priceCurrency: "RON",
       price: van.priceFrom,
+      priceValidUntil: `${new Date().getFullYear()}-12-31`,
       availability: "https://schema.org/InStock",
-      url: `${siteConfig.url}/flota/${van.id}`,
+      url: absoluteUrl(`/flota/${van.id}`),
+      seller: {
+        "@type": "Organization",
+        name: siteConfig.name,
+        url: siteConfig.url,
+      },
     },
   };
 
   return (
     <>
       <JsonLd data={productLd} />
+      <JsonLd
+        data={breadcrumbLd([
+          { name: "Acasă", path: "/" },
+          { name: "Flotă", path: "/flota" },
+          { name: van.name, path: `/flota/${van.id}` },
+        ])}
+      />
       <Header />
       <main className="flex-1 bg-white">
         <section className="border-b border-slate-100 bg-[#F8FAFC]">
           <div className="mx-auto max-w-7xl px-4 py-2.5 sm:px-6 sm:py-4 lg:px-8">
+            <Breadcrumbs
+              items={[
+                { label: "Acasă", href: "/" },
+                { label: "Flotă", href: "/flota" },
+                { label: van.name },
+              ]}
+            />
             <a
               href="/flota"
-              className="inline-flex min-h-[32px] items-center gap-1.5 text-[13px] font-bold text-brand transition hover:text-brand-dark sm:min-h-0"
+              className="mt-2 inline-flex min-h-[32px] items-center gap-1.5 text-[13px] font-bold text-brand transition hover:text-brand-dark sm:min-h-0"
             >
               <ArrowLeft className="size-3.5" strokeWidth={2.4} aria-hidden />
               Înapoi la flotă
