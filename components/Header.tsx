@@ -91,7 +91,7 @@ export default function Header() {
               alt="ChirieDube.ro, Dube, platforme, auto"
               fill
               priority
-              quality={85}
+              quality={65}
               className="object-contain object-left"
               sizes="(max-width: 640px) 118px, 180px"
             />
