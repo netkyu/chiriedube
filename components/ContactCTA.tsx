@@ -23,7 +23,7 @@ export default function ContactCTA() {
       {/* Phone FAB only on tablet/desktop, mobile already has phone in hero/header/footer */}
       <a
         href={contact.phoneHref}
-        className="hidden size-[52px] items-center justify-center gap-2 rounded-full bg-brand text-[0.9375rem] font-semibold text-white shadow-lg shadow-orange-900/20 transition hover:bg-brand-dark sm:inline-flex sm:size-auto sm:px-4 sm:py-3"
+        className="hidden size-[52px] items-center justify-center gap-2 rounded-full bg-brand-dark text-[0.9375rem] font-semibold text-white shadow-lg shadow-orange-900/20 transition hover:bg-[#9a3d00] sm:inline-flex sm:size-auto sm:px-4 sm:py-3"
         aria-label={`Sună la ${contact.phoneDisplay}`}
       >
         <Phone className="size-5" aria-hidden />

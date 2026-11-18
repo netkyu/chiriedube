@@ -22,6 +22,7 @@ export default function FancySelect({
   required?: boolean;
 }) {
   const listId = useId();
+  const labelId = useId();
   const rootRef = useRef<HTMLDivElement>(null);
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(
@@ -48,7 +49,10 @@ export default function FancySelect({
 
   return (
     <div ref={rootRef} className="relative block">
-      <span className="text-[11px] font-extrabold uppercase tracking-widest text-muted">
+      <span
+        id={labelId}
+        className="text-[11px] font-extrabold uppercase tracking-widest text-muted"
+      >
         {label}
       </span>
       <input type="hidden" name={name} value={value} required={required} />
@@ -58,6 +62,7 @@ export default function FancySelect({
         aria-haspopup="listbox"
         aria-expanded={open}
         aria-controls={listId}
+        aria-labelledby={labelId}
         onClick={() => setOpen((v) => !v)}
         className={`mt-2 flex h-11 w-full items-center justify-between gap-3 rounded-xl border bg-[#F8FAFC] px-4 text-left text-[14px] font-medium text-ink outline-none transition ${
           open
@@ -77,6 +82,7 @@ export default function FancySelect({
         <ul
           id={listId}
           role="listbox"
+          aria-labelledby={labelId}
           className="absolute left-0 right-0 z-30 mt-2 overflow-hidden rounded-xl border border-slate-200 bg-white py-1.5 shadow-[0_18px_40px_rgba(15,23,42,0.14)]"
         >
           {options.map((option) => {

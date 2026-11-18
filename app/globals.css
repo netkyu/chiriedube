@@ -2,7 +2,8 @@
 
 :root {
   --brand: #f86800;
-  --brand-dark: #d45800;
+  /* Dark enough for white text / links on white (≥ WCAG AA) */
+  --brand-dark: #b34700;
   --brand-soft: #fff1e6;
   --ink: #001f38;
   --muted: #5a6b7d;

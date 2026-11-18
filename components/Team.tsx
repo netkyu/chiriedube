@@ -53,10 +53,9 @@ function Portrait({
             src={image}
             alt={`${name}, administrator ChirieDube`}
             fill
-            className="object-cover object-[42%_8%] transition duration-700 ease-out will-change-transform hover:scale-[1.03]"
-            sizes="(max-width: 640px) 80vw, (max-width: 1024px) 400px, 440px"
-            quality={100}
-            priority
+            className="object-cover object-[42%_8%] transition duration-700 ease-out hover:scale-[1.03]"
+            sizes="(max-width: 640px) 280px, (max-width: 1024px) 360px, 440px"
+            quality={75}
           />
         ) : null}
       </div>

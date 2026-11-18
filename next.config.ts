@@ -4,11 +4,9 @@ const nextConfig: NextConfig = {
   // Allow HMR when opening the site via 127.0.0.1 instead of localhost
   allowedDevOrigins: ["127.0.0.1"],
   images: {
-    // Next 16: missing quality defaults to 75, then snaps to nearest allowed.
-    // With only [90, 100], every Image without an explicit quality serves at 90.
-    qualities: [90, 100],
-    // AVIF can smear fine detail on soft AI sources; WebP is safer here.
-    formats: ["image/webp"],
+    // Lower defaults for PageSpeed; still allow 90 for rare detail shots.
+    qualities: [65, 75, 85, 90],
+    formats: ["image/avif", "image/webp"],
     remotePatterns: [
       {
         protocol: "https",

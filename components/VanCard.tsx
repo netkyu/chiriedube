@@ -20,7 +20,8 @@ export default function VanCard({ van }: { van: FleetVan }) {
             alt={van.name}
             fill
             className="object-cover object-[center_65%]"
-            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 360px"
+            quality={75}
           />
           <span className="absolute left-2.5 top-2.5 rounded-full bg-white/95 px-2 py-0.5 text-[11px] font-extrabold uppercase tracking-[0.04em] text-brand shadow-sm sm:left-3 sm:top-3 sm:px-2.5 sm:py-1 sm:text-[12px]">
             {van.categoryLabel}
@@ -103,7 +104,7 @@ export default function VanCard({ van }: { van: FleetVan }) {
             </div>
             <Link
               href={`/flota/${van.id}`}
-              className="inline-flex h-[42px] w-full items-center justify-center gap-1.5 rounded-xl bg-brand px-3.5 text-[13px] font-extrabold text-white transition hover:bg-brand-dark sm:mt-2.5 sm:h-auto sm:w-auto sm:py-2.5 sm:text-[0.9375rem]"
+              className="inline-flex h-[42px] w-full items-center justify-center gap-1.5 rounded-xl bg-brand-dark px-3.5 text-[13px] font-extrabold text-white transition hover:bg-[#9a3d00] sm:mt-2.5 sm:h-auto sm:w-auto sm:py-2.5 sm:text-[0.9375rem]"
             >
               Detalii
               <ArrowRight className="size-4" strokeWidth={2.6} aria-hidden />

@@ -23,6 +23,7 @@ export default function Header() {
       return;
     }
 
+    let ticking = false;
     function updateActive() {
       const headerOffset = 100;
       let current = navLinks[0]?.href ?? "/#acasa";
@@ -45,17 +46,24 @@ export default function Header() {
         current = lastHash?.href ?? current;
       }
 
-      setActive(current);
+      setActive((prev) => (prev === current ? prev : current));
+      ticking = false;
+    }
+
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(updateActive);
     }
 
     updateActive();
-    window.addEventListener("scroll", updateActive, { passive: true });
-    window.addEventListener("resize", updateActive);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
     window.addEventListener("hashchange", updateActive);
 
     return () => {
-      window.removeEventListener("scroll", updateActive);
-      window.removeEventListener("resize", updateActive);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
       window.removeEventListener("hashchange", updateActive);
     };
   }, [pathname]);
@@ -83,7 +91,7 @@ export default function Header() {
               alt="ChirieDube.ro, Dube, platforme, auto"
               fill
               priority
-              unoptimized
+              quality={85}
               className="object-contain object-left"
               sizes="(max-width: 640px) 118px, 180px"
             />
@@ -99,8 +107,8 @@ export default function Header() {
                 href={link.href}
                 className={`relative pb-1 text-[15px] transition-colors duration-200 lg:text-[16px] ${
                   isActive
-                    ? "font-extrabold text-brand after:absolute after:inset-x-0 after:-bottom-0.5 after:h-[3px] after:origin-left after:scale-x-100 after:rounded-full after:bg-brand after:transition-transform after:duration-300"
-                    : "font-medium text-ink after:absolute after:inset-x-0 after:-bottom-0.5 after:h-[3px] after:origin-left after:scale-x-0 after:rounded-full after:bg-brand after:transition-transform after:duration-300 hover:text-brand hover:after:scale-x-100"
+                    ? "font-extrabold text-brand-dark after:absolute after:inset-x-0 after:-bottom-0.5 after:h-[3px] after:origin-left after:scale-x-100 after:rounded-full after:bg-brand after:transition-transform after:duration-300"
+                    : "font-medium text-ink after:absolute after:inset-x-0 after:-bottom-0.5 after:h-[3px] after:origin-left after:scale-x-0 after:rounded-full after:bg-brand after:transition-transform after:duration-300 hover:text-brand-dark hover:after:scale-x-100"
                 }`}
               >
                 {link.label}
@@ -114,7 +122,7 @@ export default function Header() {
             href={contact.whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex h-[40px] items-center gap-1.5 rounded-xl bg-brand px-3 text-[13px] font-bold text-white transition duration-200 hover:bg-brand-dark active:scale-[0.97] sm:h-auto sm:gap-2 sm:px-4 sm:py-2.5 sm:text-[0.9375rem] sm:font-semibold"
+            className="inline-flex h-[40px] items-center gap-1.5 rounded-xl bg-brand-dark px-3 text-[13px] font-bold text-white transition duration-200 hover:bg-[#9a3d00] active:scale-[0.97] sm:h-auto sm:gap-2 sm:px-4 sm:py-2.5 sm:text-[0.9375rem] sm:font-semibold"
           >
             <CalendarDays className="size-4" strokeWidth={2.2} aria-hidden />
             <span className="hidden sm:inline">Rezervă acum</span>
@@ -206,7 +214,7 @@ export default function Header() {
             >
               <a
                 href={contact.phoneHref}
-                className="inline-flex h-[44px] items-center justify-center gap-2 rounded-xl border border-brand bg-white text-[14px] font-extrabold text-brand transition active:scale-[0.98]"
+                className="inline-flex h-[44px] items-center justify-center gap-2 rounded-xl border border-brand-dark bg-white text-[14px] font-extrabold text-brand-dark transition active:scale-[0.98]"
               >
                 <Phone className="size-4" strokeWidth={2.2} aria-hidden />
                 {contact.phoneDisplay}
