@@ -1,5 +1,36 @@
 import { company, contact, fleet, siteConfig } from "@/lib/data";
 
+type FleetVan = (typeof fleet)[number];
+
+function productOfferLd(van: FleetVan) {
+  const url = absoluteUrl(`/flota/${van.id}`);
+  return {
+    "@type": "Product" as const,
+    "@id": `${url}#product`,
+    name: van.name,
+    sku: van.id,
+    url,
+    image: absoluteUrl(van.image),
+    description: van.description,
+    brand: { "@type": "Brand" as const, name: van.brand },
+    category: van.categoryLabel,
+    offers: {
+      "@type": "Offer" as const,
+      url,
+      price: van.priceFrom,
+      priceCurrency: "RON",
+      priceValidUntil: `${new Date().getFullYear()}-12-31`,
+      availability: "https://schema.org/InStock",
+      itemCondition: "https://schema.org/UsedCondition",
+      seller: {
+        "@type": "Organization" as const,
+        name: siteConfig.name,
+        url: siteConfig.url,
+      },
+    },
+  };
+}
+
 export const ogImage = {
   url: "/images/hero-hq-v20.jpg",
   width: 2560,
@@ -102,19 +133,13 @@ export function organizationLd() {
       "@type": "OfferCatalog",
       name: "Flota chiriedube.ro",
       itemListElement: fleet.map((van, index) => ({
-        "@type": "OfferCatalog",
-        name: van.categoryLabel,
-        itemListElement: {
-          "@type": "Offer",
-          position: index + 1,
-          itemOffered: {
-            "@type": "Product",
-            name: van.name,
-            url: absoluteUrl(`/flota/${van.id}`),
-          },
-          price: van.priceFrom,
-          priceCurrency: "RON",
-        },
+        "@type": "Offer",
+        position: index + 1,
+        url: absoluteUrl(`/flota/${van.id}`),
+        price: van.priceFrom,
+        priceCurrency: "RON",
+        availability: "https://schema.org/InStock",
+        itemOffered: productOfferLd(van),
       })),
     },
   };
@@ -158,8 +183,7 @@ export function fleetItemListLd() {
     itemListElement: fleet.map((van, index) => ({
       "@type": "ListItem",
       position: index + 1,
-      url: absoluteUrl(`/flota/${van.id}`),
-      name: van.name,
+      item: productOfferLd(van),
     })),
   };
 }

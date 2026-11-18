@@ -75,9 +75,10 @@ export default async function VanDetailPage({ params }: PageProps) {
   const productLd = {
     "@context": "https://schema.org",
     "@type": "Product",
-    "@id": absoluteUrl(`/flota/${van.id}`),
+    "@id": `${absoluteUrl(`/flota/${van.id}`)}#product`,
     name: van.name,
     sku: van.id,
+    url: absoluteUrl(`/flota/${van.id}`),
     image: van.gallery.map((item) => absoluteUrl(item.src)),
     description: van.description,
     brand: { "@type": "Brand", name: van.brand },
@@ -88,6 +89,7 @@ export default async function VanDetailPage({ params }: PageProps) {
       price: van.priceFrom,
       priceValidUntil: `${new Date().getFullYear()}-12-31`,
       availability: "https://schema.org/InStock",
+      itemCondition: "https://schema.org/UsedCondition",
       url: absoluteUrl(`/flota/${van.id}`),
       seller: {
         "@type": "Organization",
