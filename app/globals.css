@@ -2,8 +2,7 @@
 
 :root {
   --brand: #f86800;
-  /* Dark enough for white text / links on white (≥ WCAG AA) */
-  --brand-dark: #b34700;
+  --brand-dark: #d45800;
   --brand-soft: #fff1e6;
   --ink: #001f38;
   --muted: #5a6b7d;
@@ -11,6 +10,8 @@
   --white: #ffffff;
   --background: var(--white);
   --foreground: var(--ink);
+  /* Uniform UI scale (~30% smaller than the previous layout) */
+  --ui-scale: 0.7;
 }
 
 @theme inline {
@@ -27,16 +28,31 @@
 
 html {
   scroll-behavior: smooth;
-  /* Mobile: ~10% smaller text overall (was 15px) */
+  /* Base rem size; overall density also scaled via zoom below */
   font-size: 13.5px;
   overflow-x: clip;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  zoom: var(--ui-scale);
 }
 
 @media (min-width: 640px) {
   html {
     font-size: 15.5px;
+  }
+}
+
+/* Firefox: zoom support is incomplete — scale the document instead */
+@supports not (zoom: 1) {
+  html {
+    zoom: normal;
+  }
+
+  body {
+    transform: scale(var(--ui-scale));
+    transform-origin: top center;
+    width: calc(100% / var(--ui-scale));
+    margin-inline: auto;
   }
 }
 

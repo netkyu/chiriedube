@@ -130,7 +130,7 @@ export default function CookieConsent() {
               Folosim cookies esențiale. Cu acordul tău și analitice / marketing.{" "}
               <a
                 href="/politica-cookies"
-                className="font-extrabold text-brand-dark underline-offset-2 hover:underline"
+                className="font-extrabold text-brand underline-offset-2 hover:underline"
               >
                 Detalii
               </a>
@@ -194,7 +194,7 @@ export default function CookieConsent() {
               <button
                 type="button"
                 onClick={acceptAll}
-                className="inline-flex min-h-[44px] items-center justify-center rounded-xl bg-brand-dark px-3 py-2 text-[13px] font-extrabold text-white transition hover:bg-[#9a3d00] sm:min-h-0 sm:px-4 sm:py-2.5 sm:text-[14px]"
+                className="inline-flex min-h-[44px] items-center justify-center rounded-xl bg-brand px-3 py-2 text-[13px] font-extrabold text-white transition hover:bg-brand-dark sm:min-h-0 sm:px-4 sm:py-2.5 sm:text-[14px]"
               >
                 Acceptă
               </button>

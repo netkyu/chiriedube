@@ -128,7 +128,7 @@ export default function Team() {
                     <span
                       className={`flex size-11 shrink-0 items-center justify-center rounded-full transition duration-300 group-hover:scale-105 sm:size-12 ${
                         isBrand
-                          ? "bg-brand-dark text-white shadow-[0_8px_20px_rgba(179,71,0,0.28)]"
+                          ? "bg-brand text-white shadow-[0_8px_20px_rgba(248,104,0,0.28)]"
                           : "bg-ink text-white shadow-[0_8px_20px_rgba(0,31,56,0.22)]"
                       }`}
                     >
@@ -141,7 +141,7 @@ export default function Team() {
                     <div className="min-w-0 pt-0.5">
                       <p
                         className={`text-[14.5px] font-extrabold leading-tight sm:text-[16px] ${
-                          isBrand ? "text-brand-dark" : "text-ink"
+                          isBrand ? "text-brand" : "text-ink"
                         }`}
                       >
                         {point.title}

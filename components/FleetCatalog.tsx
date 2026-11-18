@@ -229,7 +229,7 @@ export default function FleetCatalog() {
             <button
               type="button"
               onClick={resetFilters}
-              className="mt-4 inline-flex min-h-[42px] items-center rounded-xl bg-brand-dark px-5 text-[14px] font-extrabold text-white transition hover:bg-[#9a3d00] sm:mt-5 sm:text-[0.9375rem]"
+              className="mt-4 inline-flex min-h-[42px] items-center rounded-xl bg-brand px-5 text-[14px] font-extrabold text-white transition hover:bg-brand-dark sm:mt-5 sm:text-[0.9375rem]"
             >
               Resetează filtrele
             </button>

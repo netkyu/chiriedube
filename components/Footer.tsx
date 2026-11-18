@@ -48,7 +48,7 @@ export default function Footer() {
                 href={contact.whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-[44px] items-center justify-center gap-2 rounded-xl bg-brand-dark px-4 text-[14px] font-extrabold text-white transition hover:bg-[#9a3d00] sm:h-auto sm:px-5 sm:py-3 sm:text-[0.9375rem]"
+                className="inline-flex h-[44px] items-center justify-center gap-2 rounded-xl bg-brand px-4 text-[14px] font-extrabold text-white transition hover:bg-brand-dark sm:h-auto sm:px-5 sm:py-3 sm:text-[0.9375rem]"
               >
                 Rezervă acum
                 <ArrowUpRight className="size-4" strokeWidth={2.4} aria-hidden />

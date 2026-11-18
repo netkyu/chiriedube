@@ -104,7 +104,7 @@ export default function VanCard({ van }: { van: FleetVan }) {
             </div>
             <Link
               href={`/flota/${van.id}`}
-              className="inline-flex h-[42px] w-full items-center justify-center gap-1.5 rounded-xl bg-brand-dark px-3.5 text-[13px] font-extrabold text-white transition hover:bg-[#9a3d00] sm:mt-2.5 sm:h-auto sm:w-auto sm:py-2.5 sm:text-[0.9375rem]"
+              className="inline-flex h-[42px] w-full items-center justify-center gap-1.5 rounded-xl bg-brand px-3.5 text-[13px] font-extrabold text-white transition hover:bg-brand-dark sm:mt-2.5 sm:h-auto sm:w-auto sm:py-2.5 sm:text-[0.9375rem]"
             >
               Detalii
               <ArrowRight className="size-4" strokeWidth={2.6} aria-hidden />

@@ -15,7 +15,7 @@ export default function SectionLabel({
   className = "",
 }: SectionLabelProps) {
   const color =
-    tone === "light" ? "text-orange-100" : "text-brand-dark";
+    tone === "light" ? "text-orange-200" : "text-brand";
 
   return (
     <span

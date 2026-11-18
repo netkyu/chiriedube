@@ -57,7 +57,7 @@ export default function Hero() {
             <Reveal variant="up" delay={60} duration={700}>
               <h1 className="mt-2 text-[28px] font-extrabold leading-[1.08] tracking-tight text-ink sm:mt-4 sm:text-[3.18rem] lg:text-[3.71rem]">
                 Închiriază o dubă simplu și{" "}
-                <span className="text-brand-dark">rapid</span>
+                <span className="text-brand">rapid</span>
               </h1>
             </Reveal>
 
@@ -73,7 +73,7 @@ export default function Hero() {
               <div className="mt-3.5 grid grid-cols-2 gap-2 sm:mt-7 sm:flex sm:items-center sm:gap-3">
                 <a
                   href="/flota"
-                  className="inline-flex h-[44px] items-center justify-center gap-2 rounded-xl bg-brand-dark px-3 text-[14px] font-extrabold text-white transition hover:bg-[#9a3d00] sm:h-auto sm:gap-2.5 sm:px-6 sm:py-3.5 sm:text-[16px]"
+                  className="inline-flex h-[44px] items-center justify-center gap-2 rounded-xl bg-brand px-3 text-[14px] font-extrabold text-white transition hover:bg-brand-dark sm:h-auto sm:gap-2.5 sm:px-6 sm:py-3.5 sm:text-[16px]"
                 >
                   <Truck className="size-[18px] sm:size-5" strokeWidth={2.2} aria-hidden />
                   Vezi flota
@@ -81,7 +81,7 @@ export default function Hero() {
                 </a>
                 <a
                   href={contact.phoneHref}
-                  className="inline-flex h-[44px] items-center justify-center gap-2 rounded-xl border-[1.5px] border-brand-dark bg-white px-3 text-[14px] font-extrabold text-brand-dark transition hover:bg-brand-soft sm:h-auto sm:gap-2.5 sm:px-6 sm:py-3.5 sm:text-[16px]"
+                  className="inline-flex h-[44px] items-center justify-center gap-2 rounded-xl border-[1.5px] border-brand bg-white px-3 text-[14px] font-extrabold text-brand transition hover:bg-brand-soft sm:h-auto sm:gap-2.5 sm:px-6 sm:py-3.5 sm:text-[16px]"
                 >
                   <Phone className="size-[18px] sm:size-5" strokeWidth={2.2} aria-hidden />
                   Sună acum

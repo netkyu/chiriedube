@@ -208,7 +208,7 @@ export default function BookingPanel({
           aria-disabled={!valid}
           className={`inline-flex min-h-[46px] w-full items-center justify-center gap-2 rounded-xl px-4 py-3 text-[14px] font-extrabold text-white transition ${
             valid
-              ? "bg-[#128C7E] hover:bg-[#0e7368]"
+              ? "bg-[#25D366] hover:bg-[#1ebe57]"
               : "pointer-events-none bg-slate-300"
           }`}
         >
@@ -219,14 +219,14 @@ export default function BookingPanel({
           Trimițând solicitarea, accepti{" "}
           <a
             href="/termeni-si-conditii"
-            className="font-extrabold text-brand-dark underline-offset-2 hover:underline"
+            className="font-extrabold text-brand underline-offset-2 hover:underline"
           >
             Termenii și condițiile
           </a>{" "}
           și{" "}
           <a
             href="/politica-de-confidentialitate"
-            className="font-extrabold text-brand-dark underline-offset-2 hover:underline"
+            className="font-extrabold text-brand underline-offset-2 hover:underline"
           >
             Politica de confidențialitate
           </a>

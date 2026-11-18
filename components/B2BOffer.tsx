@@ -232,7 +232,7 @@ export default function B2BOffer() {
                     </label>
                     <button
                       type="submit"
-                      className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-brand-dark px-5 py-3 text-[15px] font-extrabold text-white shadow-[0_14px_32px_rgba(179,71,0,0.35)] transition hover:-translate-y-0.5 sm:py-3.5 sm:text-[16px] hover:bg-[#9a3d00]"
+                      className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-brand px-5 py-3 text-[15px] font-extrabold text-white shadow-[0_14px_32px_rgba(248,104,0,0.35)] transition hover:-translate-y-0.5 sm:py-3.5 sm:text-[16px] hover:bg-brand-dark"
                     >
                       Trimite cererea
                       <Send className="size-4" aria-hidden />
@@ -241,14 +241,14 @@ export default function B2BOffer() {
                       Prin trimitere accepti{" "}
                       <a
                         href="/termeni-si-conditii"
-                        className="font-extrabold text-brand-dark underline-offset-2 hover:underline"
+                        className="font-extrabold text-brand underline-offset-2 hover:underline"
                       >
                         Termenii
                       </a>{" "}
                       și{" "}
                       <a
                         href="/politica-de-confidentialitate"
-                        className="font-extrabold text-brand-dark underline-offset-2 hover:underline"
+                        className="font-extrabold text-brand underline-offset-2 hover:underline"
                       >
                         Confidențialitatea
                       </a>

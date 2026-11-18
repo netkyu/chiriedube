@@ -156,7 +156,7 @@ export default function TowSubscriptionsPage() {
                   href={contact.whatsappHref}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-[#128C7E] px-6 text-[15px] font-extrabold text-white transition hover:bg-[#0e7368]"
+                  className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-[#25D366] px-6 text-[15px] font-extrabold text-white transition hover:bg-[#1ebe57]"
                 >
                   <MessageCircle className="size-4" strokeWidth={2.2} aria-hidden />
                   Scrie pe WhatsApp
