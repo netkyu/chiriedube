@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
 import { company, contact, legalLinks, navLinks, siteConfig } from "@/lib/data";
+import { serviceAreaPath, serviceAreas } from "@/lib/service-areas";
 import { openCookieSettings } from "@/components/CookieConsent";
 import Reveal from "./Reveal";
 
@@ -184,6 +185,29 @@ export default function Footer() {
             </div>
           </Reveal>
 
+        </div>
+
+        <div className="border-t border-white/10 py-6">
+          <Reveal variant="up" delay={40}>
+            <p className="text-[10px] font-extrabold uppercase tracking-[0.14em] text-orange-300">
+              Zone deservite
+            </p>
+            <p className="mt-2 max-w-3xl text-[11px] font-medium leading-relaxed text-slate-400 sm:text-[12px]">
+              Preluare în Satu Mare. Deservim și clienți din localitățile
+              apropiate:
+            </p>
+            <div className="mt-3 flex flex-wrap gap-x-3 gap-y-2">
+              {serviceAreas.map((area) => (
+                <a
+                  key={area.slug}
+                  href={serviceAreaPath(area.slug)}
+                  className="text-[12px] font-semibold text-slate-200 transition hover:text-brand sm:text-[13px]"
+                >
+                  {area.name}
+                </a>
+              ))}
+            </div>
+          </Reveal>
         </div>
 
         {/* Bottom */}

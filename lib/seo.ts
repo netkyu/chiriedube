@@ -1,4 +1,5 @@
 import { company, contact, fleet, siteConfig } from "@/lib/data";
+import { serviceAreas } from "@/lib/service-areas";
 
 type FleetVan = (typeof fleet)[number];
 
@@ -170,6 +171,10 @@ export function organizationLd() {
     },
     areaServed: [
       { "@type": "AdministrativeArea", name: "Satu Mare" },
+      ...serviceAreas.map((area) => ({
+        "@type": "City" as const,
+        name: area.name,
+      })),
       { "@type": "Country", name: "România" },
     ],
     contactPoint: [

@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { fleet, siteConfig } from "@/lib/data";
+import { serviceAreaPath, serviceAreas } from "@/lib/service-areas";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -8,6 +9,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: now,
     changeFrequency: "weekly" as const,
     priority: 0.8,
+  }));
+  const areaPages = serviceAreas.map((area) => ({
+    url: `${siteConfig.url}${serviceAreaPath(area.slug)}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.75,
   }));
 
   return [
@@ -48,5 +55,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.3,
     },
     ...vanPages,
+    ...areaPages,
   ];
 }

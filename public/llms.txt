@@ -13,6 +13,15 @@ Site public de rezervări și informații despre flotă. Contact principal: tele
 - [Politica de confidențialitate](https://www.chiriedube.ro/politica-de-confidentialitate): GDPR și date personale
 - [Politica cookies](https://www.chiriedube.ro/politica-cookies): Cookie-uri esențiale și opționale
 
+## Zone (preluare Satu Mare)
+
+- [Carei](https://www.chiriedube.ro/inchirieri-dube/carei)
+- [Baia Mare](https://www.chiriedube.ro/inchirieri-dube/baia-mare)
+- [Zalău](https://www.chiriedube.ro/inchirieri-dube/zalau)
+- [Oradea](https://www.chiriedube.ro/inchirieri-dube/oradea)
+- [Negrești-Oaș](https://www.chiriedube.ro/inchirieri-dube/negresti-oas)
+- [Tășnad](https://www.chiriedube.ro/inchirieri-dube/tasnad)
+
 ## Flotă (exemple)
 
 - [Opel Movano L3H2](https://www.chiriedube.ro/flota/movano): Dubă mare pentru mutări și marfă
