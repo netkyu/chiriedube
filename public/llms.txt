@@ -2,25 +2,25 @@
 
 > Închirieri de autoutilitare (dube), remorci și auto în Satu Mare, România. Operat de DUAL SKYTECH SRL. 300 km/zi incluși, RCA și rovignetă RO.
 
-Site public de rezervări și informații despre flotă. Contact principal: telefon/WhatsApp +40 746 949 866, email dual.vanzari@gmail.com. Sediu: Str. Fabricii Nr. 29, Satu Mare. Program: luni–vineri 09:00–16:30.
+Site public de rezervări și informații despre flotă. Contact principal: telefon/WhatsApp +40 746 949 866, email dual.vanzari@gmail.com. Sediu: Str. Fabricii Nr. 29, Satu Mare. Program: luni–vineri 09:00–16:30. Canonical: https://www.chiriedube.ro
 
 ## Pagini principale
 
-- [Acasă](https://chiriedube.ro/): Prezentare, rezervare rapidă și contact
-- [Flotă](https://chiriedube.ro/flota): Catalog complet de vehicule și remorci
-- [Abonamente tractare](https://chiriedube.ro/abonamente-tractare): Servicii de tractare în Satu Mare
-- [Termeni și condiții](https://chiriedube.ro/termeni-si-conditii): Condiții de închiriere
-- [Politica de confidențialitate](https://chiriedube.ro/politica-de-confidentialitate): GDPR și date personale
-- [Politica cookies](https://chiriedube.ro/politica-cookies): Cookie-uri esențiale și opționale
+- [Acasă](https://www.chiriedube.ro/): Prezentare, rezervare rapidă și contact
+- [Flotă](https://www.chiriedube.ro/flota): Catalog complet de vehicule și remorci
+- [Abonamente tractare](https://www.chiriedube.ro/abonamente-tractare): Servicii de tractare în Satu Mare
+- [Termeni și condiții](https://www.chiriedube.ro/termeni-si-conditii): Condiții de închiriere
+- [Politica de confidențialitate](https://www.chiriedube.ro/politica-de-confidentialitate): GDPR și date personale
+- [Politica cookies](https://www.chiriedube.ro/politica-cookies): Cookie-uri esențiale și opționale
 
 ## Flotă (exemple)
 
-- [Opel Movano L3H2](https://chiriedube.ro/flota/movano): Dubă mare pentru mutări și marfă
-- [Renault Master L2H2](https://chiriedube.ro/flota/master): Dubă medie
-- [Remorcă 4,5 m](https://chiriedube.ro/flota/trailer-45): Remorcă grea 2700 kg
-- [Audi A4 Avant](https://chiriedube.ro/flota/a4): Autoturism break
+- [Opel Movano L3H2](https://www.chiriedube.ro/flota/movano): Dubă mare pentru mutări și marfă
+- [Renault Master L2H2](https://www.chiriedube.ro/flota/master): Dubă medie
+- [Remorcă 4,5 m](https://www.chiriedube.ro/flota/trailer-45): Remorcă grea 2700 kg
+- [Audi A4 Avant](https://www.chiriedube.ro/flota/a4): Autoturism break
 
 ## Optional
 
-- [Sitemap](https://chiriedube.ro/sitemap.xml): Index XML al paginilor publice
-- [Robots](https://chiriedube.ro/robots.txt): Reguli de crawl (admin interzis)
+- [Sitemap](https://www.chiriedube.ro/sitemap.xml): Index XML al paginilor publice
+- [Robots](https://www.chiriedube.ro/robots.txt): Reguli de crawl (admin interzis)

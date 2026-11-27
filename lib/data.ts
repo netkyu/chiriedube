@@ -39,7 +39,8 @@ export const contact = {
 
 export const siteConfig = {
   name: "chiriedube.ro",
-  url: "https://chiriedube.ro",
+  /** Canonical production URL (www is primary; apex redirects 308 → www) */
+  url: "https://www.chiriedube.ro",
   locale: "ro_RO",
   description:
     "Autoutilitare, remorci și auto de închiriat în Satu Mare. 300 km/zi incluși, RCA și rovignetă RO. Operat de DUAL SKYTECH SRL.",
