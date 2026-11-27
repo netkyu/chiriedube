@@ -172,9 +172,19 @@ export default async function ServiceAreaPage({ params }: PageProps) {
       <Header />
       <main className="flex-1 bg-white">
         <section className="relative overflow-x-clip border-b border-slate-100 bg-white">
+          {/* Mobile: crumbs → compact photo → copy. Desktop: homepage split. */}
           <div className="relative w-full overflow-hidden bg-white sm:h-[480px] lg:h-[520px]">
-            {/* Same layout as homepage hero: image panel on the right */}
-            <div className="relative h-[min(36vh,250px)] min-h-[160px] sm:absolute sm:inset-y-0 sm:right-0 sm:left-auto sm:h-auto sm:min-h-0 sm:w-[68%] lg:w-[66%]">
+            <div className="px-4 pt-3 sm:hidden">
+              <Breadcrumbs
+                items={[
+                  { label: "Acasă", href: "/" },
+                  { label: "Flotă", href: "/flota" },
+                  { label: area.name },
+                ]}
+              />
+            </div>
+
+            <div className="relative mx-4 mt-3 h-[132px] overflow-hidden rounded-2xl sm:absolute sm:inset-y-0 sm:right-0 sm:left-auto sm:mx-0 sm:mt-0 sm:h-auto sm:min-h-0 sm:w-[68%] sm:rounded-none lg:w-[66%]">
               <div className="absolute inset-0">
                 <Image
                   src="/images/hero-lcp.webp"
@@ -189,15 +199,6 @@ export default async function ServiceAreaPage({ params }: PageProps) {
 
               <div
                 aria-hidden
-                className="pointer-events-none absolute inset-0 sm:hidden"
-                style={{
-                  background:
-                    "linear-gradient(to top, #ffffff 0%, rgba(255,255,255,0.92) 18%, rgba(255,255,255,0.35) 42%, transparent 62%)",
-                }}
-              />
-
-              <div
-                aria-hidden
                 className="pointer-events-none absolute inset-y-0 left-0 hidden w-[36%] sm:block"
                 style={{
                   background:
@@ -208,50 +209,57 @@ export default async function ServiceAreaPage({ params }: PageProps) {
 
             <div className="pointer-events-none absolute inset-x-0 bottom-0 hidden h-14 bg-gradient-to-t from-white/40 to-transparent sm:block" />
 
-            <div className="relative z-10 mx-auto -mt-14 flex w-full max-w-[1400px] px-4 pb-6 sm:mt-0 sm:h-full sm:items-center sm:px-8 sm:pb-24 sm:pt-6 lg:px-10 lg:pb-28">
-              <div className="w-full max-w-[22rem] sm:max-w-[28rem] lg:max-w-[32rem]">
-                <Reveal variant="clip">
-                  <Breadcrumbs
-                    items={[
-                      { label: "Acasă", href: "/" },
-                      { label: "Flotă", href: "/flota" },
-                      { label: area.name },
-                    ]}
-                  />
-                </Reveal>
+            <div className="relative z-10 mx-auto flex w-full max-w-[1400px] flex-col px-4 pb-6 pt-3.5 sm:h-full sm:justify-center sm:px-8 sm:pb-24 sm:pt-6 lg:px-10 lg:pb-28">
+              <div className="w-full sm:max-w-[28rem] lg:max-w-[32rem]">
+                <div className="hidden sm:block">
+                  <Reveal variant="clip">
+                    <Breadcrumbs
+                      items={[
+                        { label: "Acasă", href: "/" },
+                        { label: "Flotă", href: "/flota" },
+                        { label: area.name },
+                      ]}
+                    />
+                  </Reveal>
+                </div>
 
-                <Reveal variant="up" delay={80}>
-                  <SectionLabel icon={MapPin} className="mt-4">
-                    {area.name}, jud. {area.county} · {area.driveHint}
+                <Reveal variant="up" delay={40}>
+                  <SectionLabel icon={MapPin} className="sm:mt-4">
+                    <span className="sm:hidden">
+                      {area.name} · jud. {area.county}
+                    </span>
+                    <span className="hidden sm:inline">
+                      {area.name}, jud. {area.county} · {area.driveHint}
+                    </span>
                   </SectionLabel>
                 </Reveal>
 
-                <Reveal variant="up" delay={120}>
-                  <h1 className="mt-3 text-[26px] font-extrabold leading-[1.1] tracking-tight text-ink sm:mt-4 sm:text-[2.65rem] lg:text-[3.05rem]">
+                <Reveal variant="up" delay={80}>
+                  <h1 className="mt-2 text-[1.65rem] font-extrabold leading-[1.1] tracking-tight text-ink sm:mt-4 sm:text-[2.65rem] lg:text-[3.05rem]">
                     {area.headline}
                   </h1>
                 </Reveal>
 
-                <Reveal variant="up" delay={180}>
-                  <p className="mt-3 max-w-md text-[13px] font-medium leading-relaxed text-muted sm:mt-4 sm:text-[1.05rem] lg:text-[1.125rem]">
+                <Reveal variant="up" delay={120}>
+                  <p className="mt-2 line-clamp-3 max-w-md text-[13px] font-medium leading-relaxed text-muted sm:mt-4 sm:line-clamp-none sm:text-[1.05rem] lg:text-[1.125rem]">
                     {area.intro}
                   </p>
                 </Reveal>
 
-                <Reveal variant="up" delay={240}>
-                  <div className="mt-5 flex flex-col gap-2.5 sm:mt-7 sm:flex-row sm:flex-wrap sm:items-center">
+                <Reveal variant="up" delay={160}>
+                  <div className="mt-3.5 grid grid-cols-2 gap-2 sm:mt-7 sm:flex sm:flex-wrap sm:items-center sm:gap-3">
                     <a
                       href={contact.whatsappHref}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex h-[40px] items-center justify-center gap-2 rounded-xl bg-[#25D366] px-4 text-[13px] font-extrabold text-white transition hover:bg-[#1ebe57] sm:h-auto sm:px-6 sm:py-3.5 sm:text-[15px]"
+                      className="col-span-2 inline-flex h-[44px] items-center justify-center gap-2 rounded-xl bg-[#25D366] px-4 text-[14px] font-extrabold text-white transition hover:bg-[#1ebe57] sm:col-auto sm:h-auto sm:px-6 sm:py-3.5 sm:text-[15px]"
                     >
                       <MessageCircle className="size-4 sm:size-5" strokeWidth={2.2} aria-hidden />
                       Rezervă pe WhatsApp
                     </a>
                     <a
                       href="/flota"
-                      className="inline-flex h-[40px] items-center justify-center gap-2 rounded-xl border-[1.5px] border-brand bg-white px-4 text-[13px] font-extrabold text-brand transition hover:bg-brand-soft sm:h-auto sm:px-6 sm:py-3.5 sm:text-[15px]"
+                      className="inline-flex h-[44px] items-center justify-center gap-2 rounded-xl border-[1.5px] border-brand bg-white px-3 text-[13px] font-extrabold text-brand transition hover:bg-brand-soft sm:h-auto sm:px-6 sm:py-3.5 sm:text-[15px]"
                     >
                       <Truck className="size-4 sm:size-5" strokeWidth={2.2} aria-hidden />
                       Vezi flota
@@ -259,10 +267,11 @@ export default async function ServiceAreaPage({ params }: PageProps) {
                     </a>
                     <a
                       href={contact.phoneHref}
-                      className="inline-flex h-[40px] items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 text-[13px] font-extrabold text-ink transition hover:border-brand hover:text-brand sm:h-auto sm:px-6 sm:py-3.5 sm:text-[15px]"
+                      className="inline-flex h-[44px] items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-3 text-[13px] font-extrabold text-ink transition hover:border-brand hover:text-brand sm:h-auto sm:px-6 sm:py-3.5 sm:text-[15px]"
                     >
                       <Phone className="size-4 sm:size-5" strokeWidth={2.2} aria-hidden />
-                      {contact.phoneDisplay}
+                      <span className="sm:hidden">Sună</span>
+                      <span className="hidden sm:inline">{contact.phoneDisplay}</span>
                     </a>
                   </div>
                 </Reveal>
