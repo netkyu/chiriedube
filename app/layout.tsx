@@ -84,9 +84,9 @@ export default function RootLayout({
         <link
           rel="preload"
           as="image"
-          href="/images/hero-hq-v20.jpg"
+          href="/images/hero-lcp.webp"
           fetchPriority="high"
-          type="image/jpeg"
+          type="image/webp"
         />
       </head>
       <body className="min-h-full flex flex-col font-sans">

@@ -83,7 +83,6 @@ export default function Header() {
               src="/images/logo-chiriedube-v2.png"
               alt="ChirieDube.ro, Dube, platforme, auto"
               fill
-              priority
               quality={65}
               className="object-contain object-left"
               sizes="(max-width: 640px) 118px, 180px"

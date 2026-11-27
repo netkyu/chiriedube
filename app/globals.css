@@ -10,8 +10,6 @@
   --white: #ffffff;
   --background: var(--white);
   --foreground: var(--ink);
-  /* Uniform UI scale (~30% smaller than the previous layout) */
-  --ui-scale: 0.7;
 }
 
 @theme inline {
@@ -28,31 +26,16 @@
 
 html {
   scroll-behavior: smooth;
-  /* Base rem size; overall density also scaled via zoom below */
-  font-size: 13.5px;
+  /* ~30% denser than default without CSS zoom (zoom breaks Lighthouse LCP) */
+  font-size: 11px;
   overflow-x: clip;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
-  zoom: var(--ui-scale);
 }
 
 @media (min-width: 640px) {
   html {
-    font-size: 15.5px;
-  }
-}
-
-/* Firefox: zoom support is incomplete — scale the document instead */
-@supports not (zoom: 1) {
-  html {
-    zoom: normal;
-  }
-
-  body {
-    transform: scale(var(--ui-scale));
-    transform-origin: top center;
-    width: calc(100% / var(--ui-scale));
-    margin-inline: auto;
+    font-size: 12.5px;
   }
 }
 

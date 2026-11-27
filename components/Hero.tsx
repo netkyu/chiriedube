@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { ArrowRight, MapPin, Phone, Truck } from "lucide-react";
 import { contact } from "@/lib/data";
 import FeaturesBar from "./FeaturesBar";
@@ -10,16 +9,19 @@ export default function Hero() {
       <div className="relative w-full overflow-hidden bg-white sm:h-[560px] lg:h-[600px]">
         <div className="relative h-[min(36vh,250px)] min-h-[200px] sm:absolute sm:inset-y-0 sm:right-0 sm:left-auto sm:h-auto sm:min-h-0 sm:w-[72%] lg:w-[70%]">
           <div className="absolute inset-0">
-            <Image
-              src="/images/hero-hq-v20.jpg"
-              alt="Dubă ChirieDube pe șosea, la apus, disponibilă pentru închiriere"
-              fill
-              priority
-              fetchPriority="high"
-              quality={65}
-              className="object-cover object-[58%_48%] sm:object-[55%_50%]"
-              sizes="(max-width: 640px) 100vw, 72vw"
-            />
+            {/* Native LCP image — avoids /_next/image discovery delay */}
+            <picture>
+              <source srcSet="/images/hero-lcp.webp" type="image/webp" />
+              <img
+                src="/images/hero-hq-v20.jpg"
+                alt="Dubă ChirieDube pe șosea, la apus, disponibilă pentru închiriere"
+                width={1600}
+                height={900}
+                fetchPriority="high"
+                decoding="sync"
+                className="absolute inset-0 h-full w-full object-cover object-[58%_48%] sm:object-[55%_50%]"
+              />
+            </picture>
           </div>
 
           {/* Mobile: fade into white copy below */}
