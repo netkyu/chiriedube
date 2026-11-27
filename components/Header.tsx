@@ -157,7 +157,7 @@ export default function Header() {
       >
         <div className="min-h-0 overflow-hidden">
           <div
-            className={`max-h-[calc(100dvh-60px)] overflow-y-auto px-3 pb-[max(1rem,env(safe-area-inset-bottom,0px))] pt-2 transition duration-300 ${
+            className={`max-h-[calc(100dvh-42px)] overflow-y-auto px-3 pb-[max(1rem,env(safe-area-inset-bottom,0px))] pt-2 transition duration-300 ${
               open ? "opacity-100" : "opacity-0"
             }`}
           >
