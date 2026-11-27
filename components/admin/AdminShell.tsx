@@ -56,7 +56,7 @@ export default function AdminShell({
                   <Link
                     key={href}
                     href={href}
-                    className={`relative inline-flex items-center gap-2 py-1 text-[10px] transition sm:text-[10px] ${
+                    className={`relative inline-flex items-center gap-2 py-1 text-[12px] transition sm:text-[12px] ${
                       active
                         ? "font-extrabold text-brand after:absolute after:inset-x-0 after:-bottom-1 after:h-[2px] after:rounded-full after:bg-brand"
                         : "font-semibold text-ink/55 hover:text-ink"
@@ -74,18 +74,18 @@ export default function AdminShell({
             <Link
               href="/"
               target="_blank"
-              className="hidden items-center gap-1.5 text-[9px] font-bold text-muted transition hover:text-brand sm:inline-flex"
+              className="hidden items-center gap-1.5 text-[11px] font-bold text-muted transition hover:text-brand sm:inline-flex"
             >
               Vezi site
               <ExternalLink className="size-3.5" strokeWidth={2.2} aria-hidden />
             </Link>
-            <span className="hidden max-w-[180px] truncate text-[8px] font-semibold text-muted xl:inline">
+            <span className="hidden max-w-[180px] truncate text-[10px] font-semibold text-muted xl:inline">
               {email}
             </span>
             <form action={adminLogout}>
               <button
                 type="submit"
-                className="inline-flex h-10 items-center gap-1.5 rounded-xl bg-brand px-3.5 text-[9px] font-extrabold text-white shadow-[0_8px_18px_rgba(248,104,0,0.28)] transition hover:bg-brand-dark sm:px-4"
+                className="inline-flex h-10 items-center gap-1.5 rounded-xl bg-brand px-3.5 text-[11px] font-extrabold text-white shadow-[0_8px_18px_rgba(248,104,0,0.28)] transition hover:bg-brand-dark sm:px-4"
               >
                 <LogOut className="size-3.5" strokeWidth={2.4} aria-hidden />
                 Ieșire

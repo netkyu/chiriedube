@@ -101,7 +101,7 @@ export default async function VanDetailPage({ params }: PageProps) {
             />
             <a
               href="/flota"
-              className="mt-2 inline-flex min-h-[22px] items-center gap-1.5 text-[9px] font-bold text-brand transition hover:text-brand-dark sm:min-h-0"
+              className="mt-2 inline-flex min-h-[22px] items-center gap-1.5 text-[11px] font-bold text-brand transition hover:text-brand-dark sm:min-h-0"
             >
               <ArrowLeft className="size-3.5" strokeWidth={2.4} aria-hidden />
               Înapoi la flotă
@@ -129,76 +129,76 @@ export default async function VanDetailPage({ params }: PageProps) {
 
               <Reveal variant="up" delay={60} className="order-4 lg:order-none">
                 <div className="rounded-2xl border border-slate-100 bg-white p-3 shadow-[0_10px_28px_rgba(15,23,42,0.05)] sm:p-4 lg:rounded-t-none lg:border-t lg:shadow-none">
-                  <h2 className="text-[9px] font-extrabold text-ink sm:text-[10px]">
+                  <h2 className="text-[11px] font-extrabold text-ink sm:text-[12px]">
                     Specificații
                   </h2>
                   <ul className="mt-2 grid grid-cols-2 gap-1.5 sm:mt-2.5 sm:gap-2">
                     <li className="rounded-lg bg-[#F8FAFC] px-3 py-2.5">
-                      <p className="flex items-center gap-1.5 text-[7px] font-extrabold uppercase tracking-[0.1em] text-brand">
+                      <p className="flex items-center gap-1.5 text-[8px] font-extrabold uppercase tracking-[0.1em] text-brand">
                         <Box className="size-3" aria-hidden />
                         Tip
                       </p>
-                      <p className="mt-0.5 text-[9px] font-extrabold text-ink">
+                      <p className="mt-0.5 text-[11px] font-extrabold text-ink">
                         {van.volume}
                       </p>
                     </li>
                     <li className="rounded-lg bg-[#F8FAFC] px-3 py-2.5">
-                      <p className="flex items-center gap-1.5 text-[7px] font-extrabold uppercase tracking-[0.1em] text-brand">
+                      <p className="flex items-center gap-1.5 text-[8px] font-extrabold uppercase tracking-[0.1em] text-brand">
                         <Weight className="size-3" aria-hidden />
                         {van.payloadKg > 0 ? "Maxim autorizat" : "Detalii"}
                       </p>
-                      <p className="mt-0.5 text-[9px] font-extrabold text-ink">
+                      <p className="mt-0.5 text-[11px] font-extrabold text-ink">
                         {van.payloadKg > 0
                           ? `${van.payloadKg} kg`
                           : van.payload}
                       </p>
                     </li>
                     <li className="rounded-lg bg-[#F8FAFC] px-3 py-2.5 col-span-2">
-                      <p className="flex items-center gap-1.5 text-[7px] font-extrabold uppercase tracking-[0.1em] text-brand">
+                      <p className="flex items-center gap-1.5 text-[8px] font-extrabold uppercase tracking-[0.1em] text-brand">
                         <Ruler className="size-3" aria-hidden />
                         Dimensiuni
                       </p>
-                      <p className="mt-0.5 text-[9px] font-extrabold text-ink">
+                      <p className="mt-0.5 text-[11px] font-extrabold text-ink">
                         {van.heightCm > 0
                           ? `${van.lengthCm} × ${van.widthCm} × ${van.heightCm} cm`
                           : `${van.lengthCm} × ${van.widthCm} cm`}
                       </p>
                     </li>
                     <li className="rounded-lg bg-[#F8FAFC] px-3 py-2.5">
-                      <p className="flex items-center gap-1.5 text-[7px] font-extrabold uppercase tracking-[0.1em] text-brand">
+                      <p className="flex items-center gap-1.5 text-[8px] font-extrabold uppercase tracking-[0.1em] text-brand">
                         <Users className="size-3" aria-hidden />
                         Locuri / permis
                       </p>
-                      <p className="mt-0.5 text-[9px] font-extrabold text-ink">
+                      <p className="mt-0.5 text-[11px] font-extrabold text-ink">
                         {van.category === "remorca"
                           ? "Talon vehicul tractare"
                           : `${van.seats} · ${pricingRules.license}`}
                       </p>
                     </li>
                     <li className="rounded-lg bg-[#F8FAFC] px-3 py-2.5">
-                      <p className="flex items-center gap-1.5 text-[7px] font-extrabold uppercase tracking-[0.1em] text-brand">
+                      <p className="flex items-center gap-1.5 text-[8px] font-extrabold uppercase tracking-[0.1em] text-brand">
                         <Settings2 className="size-3" aria-hidden />
                         Propulsie / tip
                       </p>
-                      <p className="mt-0.5 text-[9px] font-extrabold text-ink">
+                      <p className="mt-0.5 text-[11px] font-extrabold text-ink">
                         {van.transmission}
                       </p>
                     </li>
                     {van.accessories.length > 0 ? (
                       <li className="rounded-lg bg-[#F8FAFC] px-3 py-2.5 col-span-2">
-                        <p className="text-[7px] font-extrabold uppercase tracking-[0.1em] text-brand">
+                        <p className="text-[8px] font-extrabold uppercase tracking-[0.1em] text-brand">
                           Accesorii
                         </p>
-                        <p className="mt-0.5 text-[9px] font-extrabold text-ink">
+                        <p className="mt-0.5 text-[11px] font-extrabold text-ink">
                           {van.accessories.join(" · ")}
                         </p>
                       </li>
                     ) : null}
                     <li className="rounded-lg bg-[#F8FAFC] px-3 py-2.5 col-span-2">
-                      <p className="text-[7px] font-extrabold uppercase tracking-[0.1em] text-brand">
+                      <p className="text-[8px] font-extrabold uppercase tracking-[0.1em] text-brand">
                         Km & garanție
                       </p>
-                      <p className="mt-0.5 text-[9px] font-extrabold text-ink">
+                      <p className="mt-0.5 text-[11px] font-extrabold text-ink">
                         {van.hasKmLimit
                           ? `${pricingRules.kmIncludedPerDay} km/zi · garanție ${van.depositLei} lei (cash)`
                           : `Fără limită km · fără garanție`}
@@ -215,10 +215,10 @@ export default async function VanDetailPage({ params }: PageProps) {
                   <h1 className="text-[1.5rem] font-extrabold leading-[1.1] tracking-tight text-ink sm:text-[2.1rem]">
                     {van.name}
                   </h1>
-                  <p className="mt-1.5 text-[9px] font-medium leading-snug text-muted sm:mt-2 sm:text-[10px]">
+                  <p className="mt-1.5 text-[11px] font-medium leading-snug text-muted sm:mt-2 sm:text-[12px]">
                     {van.description}
                   </p>
-                  <p className="mt-2 text-[9px] font-semibold text-muted sm:mt-2.5">
+                  <p className="mt-2 text-[11px] font-semibold text-muted sm:mt-2.5">
                     de la{" "}
                     <span className="text-[1.45rem] font-extrabold text-ink sm:text-[1.55rem]">
                       {van.priceFrom} lei

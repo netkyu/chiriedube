@@ -97,7 +97,7 @@ function ValueCell({
 }) {
   return (
     <span
-      className={`inline-flex min-w-0 items-center gap-0.5 text-[8px] font-extrabold leading-snug sm:gap-1 sm:text-[9px] ${
+      className={`inline-flex min-w-0 items-center gap-0.5 text-[10px] font-extrabold leading-snug sm:gap-1 sm:text-[11px] ${
         highlight ? "text-brand" : "text-ink"
       }`}
     >
@@ -127,7 +127,7 @@ export default function VanCompare({ current }: VanCompareProps) {
     <div className="rounded-2xl border border-slate-100 bg-white p-4 shadow-[0_10px_28px_rgba(15,23,42,0.05)] sm:p-5">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <p className="inline-flex items-center gap-1.5 text-[8px] font-extrabold uppercase tracking-[0.12em] text-brand">
+          <p className="inline-flex items-center gap-1.5 text-[10px] font-extrabold uppercase tracking-[0.12em] text-brand">
             <ArrowRightLeft className="size-3.5" aria-hidden />
             Compară
           </p>
@@ -150,7 +150,7 @@ export default function VanCompare({ current }: VanCompareProps) {
       </div>
 
       <div className="mt-3 overflow-hidden rounded-xl border border-slate-100">
-        <div className="grid grid-cols-[minmax(0,4.5rem)_1fr_1fr] gap-1.5 bg-[#F8FAFC] px-2.5 py-2 text-[7px] font-extrabold uppercase tracking-[0.06em] text-muted sm:grid-cols-[1fr_1fr_1fr] sm:gap-2 sm:px-3 sm:text-[8px] sm:tracking-[0.08em]">
+        <div className="grid grid-cols-[minmax(0,4.5rem)_1fr_1fr] gap-1.5 bg-[#F8FAFC] px-2.5 py-2 text-[8px] font-extrabold uppercase tracking-[0.06em] text-muted sm:grid-cols-[1fr_1fr_1fr] sm:gap-2 sm:px-3 sm:text-[10px] sm:tracking-[0.08em]">
           <span>Spec</span>
           <span className="truncate">{leftShort}</span>
           <span className="truncate">{rightShort}</span>
@@ -161,7 +161,7 @@ export default function VanCompare({ current }: VanCompareProps) {
               key={row.label}
               className="grid grid-cols-[minmax(0,4.5rem)_1fr_1fr] gap-1.5 px-2.5 py-2 sm:grid-cols-[1fr_1fr_1fr] sm:gap-2 sm:px-3"
             >
-              <span className="text-[8px] font-semibold leading-snug text-muted sm:text-[8px]">
+              <span className="text-[10px] font-semibold leading-snug text-muted sm:text-[10px]">
                 {row.label}
               </span>
               <ValueCell value={row.left} highlight={row.better === "left"} />
@@ -172,7 +172,7 @@ export default function VanCompare({ current }: VanCompareProps) {
       </div>
 
       <div className="mt-3 flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
-        <p className="text-[8px] font-medium text-muted">
+        <p className="text-[10px] font-medium text-muted">
           Avantaje:{" "}
           <span className="font-extrabold text-ink">
             {leftShort} {leftWins}
@@ -184,7 +184,7 @@ export default function VanCompare({ current }: VanCompareProps) {
         </p>
         <Link
           href={`/flota/${other.id}`}
-          className="inline-flex items-center gap-1 text-[9px] font-extrabold text-brand transition hover:text-brand-dark"
+          className="inline-flex items-center gap-1 text-[11px] font-extrabold text-brand transition hover:text-brand-dark"
         >
           Vezi {rightShort}
           <ArrowRight className="size-3.5" aria-hidden />

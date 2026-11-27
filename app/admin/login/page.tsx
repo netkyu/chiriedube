@@ -28,7 +28,7 @@ export default function AdminLoginPage() {
       <div className="relative z-10 w-full max-w-md">
         <Suspense
           fallback={
-            <div className="rounded-2xl border border-slate-100 bg-white p-8 text-center text-[10px] font-medium text-muted shadow-[0_18px_50px_rgba(248,104,0,0.12)]">
+            <div className="rounded-2xl border border-slate-100 bg-white p-8 text-center text-[12px] font-medium text-muted shadow-[0_18px_50px_rgba(248,104,0,0.12)]">
               Se încarcă...
             </div>
           }

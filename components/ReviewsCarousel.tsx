@@ -42,7 +42,7 @@ function Avatar({ name, url }: { name: string; url?: string | null }) {
     );
   }
   return (
-    <span className="inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-brand-soft text-[8px] font-extrabold tracking-wide text-brand">
+    <span className="inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-brand-soft text-[10px] font-extrabold tracking-wide text-brand">
       {initials(name)}
     </span>
   );
@@ -53,11 +53,11 @@ function AuthorRow({ review }: { review: Review }) {
     <div className="flex min-w-0 items-center gap-2.5">
       <Avatar name={review.author_name} url={review.avatar_url} />
       <div className="min-w-0">
-        <p className="truncate text-[9px] font-extrabold leading-tight text-ink">
+        <p className="truncate text-[11px] font-extrabold leading-tight text-ink">
           {review.author_name}
         </p>
         {review.role ? (
-          <p className="mt-0.5 truncate text-[8px] font-medium leading-tight text-muted">
+          <p className="mt-0.5 truncate text-[10px] font-medium leading-tight text-muted">
             {review.role}
           </p>
         ) : null}
@@ -85,7 +85,7 @@ function PhotoReviewCard({ review }: { review: Review }) {
       </div>
 
       <div className="flex min-h-0 flex-1 flex-col px-5 py-4 sm:px-5 sm:py-4.5">
-        <p className="line-clamp-4 min-h-0 flex-1 text-[10px] font-medium leading-relaxed text-ink sm:text-[10px]">
+        <p className="line-clamp-4 min-h-0 flex-1 text-[12px] font-medium leading-relaxed text-ink sm:text-[12px]">
           „{review.body}”
         </p>
         <div className="mt-3 shrink-0 border-t border-slate-100 pt-3">
@@ -114,7 +114,7 @@ function QuoteReviewCard({ review }: { review: Review }) {
           <Stars rating={review.rating} size="md" />
         </div>
 
-        <p className="mt-4 line-clamp-6 flex-1 text-[10px] font-semibold leading-relaxed text-ink sm:text-[11px]">
+        <p className="mt-4 line-clamp-6 flex-1 text-[12px] font-semibold leading-relaxed text-ink sm:text-[13px]">
           „{review.body}”
         </p>
 
@@ -248,7 +248,7 @@ export default function ReviewsCarousel({ reviews }: { reviews: Review[] }) {
           </button>
         </div>
 
-        <p className="text-[8px] font-bold tracking-wide text-muted" aria-live="polite">
+        <p className="text-[10px] font-bold tracking-wide text-muted" aria-live="polite">
           {index + 1} / {count}
           <span className="sr-only">: {front.author_name}</span>
         </p>

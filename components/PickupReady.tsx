@@ -46,7 +46,7 @@ export default function PickupReady() {
             </h2>
           </Reveal>
           <Reveal variant="blur" delay={160}>
-            <p className="mt-2 max-w-xl text-[10px] font-medium leading-relaxed text-muted sm:mt-3 sm:text-[11px]">
+            <p className="mt-2 max-w-xl text-[12px] font-medium leading-relaxed text-muted sm:mt-3 sm:text-[13px]">
               După ce ne sunți sau ne scrii, rezervarea e simplă. Vino cu
               documentele, semnezi contractul și pleci.
             </p>
@@ -68,10 +68,10 @@ export default function PickupReady() {
                     <Icon className="size-[13px] sm:size-5" strokeWidth={2.2} aria-hidden />
                   </span>
                   <div className="min-w-0">
-                    <h3 className="text-[10px] font-extrabold text-ink sm:mt-4 sm:text-[1.05rem]">
+                    <h3 className="text-[12px] font-extrabold text-ink sm:mt-4 sm:text-[1.05rem]">
                       {item.title}
                     </h3>
-                    <p className="mt-0.5 text-[9px] font-medium leading-snug text-muted sm:mt-1.5 sm:text-[10px]">
+                    <p className="mt-0.5 text-[11px] font-medium leading-snug text-muted sm:mt-1.5 sm:text-[12px]">
                       {item.text}
                     </p>
                   </div>
@@ -82,7 +82,7 @@ export default function PickupReady() {
         </div>
 
         <Reveal variant="up" delay={280}>
-          <p className="mt-6 text-[10px] font-semibold text-ink sm:mt-10 sm:text-[10px]">
+          <p className="mt-6 text-[12px] font-semibold text-ink sm:mt-10 sm:text-[12px]">
             Vrei să verifici ceva înainte?{" "}
             <a
               href={contact.phoneHref}
@@ -107,7 +107,7 @@ export default function PickupReady() {
               Email
             </a>
           </p>
-          <p className="mt-1.5 text-[9px] font-medium text-muted sm:text-[10px]">
+          <p className="mt-1.5 text-[11px] font-medium text-muted sm:text-[12px]">
             {contact.hoursShort}
           </p>
         </Reveal>

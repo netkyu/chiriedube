@@ -45,8 +45,8 @@ export default function CookiesPage() {
 
       <LegalSection id="cum-folosim" title="2. Cum folosim cookies pe chiriedube.ro">
         <div className="overflow-x-auto rounded-xl border border-slate-100">
-          <table className="w-full min-w-[520px] text-left text-[9px]">
-            <thead className="bg-[#F8FAFC] text-[8px] font-extrabold uppercase tracking-[0.08em] text-muted">
+          <table className="w-full min-w-[520px] text-left text-[11px]">
+            <thead className="bg-[#F8FAFC] text-[10px] font-extrabold uppercase tracking-[0.08em] text-muted">
               <tr>
                 <th className="px-3 py-2.5">Categorie</th>
                 <th className="px-3 py-2.5">Scop</th>
@@ -105,7 +105,7 @@ export default function CookiesPage() {
         <p className="mt-3">
           În starea curentă a site-ului, folosim cu prioritate cookies / stocare
           locală <strong>esențială</strong> pentru a reține alegerea ta din
-          bannerul de consimțământ (<code className="rounded bg-surface px-1.5 py-0.5 text-[9px] font-bold">chiriedube_cookie_consent</code>).
+          bannerul de consimțământ (<code className="rounded bg-surface px-1.5 py-0.5 text-[11px] font-bold">chiriedube_cookie_consent</code>).
           Dacă adăugăm analytics sau marketing, acestea vor rula doar după
           accept.
         </p>

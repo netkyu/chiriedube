@@ -38,15 +38,15 @@ export default function VanGallery({
           sizes="(max-width: 1024px) 100vw, 55vw"
         />
         {badge ? (
-          <span className="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-[8px] font-extrabold text-brand shadow-sm">
+          <span className="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-[10px] font-extrabold text-brand shadow-sm">
             {badge}
           </span>
         ) : null}
         <div className="absolute inset-x-3 bottom-3 flex items-end justify-between gap-2">
-          <span className="max-w-[65%] truncate rounded-full bg-black/55 px-2.5 py-1 text-[8px] font-extrabold text-white backdrop-blur-sm sm:px-3 sm:text-[8px]">
+          <span className="max-w-[65%] truncate rounded-full bg-black/55 px-2.5 py-1 text-[10px] font-extrabold text-white backdrop-blur-sm sm:px-3 sm:text-[10px]">
             {current.label}
           </span>
-          <span className="shrink-0 rounded-full bg-black/55 px-2.5 py-1 text-[8px] font-bold text-white backdrop-blur-sm sm:px-3 sm:text-[8px]">
+          <span className="shrink-0 rounded-full bg-black/55 px-2.5 py-1 text-[10px] font-bold text-white backdrop-blur-sm sm:px-3 sm:text-[10px]">
             {active + 1} / {images.length}
           </span>
         </div>
@@ -83,7 +83,7 @@ export default function VanGallery({
                 className="object-cover"
                 sizes="220px"
               />
-              <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent px-0.5 pb-1 pt-3 text-center text-[7px] font-extrabold leading-tight text-white">
+              <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent px-0.5 pb-1 pt-3 text-center text-[8px] font-extrabold leading-tight text-white">
                 {image.label}
               </span>
             </button>

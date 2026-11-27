@@ -19,7 +19,7 @@ export default function HowItWorks() {
             <h2 className="text-[1.3rem] font-extrabold tracking-tight text-ink sm:text-[1.86rem]">
               Cum funcționează
             </h2>
-            <p className="mt-1 text-[9px] font-medium leading-snug text-muted sm:mt-1.5 sm:text-[10px]">
+            <p className="mt-1 text-[11px] font-medium leading-snug text-muted sm:mt-1.5 sm:text-[12px]">
               Trei pași, de la mesaj pe WhatsApp până la chei.
             </p>
           </Reveal>
@@ -36,15 +36,15 @@ export default function HowItWorks() {
                     <div className="flex items-center gap-3">
                       <div className="relative flex size-10 shrink-0 items-center justify-center rounded-full bg-brand text-white sm:size-11">
                         <Icon className="size-[13px] sm:size-5" strokeWidth={2.2} aria-hidden />
-                        <span className="absolute -right-1 -top-1 flex size-5 items-center justify-center rounded-full bg-ink text-[8px] font-bold text-white">
+                        <span className="absolute -right-1 -top-1 flex size-5 items-center justify-center rounded-full bg-ink text-[10px] font-bold text-white">
                           {item.step}
                         </span>
                       </div>
                       <div className="min-w-0">
-                        <h3 className="text-[10px] font-extrabold text-ink sm:text-[10px]">
+                        <h3 className="text-[12px] font-extrabold text-ink sm:text-[12px]">
                           {item.title}
                         </h3>
-                        <p className="mt-0.5 text-[9px] font-medium leading-snug text-muted sm:text-[9px]">
+                        <p className="mt-0.5 text-[11px] font-medium leading-snug text-muted sm:text-[11px]">
                           {item.description}
                         </p>
                       </div>

@@ -46,7 +46,7 @@ export default function Services() {
             </h2>
           </Reveal>
           <Reveal variant="blur" delay={200}>
-            <p className="mt-2 text-[10px] font-medium leading-relaxed text-slate-300 sm:mt-3 sm:text-[11px]">
+            <p className="mt-2 text-[12px] font-medium leading-relaxed text-slate-300 sm:mt-3 sm:text-[13px]">
               Autoutilitare, remorci, auto, tractare și asistență în Satu Mare.
             </p>
           </Reveal>
@@ -63,7 +63,7 @@ export default function Services() {
                   {featured.title}
                 </h3>
               </div>
-              <p className="mt-2 max-w-md text-[9px] font-medium leading-relaxed text-muted sm:text-[11px]">
+              <p className="mt-2 max-w-md text-[11px] font-medium leading-relaxed text-muted sm:text-[13px]">
                 {featured.description}
               </p>
             </div>
@@ -104,16 +104,16 @@ export default function Services() {
                     <Icon className="size-[13px] sm:size-5" strokeWidth={2} aria-hidden />
                   </span>
                   <div className="flex min-w-0 flex-1 flex-col">
-                    <h3 className="text-[10px] font-extrabold tracking-tight text-white sm:mt-4 sm:text-[11px]">
+                    <h3 className="text-[12px] font-extrabold tracking-tight text-white sm:mt-4 sm:text-[13px]">
                       {service.title}
                     </h3>
-                    <p className="mt-1 flex-1 text-[9px] font-medium leading-snug text-slate-300 sm:mt-2 sm:text-[10px]">
+                    <p className="mt-1 flex-1 text-[11px] font-medium leading-snug text-slate-300 sm:mt-2 sm:text-[12px]">
                       {service.description}
                     </p>
                     {"href" in service && service.href ? (
                       <a
                         href={service.href}
-                        className="mt-2 inline-flex min-h-6 items-center text-[9px] font-extrabold text-brand transition hover:text-orange-300 sm:mt-3 sm:text-[9px]"
+                        className="mt-2 inline-flex min-h-6 items-center text-[11px] font-extrabold text-brand transition hover:text-orange-300 sm:mt-3 sm:text-[11px]"
                       >
                         Vezi detalii →
                       </a>

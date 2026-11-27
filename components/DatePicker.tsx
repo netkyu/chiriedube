@@ -148,7 +148,7 @@ export default function DatePicker({
 
   return (
     <div ref={rootRef} className="relative block">
-      <span className="mb-1 block text-[8px] font-extrabold uppercase tracking-[0.1em] text-muted sm:mb-1.5 sm:text-[8px]">
+      <span className="mb-1 block text-[10px] font-extrabold uppercase tracking-[0.1em] text-muted sm:mb-1.5 sm:text-[10px]">
         {label}
       </span>
       <button
@@ -168,7 +168,7 @@ export default function DatePicker({
         </span>
         <span className="min-w-0">
           <span
-            className={`block truncate text-[10px] font-extrabold sm:text-[10px] ${
+            className={`block truncate text-[12px] font-extrabold sm:text-[12px] ${
               value ? "text-ink" : "text-slate-400"
             }`}
           >
@@ -205,7 +205,7 @@ export default function DatePicker({
             >
               <ChevronLeft className="size-4" strokeWidth={2.4} />
             </button>
-            <p className="text-[10px] font-extrabold capitalize text-ink">
+            <p className="text-[12px] font-extrabold capitalize text-ink">
               {monthLabel}
             </p>
             <button
@@ -222,7 +222,7 @@ export default function DatePicker({
             {WEEKDAYS.map((day) => (
               <span
                 key={day}
-                className="py-1 text-center text-[8px] font-extrabold uppercase tracking-wide text-slate-400"
+                className="py-1 text-center text-[10px] font-extrabold uppercase tracking-wide text-slate-400"
               >
                 {day}
               </span>
@@ -245,7 +245,7 @@ export default function DatePicker({
                     onChange(iso);
                     setOpen(false);
                   }}
-                  className={`flex min-h-10 aspect-square items-center justify-center rounded-xl text-[9px] font-extrabold transition ${
+                  className={`flex min-h-10 aspect-square items-center justify-center rounded-xl text-[11px] font-extrabold transition ${
                     !inMonth
                       ? "invisible"
                       : disabled
@@ -274,14 +274,14 @@ export default function DatePicker({
                   setOpen(false);
                 }
               }}
-              className="text-[9px] font-extrabold text-brand transition hover:text-brand-dark"
+              className="text-[11px] font-extrabold text-brand transition hover:text-brand-dark"
             >
               Azi
             </button>
             <button
               type="button"
               onClick={() => setOpen(false)}
-              className="text-[9px] font-bold text-muted transition hover:text-ink"
+              className="text-[11px] font-bold text-muted transition hover:text-ink"
             >
               Închide
             </button>

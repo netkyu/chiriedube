@@ -59,18 +59,18 @@ export default function Hero() {
 
         <div className="pointer-events-none absolute inset-x-0 bottom-0 hidden h-14 bg-gradient-to-t from-white/40 to-transparent sm:block" />
 
-        <div className="relative z-10 mx-auto -mt-16 flex w-full max-w-[1400px] px-4 pb-1 sm:mt-0 sm:h-full sm:items-center sm:pb-28 sm:pt-6 lg:px-5 lg:pb-32">
-          <div className="max-w-xl lg:max-w-[42%]">
+        <div className="relative z-10 mx-auto -mt-16 flex w-full max-w-6xl px-4 pb-1 sm:mt-0 sm:h-full sm:items-center sm:px-6 sm:pb-28 sm:pt-6 lg:px-8 lg:pb-32">
+          <div className="max-w-xl sm:pl-2 lg:max-w-[42%] lg:pl-4">
             <SectionLabel icon={MapPin}>
               Închirieri dube în toată România
             </SectionLabel>
 
-            <h1 className="mt-2 text-[20px] font-extrabold leading-[1.08] tracking-tight text-ink sm:mt-4 sm:text-[3.18rem] lg:text-[3.71rem]">
+            <h1 className="mt-2 text-[24px] font-extrabold leading-[1.08] tracking-tight text-ink sm:mt-4 sm:text-[3.18rem] lg:text-[3.71rem]">
               Închiriază o dubă simplu și{" "}
               <span className="text-brand">rapid</span>
             </h1>
 
-            <p className="mt-2 line-clamp-3 max-w-lg text-[10px] leading-relaxed text-muted sm:mt-4 sm:line-clamp-none sm:text-[1.2rem] lg:text-[1.3rem]">
+            <p className="mt-2 line-clamp-3 max-w-lg text-[12px] leading-relaxed text-muted sm:mt-4 sm:line-clamp-none sm:text-[1.2rem] lg:text-[1.3rem]">
               Dube moderne, fiabile și gata de drum pentru mutări, transport
               marfă și proiecte profesionale. Rezervare rapidă, prețuri
               corecte și suport prompt.
@@ -79,7 +79,7 @@ export default function Hero() {
             <div className="mt-3.5 grid grid-cols-2 gap-2 sm:mt-7 sm:flex sm:items-center sm:gap-3">
               <a
                 href="/flota"
-                className="inline-flex h-[31px] items-center justify-center gap-2 rounded-xl bg-brand px-3 text-[10px] font-extrabold text-white transition hover:bg-brand-dark sm:h-auto sm:gap-2.5 sm:px-6 sm:py-3.5 sm:text-[11px]"
+                className="inline-flex h-[31px] items-center justify-center gap-2 rounded-xl bg-brand px-3 text-[12px] font-extrabold text-white transition hover:bg-brand-dark sm:h-auto sm:gap-2.5 sm:px-6 sm:py-3.5 sm:text-[13px]"
               >
                 <Truck className="size-[13px] sm:size-5" strokeWidth={2.2} aria-hidden />
                 Vezi flota
@@ -87,7 +87,7 @@ export default function Hero() {
               </a>
               <a
                 href={contact.phoneHref}
-                className="inline-flex h-[31px] items-center justify-center gap-2 rounded-xl border-[1px] border-brand bg-white px-3 text-[10px] font-extrabold text-brand transition hover:bg-brand-soft sm:h-auto sm:gap-2.5 sm:px-6 sm:py-3.5 sm:text-[11px]"
+                className="inline-flex h-[31px] items-center justify-center gap-2 rounded-xl border-[1px] border-brand bg-white px-3 text-[12px] font-extrabold text-brand transition hover:bg-brand-soft sm:h-auto sm:gap-2.5 sm:px-6 sm:py-3.5 sm:text-[13px]"
               >
                 <Phone className="size-[13px] sm:size-5" strokeWidth={2.2} aria-hidden />
                 Sună acum

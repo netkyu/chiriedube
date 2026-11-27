@@ -97,7 +97,7 @@ export default function Header() {
               <a
                 key={link.href}
                 href={link.href}
-                className={`relative pb-1 text-[10px] transition-colors duration-200 lg:text-[11px] ${
+                className={`relative pb-1 text-[12px] transition-colors duration-200 lg:text-[13px] ${
                   isActive
                     ? "font-extrabold text-brand after:absolute after:inset-x-0 after:-bottom-0.5 after:h-[2px] after:origin-left after:scale-x-100 after:rounded-full after:bg-brand after:transition-transform after:duration-300"
                     : "font-medium text-ink after:absolute after:inset-x-0 after:-bottom-0.5 after:h-[2px] after:origin-left after:scale-x-0 after:rounded-full after:bg-brand after:transition-transform after:duration-300 hover:text-brand hover:after:scale-x-100"
@@ -114,7 +114,7 @@ export default function Header() {
             href={contact.whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex h-[28px] items-center gap-1.5 rounded-xl bg-brand px-3 text-[9px] font-bold text-white transition duration-200 hover:bg-brand-dark active:scale-[0.97] sm:h-auto sm:gap-2 sm:px-4 sm:py-2.5 sm:text-[0.9375rem] sm:font-semibold"
+            className="inline-flex h-[28px] items-center gap-1.5 rounded-xl bg-brand px-3 text-[11px] font-bold text-white transition duration-200 hover:bg-brand-dark active:scale-[0.97] sm:h-auto sm:gap-2 sm:px-4 sm:py-2.5 sm:text-[0.9375rem] sm:font-semibold"
           >
             <CalendarDays className="size-4" strokeWidth={2.2} aria-hidden />
             <span className="hidden sm:inline">Rezervă acum</span>
@@ -183,12 +183,12 @@ export default function Header() {
                     onClick={() => setOpen(false)}
                   >
                     <span
-                      className={`text-[10px] ${isActive ? "font-extrabold" : "font-semibold"}`}
+                      className={`text-[12px] ${isActive ? "font-extrabold" : "font-semibold"}`}
                     >
                       {link.label}
                     </span>
                     {link.subtitle ? (
-                      <span className="text-[8px] font-medium text-muted">
+                      <span className="text-[10px] font-medium text-muted">
                         {link.subtitle}
                       </span>
                     ) : null}
@@ -206,7 +206,7 @@ export default function Header() {
             >
               <a
                 href={contact.phoneHref}
-                className="inline-flex h-[31px] items-center justify-center gap-2 rounded-xl border border-brand bg-white text-[10px] font-extrabold text-brand transition active:scale-[0.98]"
+                className="inline-flex h-[31px] items-center justify-center gap-2 rounded-xl border border-brand bg-white text-[12px] font-extrabold text-brand transition active:scale-[0.98]"
               >
                 <Phone className="size-4" strokeWidth={2.2} aria-hidden />
                 {contact.phoneDisplay}
@@ -215,7 +215,7 @@ export default function Header() {
                 href={contact.whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-[31px] items-center justify-center gap-2 rounded-xl bg-[#25D366] text-[10px] font-extrabold text-white transition active:scale-[0.98]"
+                className="inline-flex h-[31px] items-center justify-center gap-2 rounded-xl bg-[#25D366] text-[12px] font-extrabold text-white transition active:scale-[0.98]"
               >
                 <MessageCircle className="size-4" strokeWidth={2.2} aria-hidden />
                 WhatsApp

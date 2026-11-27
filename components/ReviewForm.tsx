@@ -14,10 +14,10 @@ import PhotoPicker from "./PhotoPicker";
 const initial: ActionResult | null = null;
 
 const fieldClass =
-  "mt-1.5 h-11 w-full rounded-xl border border-slate-200 bg-[#F8FAFC] px-3.5 text-[10px] font-medium text-ink outline-none transition ring-brand/25 focus:border-brand/35 focus:bg-white focus:ring-2";
+  "mt-1.5 h-11 w-full rounded-xl border border-slate-200 bg-[#F8FAFC] px-3.5 text-[12px] font-medium text-ink outline-none transition ring-brand/25 focus:border-brand/35 focus:bg-white focus:ring-2";
 
 const areaClass =
-  "mt-1.5 w-full rounded-xl border border-slate-200 bg-[#F8FAFC] px-3.5 py-3 text-[10px] font-medium text-ink outline-none transition ring-brand/25 focus:border-brand/35 focus:bg-white focus:ring-2";
+  "mt-1.5 w-full rounded-xl border border-slate-200 bg-[#F8FAFC] px-3.5 py-3 text-[12px] font-medium text-ink outline-none transition ring-brand/25 focus:border-brand/35 focus:bg-white focus:ring-2";
 
 function ReviewModal({
   open,
@@ -78,11 +78,11 @@ function ReviewModal({
             <div className="min-w-0">
               <h3
                 id={titleId}
-                className="text-[11px] font-extrabold tracking-tight text-ink"
+                className="text-[13px] font-extrabold tracking-tight text-ink"
               >
                 Lasă o recenzie
               </h3>
-              <p className="text-[9px] font-medium text-muted">
+              <p className="text-[11px] font-medium text-muted">
                 Apare pe site după ce o aprobăm.
               </p>
             </div>
@@ -102,15 +102,15 @@ function ReviewModal({
             <span className="mx-auto inline-flex size-14 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600">
               <CheckCircle2 className="size-7" strokeWidth={1.9} aria-hidden />
             </span>
-            <p className="mt-4 text-[12px] font-extrabold text-ink">
+            <p className="mt-4 text-[14px] font-extrabold text-ink">
               Mulțumim! Recenzia a fost trimisă.
             </p>
-            <p className="mt-2 text-[10px] font-medium text-muted">
+            <p className="mt-2 text-[12px] font-medium text-muted">
               Va apărea pe site după ce o aprobăm.
             </p>
             <button
               type="button"
-              className="mt-6 inline-flex h-11 items-center justify-center rounded-xl bg-brand px-6 text-[10px] font-extrabold text-white"
+              className="mt-6 inline-flex h-11 items-center justify-center rounded-xl bg-brand px-6 text-[12px] font-extrabold text-white"
               onClick={onClose}
             >
               Închide
@@ -121,7 +121,7 @@ function ReviewModal({
             <div className="min-h-0 flex-1 space-y-4 overflow-y-auto overscroll-contain px-5 py-4 sm:px-6">
               <div className="grid gap-3.5 sm:grid-cols-2">
                 <label className="block">
-                  <span className="text-[8px] font-extrabold uppercase tracking-widest text-muted">
+                  <span className="text-[10px] font-extrabold uppercase tracking-widest text-muted">
                     Nume *
                   </span>
                   <input
@@ -135,7 +135,7 @@ function ReviewModal({
                   />
                 </label>
                 <label className="block">
-                  <span className="text-[8px] font-extrabold uppercase tracking-widest text-muted">
+                  <span className="text-[10px] font-extrabold uppercase tracking-widest text-muted">
                     Context
                   </span>
                   <input
@@ -148,7 +148,7 @@ function ReviewModal({
               </div>
 
               <div>
-                <span className="text-[8px] font-extrabold uppercase tracking-widest text-muted">
+                <span className="text-[10px] font-extrabold uppercase tracking-widest text-muted">
                   Rating *
                 </span>
                 <input type="hidden" name="rating" value={rating} />
@@ -172,7 +172,7 @@ function ReviewModal({
               </div>
 
               <label className="block">
-                <span className="text-[8px] font-extrabold uppercase tracking-widest text-muted">
+                <span className="text-[10px] font-extrabold uppercase tracking-widest text-muted">
                   Mesaj *
                 </span>
                 <textarea
@@ -215,7 +215,7 @@ function ReviewModal({
               </div>
 
               {state && !state.ok ? (
-                <p className="text-[9px] font-semibold text-red-600">{state.error}</p>
+                <p className="text-[11px] font-semibold text-red-600">{state.error}</p>
               ) : null}
             </div>
 
@@ -224,7 +224,7 @@ function ReviewModal({
               <button
                 type="submit"
                 disabled={pending}
-                className="inline-flex h-11 w-full items-center justify-center rounded-xl bg-brand px-5 text-[10px] font-extrabold text-white shadow-[0_10px_22px_rgba(248,104,0,0.28)] transition hover:bg-brand-dark disabled:opacity-60"
+                className="inline-flex h-11 w-full items-center justify-center rounded-xl bg-brand px-5 text-[12px] font-extrabold text-white shadow-[0_10px_22px_rgba(248,104,0,0.28)] transition hover:bg-brand-dark disabled:opacity-60"
               >
                 {pending ? "Se trimite..." : "Trimite recenzia"}
               </button>
@@ -253,7 +253,7 @@ export default function ReviewForm({
           setModalKey((k) => k + 1);
           setOpen(true);
         }}
-        className={`inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-brand px-4 text-[9px] font-extrabold text-white shadow-[0_10px_22px_rgba(248,104,0,0.28)] transition hover:bg-brand-dark sm:px-5 sm:text-[10px] ${className}`}
+        className={`inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-brand px-4 text-[11px] font-extrabold text-white shadow-[0_10px_22px_rgba(248,104,0,0.28)] transition hover:bg-brand-dark sm:px-5 sm:text-[12px] ${className}`}
       >
         <MessageSquarePlus className="size-4" strokeWidth={2.3} aria-hidden />
         Lasă o recenzie

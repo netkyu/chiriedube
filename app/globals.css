@@ -28,10 +28,9 @@ html {
   scroll-behavior: smooth;
   /*
    * Density without CSS zoom (zoom breaks LCP + sticky).
-   * Matches the old zoom:0.7 look: rem root ≈ 13.5px×0.7 / 15.5px×0.7,
-   * and arbitrary px utilities are authored at ~70% size.
+   * ~80% of the pre-zoom size: readable type, still denser than default.
    */
-  font-size: 9.5px;
+  font-size: 11px;
   /* Do NOT set overflow-x on html/body — it kills position:sticky for the header */
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
@@ -39,7 +38,7 @@ html {
 
 @media (min-width: 640px) {
   html {
-    font-size: 11px;
+    font-size: 12.5px;
   }
 }
 

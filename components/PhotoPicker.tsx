@@ -32,13 +32,13 @@ export default function PhotoPicker({
   return (
     <div className="relative space-y-1.5">
       <div>
-        <span className="block text-[8px] font-extrabold uppercase tracking-widest text-muted">
+        <span className="block text-[10px] font-extrabold uppercase tracking-widest text-muted">
           {label}
         </span>
         {!compact ? (
-          <p className="mt-1 text-[8px] font-medium text-muted">{hint}</p>
+          <p className="mt-1 text-[10px] font-medium text-muted">{hint}</p>
         ) : (
-          <p className="mt-0.5 text-[8px] font-medium text-muted">{hint}</p>
+          <p className="mt-0.5 text-[10px] font-medium text-muted">{hint}</p>
         )}
       </div>
 
@@ -88,7 +88,7 @@ export default function PhotoPicker({
           <button
             type="button"
             onClick={() => inputRef.current?.click()}
-            className="absolute bottom-2 left-2 rounded-lg bg-white/95 px-2.5 py-1.5 text-[8px] font-extrabold text-ink"
+            className="absolute bottom-2 left-2 rounded-lg bg-white/95 px-2.5 py-1.5 text-[10px] font-extrabold text-ink"
           >
             Schimbă
           </button>
@@ -108,11 +108,11 @@ export default function PhotoPicker({
           >
             <Icon className={compact ? "size-4" : "size-4.5"} strokeWidth={2} aria-hidden />
           </span>
-          <span className={`font-extrabold text-ink ${compact ? "text-[8px]" : "text-[9px]"}`}>
+          <span className={`font-extrabold text-ink ${compact ? "text-[10px]" : "text-[11px]"}`}>
             {isAvatar ? "Adaugă avatar" : "Adaugă o poză"}
           </span>
           {!compact ? (
-            <span className="text-[8px] font-bold uppercase tracking-wide text-brand">
+            <span className="text-[10px] font-bold uppercase tracking-wide text-brand">
               Alege fișier
             </span>
           ) : null}

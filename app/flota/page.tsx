@@ -58,7 +58,7 @@ export default function FlotaPage() {
             <Reveal variant="clip" delay={40}>
               <a
                 href="/#flota"
-                className="mt-3 inline-flex min-h-[25px] items-center gap-1.5 text-[9px] font-bold text-brand transition hover:text-brand-dark sm:min-h-0 sm:text-[10px]"
+                className="mt-3 inline-flex min-h-[25px] items-center gap-1.5 text-[11px] font-bold text-brand transition hover:text-brand-dark sm:min-h-0 sm:text-[12px]"
               >
                 <ArrowLeft className="size-4" strokeWidth={2.4} aria-hidden />
                 Înapoi la pagina principală
@@ -70,7 +70,7 @@ export default function FlotaPage() {
               </h1>
             </Reveal>
             <Reveal variant="blur" delay={160}>
-              <p className="mt-1.5 max-w-2xl text-[10px] font-medium leading-relaxed text-muted sm:mt-3 sm:text-[11px]">
+              <p className="mt-1.5 max-w-2xl text-[12px] font-medium leading-relaxed text-muted sm:mt-3 sm:text-[13px]">
                 Filtrează după categorie și preț, apoi rezervă pe WhatsApp.
               </p>
             </Reveal>

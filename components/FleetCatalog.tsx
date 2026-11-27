@@ -69,7 +69,7 @@ export default function FleetCatalog() {
                   key={option.value}
                   type="button"
                   onClick={() => setCategory(option.value)}
-                  className={`min-h-[27px] shrink-0 whitespace-nowrap rounded-xl px-3.5 text-[9px] font-extrabold transition ${
+                  className={`min-h-[27px] shrink-0 whitespace-nowrap rounded-xl px-3.5 text-[11px] font-extrabold transition ${
                     active
                       ? "bg-brand text-white"
                       : "bg-surface text-ink hover:bg-brand-soft hover:text-brand"
@@ -85,14 +85,14 @@ export default function FleetCatalog() {
         <div className="mt-3 flex items-center justify-between gap-3 lg:mt-0">
           <button
             type="button"
-            className="inline-flex min-h-[25px] items-center gap-2 text-[10px] font-extrabold text-ink lg:pointer-events-none lg:min-h-0"
+            className="inline-flex min-h-[25px] items-center gap-2 text-[12px] font-extrabold text-ink lg:pointer-events-none lg:min-h-0"
             aria-expanded={filtersOpen}
             onClick={() => setFiltersOpen((v) => !v)}
           >
             <SlidersHorizontal className="size-4 text-brand" aria-hidden />
             Filtre
             {hasFilters ? (
-              <span className="rounded-full bg-brand px-2 py-0.5 text-[8px] font-extrabold text-white">
+              <span className="rounded-full bg-brand px-2 py-0.5 text-[10px] font-extrabold text-white">
                 active
               </span>
             ) : null}
@@ -108,7 +108,7 @@ export default function FleetCatalog() {
             <button
               type="button"
               onClick={resetFilters}
-              className="inline-flex min-h-[25px] items-center gap-1 text-[9px] font-bold text-brand transition hover:text-brand-dark lg:min-h-0"
+              className="inline-flex min-h-[25px] items-center gap-1 text-[11px] font-bold text-brand transition hover:text-brand-dark lg:min-h-0"
             >
               <X className="size-3.5" aria-hidden />
               Resetează
@@ -120,7 +120,7 @@ export default function FleetCatalog() {
           className={`mt-4 space-y-5 sm:space-y-6 lg:mt-5 ${filtersOpen ? "block" : "hidden lg:block"}`}
         >
           <div className="hidden lg:block">
-            <p className="text-[8px] font-extrabold uppercase tracking-[0.12em] text-muted">
+            <p className="text-[10px] font-extrabold uppercase tracking-[0.12em] text-muted">
               Categorie
             </p>
             <div className="-mx-1 flex gap-2 overflow-x-auto px-1 pb-1 [scrollbar-width:none] sm:flex-wrap sm:overflow-visible [&::-webkit-scrollbar]:hidden">
@@ -131,7 +131,7 @@ export default function FleetCatalog() {
                     key={option.value}
                     type="button"
                     onClick={() => setCategory(option.value)}
-                    className={`shrink-0 rounded-xl px-3 py-2 text-[9px] font-extrabold transition ${
+                    className={`shrink-0 rounded-xl px-3 py-2 text-[11px] font-extrabold transition ${
                       active
                         ? "bg-brand text-white"
                         : "bg-surface text-ink hover:bg-brand-soft hover:text-brand"
@@ -145,7 +145,7 @@ export default function FleetCatalog() {
           </div>
 
           <div>
-            <p className="text-[8px] font-extrabold uppercase tracking-[0.12em] text-muted sm:text-[8px]">
+            <p className="text-[10px] font-extrabold uppercase tracking-[0.12em] text-muted sm:text-[10px]">
               Brand
             </p>
             <div className="mt-2 flex flex-wrap gap-2 sm:mt-2.5">
@@ -157,7 +157,7 @@ export default function FleetCatalog() {
                     key={b}
                     type="button"
                     onClick={() => setBrand(b)}
-                    className={`min-h-[25px] rounded-xl px-3 py-1.5 text-[9px] font-extrabold transition sm:min-h-0 sm:py-2 ${
+                    className={`min-h-[25px] rounded-xl px-3 py-1.5 text-[11px] font-extrabold transition sm:min-h-0 sm:py-2 ${
                       active
                         ? "bg-brand text-white"
                         : "bg-surface text-ink hover:bg-brand-soft hover:text-brand"
@@ -173,10 +173,10 @@ export default function FleetCatalog() {
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-4 lg:grid-cols-1 lg:gap-6">
             <div>
               <div className="flex items-center justify-between gap-2">
-                <p className="text-[8px] font-extrabold uppercase tracking-[0.12em] text-muted sm:text-[8px]">
+                <p className="text-[10px] font-extrabold uppercase tracking-[0.12em] text-muted sm:text-[10px]">
                   Preț maxim / zi
                 </p>
-                <span className="text-[10px] font-extrabold text-ink">
+                <span className="text-[12px] font-extrabold text-ink">
                   {maxPrice} lei
                 </span>
               </div>
@@ -193,13 +193,13 @@ export default function FleetCatalog() {
             </div>
 
             <div>
-              <p className="text-[8px] font-extrabold uppercase tracking-[0.12em] text-muted sm:text-[8px]">
+              <p className="text-[10px] font-extrabold uppercase tracking-[0.12em] text-muted sm:text-[10px]">
                 Sortează
               </p>
               <select
                 value={sort}
                 onChange={(e) => setSort(e.target.value as SortKey)}
-                className="mt-2 w-full rounded-xl border border-slate-200 bg-surface px-3 py-2.5 text-[10px] font-semibold text-ink outline-none transition focus:border-brand focus:bg-white focus:ring-2 focus:ring-brand/20 sm:mt-2.5"
+                className="mt-2 w-full rounded-xl border border-slate-200 bg-surface px-3 py-2.5 text-[12px] font-semibold text-ink outline-none transition focus:border-brand focus:bg-white focus:ring-2 focus:ring-brand/20 sm:mt-2.5"
               >
                 <option value="price-asc">Preț: crescător</option>
                 <option value="price-desc">Preț: descrescător</option>
@@ -212,7 +212,7 @@ export default function FleetCatalog() {
 
       <div className="min-w-0">
         <div className="mb-3 flex flex-wrap items-end justify-between gap-3 sm:mb-5">
-          <p className="text-[9px] font-semibold text-muted sm:text-[10px]">
+          <p className="text-[11px] font-semibold text-muted sm:text-[12px]">
             <span className="font-extrabold text-ink">{filtered.length}</span>{" "}
             {filtered.length === 1 ? "vehicul găsit" : "vehicule găsite"}
           </p>
@@ -223,13 +223,13 @@ export default function FleetCatalog() {
             <p className="text-[1.05rem] font-extrabold text-ink sm:text-[1.2rem]">
               Niciun vehicul nu corespunde filtrelor
             </p>
-            <p className="mt-2 text-[9px] font-medium text-muted sm:text-[10px]">
+            <p className="mt-2 text-[11px] font-medium text-muted sm:text-[12px]">
               Încearcă să extinzi prețul maxim sau să resetezi filtrele.
             </p>
             <button
               type="button"
               onClick={resetFilters}
-              className="mt-4 inline-flex min-h-[29px] items-center rounded-xl bg-brand px-5 text-[10px] font-extrabold text-white transition hover:bg-brand-dark sm:mt-5 sm:text-[0.9375rem]"
+              className="mt-4 inline-flex min-h-[29px] items-center rounded-xl bg-brand px-5 text-[12px] font-extrabold text-white transition hover:bg-brand-dark sm:mt-5 sm:text-[0.9375rem]"
             >
               Resetează filtrele
             </button>

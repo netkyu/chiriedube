@@ -39,10 +39,10 @@ export default function FeaturesBar() {
                   aria-hidden
                 />
                 <div className="min-w-0">
-                  <p className="text-[9px] font-bold leading-tight text-ink sm:text-[11px]">
+                  <p className="text-[11px] font-bold leading-tight text-ink sm:text-[13px]">
                     {feature.title}
                   </p>
-                  <p className="mt-0.5 whitespace-normal text-[8px] leading-snug text-muted sm:mt-1 sm:whitespace-pre-line sm:text-[10px]">
+                  <p className="mt-0.5 whitespace-normal text-[10px] leading-snug text-muted sm:mt-1 sm:whitespace-pre-line sm:text-[12px]">
                     {feature.description.replace(/\n/g, " ")}
                   </p>
                 </div>

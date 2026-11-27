@@ -51,7 +51,7 @@ export default function FancySelect({
     <div ref={rootRef} className="relative block">
       <span
         id={labelId}
-        className="text-[8px] font-extrabold uppercase tracking-widest text-muted"
+        className="text-[10px] font-extrabold uppercase tracking-widest text-muted"
       >
         {label}
       </span>
@@ -64,7 +64,7 @@ export default function FancySelect({
         aria-controls={listId}
         aria-labelledby={labelId}
         onClick={() => setOpen((v) => !v)}
-        className={`mt-2 flex h-11 w-full items-center justify-between gap-3 rounded-xl border bg-[#F8FAFC] px-4 text-left text-[10px] font-medium text-ink outline-none transition ${
+        className={`mt-2 flex h-11 w-full items-center justify-between gap-3 rounded-xl border bg-[#F8FAFC] px-4 text-left text-[12px] font-medium text-ink outline-none transition ${
           open
             ? "border-brand/40 bg-white ring-2 ring-brand/20"
             : "border-slate-200 hover:border-slate-300 focus:border-brand/40 focus:bg-white focus:ring-2 focus:ring-brand/20"
@@ -91,7 +91,7 @@ export default function FancySelect({
               <li key={option.value} role="option" aria-selected={active}>
                 <button
                   type="button"
-                  className={`flex w-full items-center justify-between gap-3 px-4 py-2.5 text-left text-[10px] font-semibold transition ${
+                  className={`flex w-full items-center justify-between gap-3 px-4 py-2.5 text-left text-[12px] font-semibold transition ${
                     active
                       ? "bg-brand-soft text-brand"
                       : "text-ink hover:bg-slate-50"

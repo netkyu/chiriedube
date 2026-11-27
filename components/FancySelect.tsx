@@ -55,7 +55,7 @@ export default function FancySelect({
     <div ref={rootRef} className="relative block">
       <span
         id={labelId}
-        className="mb-1 block text-[8px] font-extrabold uppercase tracking-[0.1em] text-muted sm:mb-1.5 sm:text-[8px]"
+        className="mb-1 block text-[10px] font-extrabold uppercase tracking-[0.1em] text-muted sm:mb-1.5 sm:text-[10px]"
       >
         {label}
       </span>
@@ -74,14 +74,14 @@ export default function FancySelect({
       >
         <span className="min-w-0">
           <span
-            className={`block truncate text-[10px] font-extrabold sm:text-[10px] ${
+            className={`block truncate text-[12px] font-extrabold sm:text-[12px] ${
               selected ? "text-ink" : "text-slate-400"
             }`}
           >
             {selected?.label ?? placeholder}
           </span>
           {selected?.hint ? (
-            <span className="mt-0.5 block truncate text-[8px] font-medium text-muted">
+            <span className="mt-0.5 block truncate text-[10px] font-medium text-muted">
               {selected.hint}
             </span>
           ) : null}
@@ -124,12 +124,12 @@ export default function FancySelect({
                   }`}
                 >
                   <span className="min-w-0">
-                    <span className="block truncate text-[10px] font-extrabold sm:text-[10px]">
+                    <span className="block truncate text-[12px] font-extrabold sm:text-[12px]">
                       {option.label}
                     </span>
                     {option.hint ? (
                       <span
-                        className={`mt-0.5 block truncate text-[8px] font-medium ${
+                        className={`mt-0.5 block truncate text-[10px] font-medium ${
                           isSelected ? "text-brand/80" : "text-muted"
                         }`}
                       >

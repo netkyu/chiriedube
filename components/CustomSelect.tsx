@@ -46,7 +46,7 @@ export default function CustomSelect({
   }, [open]);
 
   return (
-    <div ref={rootRef} className="relative block text-[10px] sm:text-[0.9375rem]">
+    <div ref={rootRef} className="relative block text-[12px] sm:text-[0.9375rem]">
       <span id={labelId} className="mb-1.5 block font-extrabold text-ink">
         {label}
       </span>

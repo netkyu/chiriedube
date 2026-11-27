@@ -81,7 +81,7 @@ export default function B2BOffer() {
             </Reveal>
 
             <Reveal variant="blur" delay={200}>
-              <p className="mt-2.5 max-w-lg text-[10px] font-medium leading-relaxed text-slate-300 sm:mt-5 sm:text-[1.2rem]">
+              <p className="mt-2.5 max-w-lg text-[12px] font-medium leading-relaxed text-slate-300 sm:mt-5 sm:text-[1.2rem]">
                 Dacă ai nevoie constant de auto sau remorci, îți facem o ofertă
                 pe volum. Factură și contract, ca la orice furnizor.
               </p>
@@ -103,10 +103,10 @@ export default function B2BOffer() {
                         <Icon className="size-4 sm:size-5" strokeWidth={2.2} aria-hidden />
                       </span>
                       <div className="min-w-0">
-                        <p className="text-[10px] font-extrabold text-white sm:text-[0.9375rem] md:mt-3">
+                        <p className="text-[12px] font-extrabold text-white sm:text-[0.9375rem] md:mt-3">
                           {perk.title}
                         </p>
-                        <p className="mt-0.5 text-[8px] font-medium leading-snug text-slate-400 sm:text-[0.8125rem] md:mt-1">
+                        <p className="mt-0.5 text-[10px] font-medium leading-snug text-slate-400 sm:text-[0.8125rem] md:mt-1">
                           {perk.text}
                         </p>
                       </div>
@@ -123,14 +123,14 @@ export default function B2BOffer() {
             <div className="relative rounded-[14px] border border-white/20 bg-white shadow-[0_18px_50px_rgba(0,0,0,0.3)] sm:rounded-[17px] sm:shadow-[0_30px_80px_rgba(0,0,0,0.35)]">
               <div className="flex items-center justify-between rounded-t-[14px] border-b border-slate-100 bg-surface px-4 py-3 sm:rounded-t-[17px] sm:px-6 sm:py-4">
                 <div>
-                  <p className="text-[8px] font-extrabold uppercase tracking-[0.12em] text-brand sm:text-[0.8125rem]">
+                  <p className="text-[10px] font-extrabold uppercase tracking-[0.12em] text-brand sm:text-[0.8125rem]">
                     Formular ofertă
                   </p>
-                  <p className="mt-0.5 text-[9px] font-medium text-muted sm:text-[0.9375rem]">
+                  <p className="mt-0.5 text-[11px] font-medium text-muted sm:text-[0.9375rem]">
                     Formular scurt
                   </p>
                 </div>
-                <span className="rounded-full bg-brand-soft px-2.5 py-0.5 text-[8px] font-extrabold text-brand sm:px-3 sm:py-1 sm:text-[0.8125rem]">
+                <span className="rounded-full bg-brand-soft px-2.5 py-0.5 text-[10px] font-extrabold text-brand sm:px-3 sm:py-1 sm:text-[0.8125rem]">
                   Demo
                 </span>
               </div>
@@ -158,7 +158,7 @@ export default function B2BOffer() {
                 ) : (
                   <form className="space-y-3 sm:space-y-4" onSubmit={handleSubmit}>
                     <div className="grid gap-3 sm:gap-4 sm:grid-cols-2">
-                      <label className="block text-[10px] sm:text-[0.9375rem]">
+                      <label className="block text-[12px] sm:text-[0.9375rem]">
                         <span className="mb-1.5 block font-extrabold text-ink">
                           Nume firmă
                         </span>
@@ -169,7 +169,7 @@ export default function B2BOffer() {
                           placeholder="Ex: SC Transport SRL"
                         />
                       </label>
-                      <label className="block text-[10px] sm:text-[0.9375rem]">
+                      <label className="block text-[12px] sm:text-[0.9375rem]">
                         <span className="mb-1.5 block font-extrabold text-ink">
                           CUI
                         </span>
@@ -194,7 +194,7 @@ export default function B2BOffer() {
                           "Flotă recurentă",
                         ]}
                       />
-                      <label className="block text-[10px] sm:text-[0.9375rem]">
+                      <label className="block text-[12px] sm:text-[0.9375rem]">
                         <span className="mb-1.5 block font-extrabold text-ink">
                           Perioadă
                         </span>
@@ -206,7 +206,7 @@ export default function B2BOffer() {
                         />
                       </label>
                     </div>
-                    <label className="block text-[10px] sm:text-[0.9375rem]">
+                    <label className="block text-[12px] sm:text-[0.9375rem]">
                       <span className="mb-1.5 block font-extrabold text-ink">
                         Email de contact
                       </span>
@@ -218,7 +218,7 @@ export default function B2BOffer() {
                         placeholder="office@firma.ro"
                       />
                     </label>
-                    <label className="block text-[10px] sm:text-[0.9375rem]">
+                    <label className="block text-[12px] sm:text-[0.9375rem]">
                       <span className="mb-1.5 block font-extrabold text-ink">
                         Mesaj
                       </span>
@@ -232,12 +232,12 @@ export default function B2BOffer() {
                     </label>
                     <button
                       type="submit"
-                      className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-brand px-5 py-3 text-[10px] font-extrabold text-white shadow-[0_14px_32px_rgba(248,104,0,0.35)] transition hover:-translate-y-0.5 sm:py-3.5 sm:text-[11px] hover:bg-brand-dark"
+                      className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-brand px-5 py-3 text-[12px] font-extrabold text-white shadow-[0_14px_32px_rgba(248,104,0,0.35)] transition hover:-translate-y-0.5 sm:py-3.5 sm:text-[13px] hover:bg-brand-dark"
                     >
                       Trimite cererea
                       <Send className="size-4" aria-hidden />
                     </button>
-                    <p className="text-center text-[8px] font-medium leading-snug text-muted">
+                    <p className="text-center text-[10px] font-medium leading-snug text-muted">
                       Prin trimitere accepti{" "}
                       <a
                         href="/termeni-si-conditii"
