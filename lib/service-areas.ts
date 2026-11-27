@@ -2,6 +2,16 @@
  * Local SEO landing pages for nearby cities.
  * Pickup remains Satu Mare; each page has unique copy (not thin duplicates).
  */
+export type UseCaseIcon =
+  | "home"
+  | "truck"
+  | "trailer"
+  | "calendar"
+  | "route"
+  | "building"
+  | "package"
+  | "wrench";
+
 export type ServiceArea = {
   slug: string;
   name: string;
@@ -10,7 +20,7 @@ export type ServiceArea = {
   headline: string;
   intro: string;
   whyHere: string;
-  useCases: string[];
+  useCases: { text: string; icon: UseCaseIcon }[];
   faqs: { question: string; answer: string }[];
 };
 
@@ -26,10 +36,22 @@ export const serviceAreas: ServiceArea[] = [
     whyHere:
       "Carei e aproape de baza noastră, deci poți rezerva pe WhatsApp și ridici mașina în aceeași zi, în programul de luni–vineri. Ai km incluși, RCA și rovignetă RO, fără surprize la preț.",
     useCases: [
-      "Mutări apartament sau casă în Carei și împrejurimi",
-      "Transport materiale pentru șantier sau renovari",
-      "Curse scurte Carei ↔ Satu Mare cu dubă sau remorcă",
-      "Nevoi punctuale pentru firme locale",
+      {
+        text: "Mutări apartament sau casă în Carei și împrejurimi",
+        icon: "home",
+      },
+      {
+        text: "Transport materiale pentru șantier sau renovari",
+        icon: "wrench",
+      },
+      {
+        text: "Curse scurte Carei ↔ Satu Mare cu dubă sau remorcă",
+        icon: "route",
+      },
+      {
+        text: "Nevoi punctuale pentru firme locale",
+        icon: "building",
+      },
     ],
     faqs: [
       {
@@ -55,10 +77,22 @@ export const serviceAreas: ServiceArea[] = [
     whyHere:
       "Mulți clienți din Baia Mare aleg flota noastră pentru mutări și transport marfă când vor preț pe zi + km, nu pachete confuze. Comunicarea e directă cu echipa locală, nu cu un call-center.",
     useCases: [
-      "Mutări Baia Mare ↔ Satu Mare sau în județul Maramureș",
-      "Transport mobilier, electrocasnice, paleți",
-      "Remorcă pentru ATV, motociclete sau materiale lungi",
-      "Închiriere pe câteva zile pentru proiecte de firmă",
+      {
+        text: "Mutări Baia Mare ↔ Satu Mare sau în județul Maramureș",
+        icon: "home",
+      },
+      {
+        text: "Transport mobilier, electrocasnice, paleți",
+        icon: "package",
+      },
+      {
+        text: "Remorcă pentru ATV, motociclete sau materiale lungi",
+        icon: "trailer",
+      },
+      {
+        text: "Închiriere pe câteva zile pentru proiecte de firmă",
+        icon: "building",
+      },
     ],
     faqs: [
       {
@@ -84,10 +118,19 @@ export const serviceAreas: ServiceArea[] = [
     whyHere:
       "Pentru Zalău oferim aceeași flotă ca în Satu Mare: autoutilitare, remorci și auto. Ideal când ai nevoie de un vehicul de încredere fără să te legi de contracte complicate.",
     useCases: [
-      "Mutări în Zalău sau spre alte județe",
-      "Transport paleți și mărfuri pentru magazine locale",
-      "Remorcă platformă pentru utilaje mici",
-      "Curse Satu Mare–Zalău pentru firme și persoane fizice",
+      { text: "Mutări în Zalău sau spre alte județe", icon: "home" },
+      {
+        text: "Transport paleți și mărfuri pentru magazine locale",
+        icon: "package",
+      },
+      {
+        text: "Remorcă platformă pentru utilaje mici",
+        icon: "trailer",
+      },
+      {
+        text: "Curse Satu Mare–Zalău pentru firme și persoane fizice",
+        icon: "route",
+      },
     ],
     faqs: [
       {
@@ -113,10 +156,22 @@ export const serviceAreas: ServiceArea[] = [
     whyHere:
       "Oradea e în zona noastră largă de clienți. Nu suntem o platformă anonimă: vorbești direct cu noi, vezi flota pe site și știi de la început ce e inclus (km, RCA, rovignetă RO).",
     useCases: [
-      "Mutări Oradea și împrejurimi cu dubă spațioasă",
-      "Transport marfă între Bihor și Satu Mare",
-      "Remorcă pentru materiale de construcții",
-      "Închirieri pe weekend sau pe săptămână",
+      {
+        text: "Mutări Oradea și împrejurimi cu dubă spațioasă",
+        icon: "home",
+      },
+      {
+        text: "Transport marfă între Bihor și Satu Mare",
+        icon: "truck",
+      },
+      {
+        text: "Remorcă pentru materiale de construcții",
+        icon: "trailer",
+      },
+      {
+        text: "Închirieri pe weekend sau pe săptămână",
+        icon: "calendar",
+      },
     ],
     faqs: [
       {
@@ -142,10 +197,22 @@ export const serviceAreas: ServiceArea[] = [
     whyHere:
       "Suntem în același județ, deci organizarea e simplă: rezervare pe WhatsApp, preluare la Fabricii 29, drum rezonabil până în Negrești-Oaș.",
     useCases: [
-      "Mutări în Negrești-Oaș și satele din Oaș",
-      "Transport materiale și unelte pe șantiere locale",
-      "Remorcă pentru nevoi agricole sau gospodărești",
-      "Curse Satu Mare ↔ Negrești-Oaș",
+      {
+        text: "Mutări în Negrești-Oaș și satele din Oaș",
+        icon: "home",
+      },
+      {
+        text: "Transport materiale și unelte pe șantiere locale",
+        icon: "wrench",
+      },
+      {
+        text: "Remorcă pentru nevoi agricole sau gospodărești",
+        icon: "trailer",
+      },
+      {
+        text: "Curse Satu Mare ↔ Negrești-Oaș",
+        icon: "route",
+      },
     ],
     faqs: [
       {
@@ -171,10 +238,22 @@ export const serviceAreas: ServiceArea[] = [
     whyHere:
       "Tășnad e bine legat de Satu Mare, iar clienții din zonă folosesc flota noastră când vor un vehicul curat, cu acte în regulă și preț clar pe zi.",
     useCases: [
-      "Mutări în Tășnad și localitățile apropiate",
-      "Transport pentru magazine și depozite mici",
-      "Remorcă pentru proiecte casnice sau agricole",
-      "Deplasări Tășnad–Satu Mare cu marfă voluminoasă",
+      {
+        text: "Mutări în Tășnad și localitățile apropiate",
+        icon: "home",
+      },
+      {
+        text: "Transport pentru magazine și depozite mici",
+        icon: "package",
+      },
+      {
+        text: "Remorcă pentru proiecte casnice sau agricole",
+        icon: "trailer",
+      },
+      {
+        text: "Deplasări Tășnad–Satu Mare cu marfă voluminoasă",
+        icon: "truck",
+      },
     ],
     faqs: [
       {

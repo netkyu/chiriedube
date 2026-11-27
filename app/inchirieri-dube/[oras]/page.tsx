@@ -1,7 +1,21 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { ArrowRight, MapPin, MessageCircle, Phone, Truck } from "lucide-react";
+import {
+  ArrowRight,
+  Building2,
+  CalendarDays,
+  Container,
+  Home,
+  MapPin,
+  MessageCircle,
+  Package,
+  Phone,
+  Route,
+  Truck,
+  Wrench,
+  type LucideIcon,
+} from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ContactCTA from "@/components/ContactCTA";
@@ -16,7 +30,19 @@ import {
   getServiceArea,
   serviceAreaPath,
   serviceAreas,
+  type UseCaseIcon,
 } from "@/lib/service-areas";
+
+const useCaseIcons: Record<UseCaseIcon, LucideIcon> = {
+  home: Home,
+  truck: Truck,
+  trailer: Container,
+  calendar: CalendarDays,
+  route: Route,
+  building: Building2,
+  package: Package,
+  wrench: Wrench,
+};
 import {
   absoluteUrl,
   breadcrumbLd,
@@ -262,15 +288,20 @@ export default async function ServiceAreaPage({ params }: PageProps) {
                   Pentru ce se închiriază cel mai des
                 </h3>
                 <ul className="mt-3 space-y-2.5">
-                  {area.useCases.map((item) => (
-                    <li
-                      key={item}
-                      className="flex items-start gap-2.5 text-[14px] font-semibold text-ink sm:text-[15px]"
-                    >
-                      <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-brand" />
-                      {item}
-                    </li>
-                  ))}
+                  {area.useCases.map((item) => {
+                    const Icon = useCaseIcons[item.icon];
+                    return (
+                      <li
+                        key={item.text}
+                        className="flex items-start gap-3 text-[14px] font-semibold text-ink sm:text-[15px]"
+                      >
+                        <span className="mt-0.5 inline-flex size-8 shrink-0 items-center justify-center rounded-lg bg-brand-soft text-brand">
+                          <Icon className="size-4" strokeWidth={2.2} aria-hidden />
+                        </span>
+                        <span className="pt-1.5">{item.text}</span>
+                      </li>
+                    );
+                  })}
                 </ul>
               </Reveal>
 
