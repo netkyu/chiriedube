@@ -41,7 +41,7 @@ export default function Reveal({
   as: Tag = "div",
 }: RevealProps) {
   const ref = useRef<HTMLElement | null>(null);
-  // Start visible for SSR; hide after mount then reveal on scroll
+  // Stay visible for SSR and above-the-fold — never flash-hide on hydrate (kills LCP).
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
@@ -56,10 +56,17 @@ export default function Reveal({
       return;
     }
 
-    setVisible(false);
-
+    let initial = true;
     const observer = new IntersectionObserver(
       ([entry]) => {
+        if (initial) {
+          initial = false;
+          // Above-fold: keep painted. Below-fold: arm the entrance animation.
+          setVisible(entry.isIntersecting);
+          if (entry.isIntersecting && once) observer.disconnect();
+          return;
+        }
+
         if (entry.isIntersecting) {
           setVisible(true);
           if (once) observer.disconnect();

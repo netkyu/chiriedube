@@ -2,12 +2,12 @@ import { Suspense } from "react";
 import dynamic from "next/dynamic";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import Fleet from "@/components/Fleet";
 import Reviews from "@/components/Reviews";
 import JsonLd from "@/components/JsonLd";
 import { faqAnswerText, faqs } from "@/lib/data";
 import { fleetItemListLd } from "@/lib/seo";
 
+const Fleet = dynamic(() => import("@/components/Fleet"));
 const PriceIncludes = dynamic(() => import("@/components/PriceIncludes"));
 const Services = dynamic(() => import("@/components/Services"));
 const Team = dynamic(() => import("@/components/Team"));

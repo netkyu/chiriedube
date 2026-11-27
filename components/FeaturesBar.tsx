@@ -1,6 +1,5 @@
 import { Clock, Coins, Headset, Rocket } from "lucide-react";
 import { features } from "@/lib/data";
-import Reveal from "./Reveal";
 
 const icons = {
   rocket: Rocket,
@@ -9,9 +8,10 @@ const icons = {
   clock: Clock,
 };
 
+/** No Reveal here — sits in the first viewport and must not hydrate-animate. */
 export default function FeaturesBar() {
   return (
-    <Reveal variant="up" delay={80} duration={600} className="overflow-visible">
+    <div className="overflow-visible">
       <div className="rounded-2xl border border-slate-100/80 bg-white shadow-[0_12px_32px_rgba(248,104,0,0.16)] sm:shadow-[0_18px_50px_rgba(248,104,0,0.22)]">
         <div className="grid grid-cols-2 lg:grid-cols-4">
           {features.map((feature, index) => {
@@ -51,6 +51,6 @@ export default function FeaturesBar() {
           })}
         </div>
       </div>
-    </Reveal>
+    </div>
   );
 }

@@ -15,9 +15,9 @@ import "./globals.css";
 const plusJakarta = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta",
   subsets: ["latin"],
-  // Variable font (single file). optional = never block LCP/FCP on Slow 4G.
+  // optional + no preload: do not compete with the LCP image on Slow 4G.
   display: "optional",
-  preload: true,
+  preload: false,
   adjustFontFallback: true,
 });
 

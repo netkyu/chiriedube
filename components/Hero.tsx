@@ -10,9 +10,6 @@ export default function Hero() {
     as: "image",
     type: "image/webp",
     fetchPriority: "high",
-    imageSizes: "(max-width: 640px) 100vw, 72vw",
-    imageSrcSet:
-      "/images/hero-lcp-480.webp 480w, /images/hero-lcp-800.webp 800w, /images/hero-lcp-1200.webp 1200w, /images/hero-lcp.webp 1600w",
   });
 
   return (
@@ -20,17 +17,25 @@ export default function Hero() {
       <div className="relative w-full overflow-hidden bg-white sm:h-[560px] lg:h-[600px]">
         <div className="relative h-[min(36vh,250px)] min-h-[200px] sm:absolute sm:inset-y-0 sm:right-0 sm:left-auto sm:h-auto sm:min-h-0 sm:w-[72%] lg:w-[70%]">
           <div className="absolute inset-0">
-            <img
-              src="/images/hero-lcp-480.webp"
-              srcSet="/images/hero-lcp-480.webp 480w, /images/hero-lcp-800.webp 800w, /images/hero-lcp-1200.webp 1200w, /images/hero-lcp.webp 1600w"
-              sizes="(max-width: 640px) 100vw, 72vw"
-              alt="Dubă ChirieDube pe șosea, la apus, disponibilă pentru închiriere"
-              width={480}
-              height={270}
-              fetchPriority="high"
-              decoding="async"
-              className="absolute inset-0 h-full w-full object-cover object-[58%_48%] sm:object-[55%_50%]"
-            />
+            <picture>
+              {/* Force the light 480w file on phones — DPR would otherwise pick 800/1200 */}
+              <source
+                media="(max-width: 639px)"
+                srcSet="/images/hero-lcp-480.webp"
+                type="image/webp"
+              />
+              <img
+                src="/images/hero-lcp-800.webp"
+                srcSet="/images/hero-lcp-800.webp 800w, /images/hero-lcp-1200.webp 1200w, /images/hero-lcp.webp 1600w"
+                sizes="72vw"
+                alt="Dubă ChirieDube pe șosea, la apus, disponibilă pentru închiriere"
+                width={800}
+                height={450}
+                fetchPriority="high"
+                decoding="sync"
+                className="absolute inset-0 h-full w-full object-cover object-[58%_48%] sm:object-[55%_50%]"
+              />
+            </picture>
           </div>
 
           <div
