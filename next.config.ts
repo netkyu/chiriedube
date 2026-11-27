@@ -10,6 +10,9 @@ const nextConfig: NextConfig = {
   allowedDevOrigins: ["127.0.0.1"],
   experimental: {
     optimizePackageImports: ["lucide-react"],
+    // Inline CSS into HTML so Slow 4G does not wait on stylesheet round-trips
+    // before first paint (PageSpeed "render-blocking requests").
+    inlineCss: true,
   },
   // Drop Next's always-on modern polyfills (Lighthouse "Legacy JavaScript").
   // Safe for our audience on current Chrome/Safari/Firefox/Edge.

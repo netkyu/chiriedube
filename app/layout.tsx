@@ -15,8 +15,8 @@ import "./globals.css";
 const plusJakarta = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  display: "swap",
+  // Variable font (single file). optional = never block LCP/FCP on Slow 4G.
+  display: "optional",
   preload: true,
   adjustFontFallback: true,
 });
@@ -80,7 +80,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ro" className={`${plusJakarta.variable} h-full antialiased`}>
+    <html
+      lang="ro"
+      className={`${plusJakarta.variable} ${plusJakarta.className} h-full antialiased`}
+    >
       <body className="min-h-full flex flex-col font-sans">
         {/* Content first so LCP image is early in HTML; schema after */}
         {children}
