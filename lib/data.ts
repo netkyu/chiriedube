@@ -10,7 +10,7 @@ export const company = {
   address: "Str. Fabricii Nr. 29, Satu Mare, Jud. Satu Mare",
   addressLocality: "Satu Mare",
   addressRegion: "Satu Mare",
-  postalCode: "",
+  postalCode: "440096",
   iban: "RO34RNCB0221178304450001",
   bank: "Banca Comercială Română",
   /** Data ultimei actualizări a documentelor legale */

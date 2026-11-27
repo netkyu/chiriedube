@@ -165,6 +165,7 @@ export function organizationLd() {
       streetAddress: company.street,
       addressLocality: company.addressLocality,
       addressRegion: company.addressRegion,
+      postalCode: company.postalCode,
       addressCountry: "RO",
     },
     areaServed: [
