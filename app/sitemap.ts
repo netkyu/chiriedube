@@ -13,8 +13,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const areaPages = serviceAreas.map((area) => ({
     url: `${siteConfig.url}${serviceAreaPath(area.slug)}`,
     lastModified: now,
-    changeFrequency: "monthly" as const,
-    priority: 0.75,
+    changeFrequency: "weekly" as const,
+    priority: 0.8,
   }));
 
   return [
