@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ArrowRight, MapPin, MessageCircle, Phone, Truck } from "lucide-react";
 import Header from "@/components/Header";
@@ -9,6 +10,7 @@ import JsonLd from "@/components/JsonLd";
 import SectionLabel from "@/components/SectionLabel";
 import Reveal from "@/components/Reveal";
 import VanCard from "@/components/VanCard";
+import AreaFaqAccordion from "@/components/AreaFaqAccordion";
 import { contact, fleet, siteConfig } from "@/lib/data";
 import {
   getServiceArea,
@@ -60,10 +62,17 @@ export async function generateMetadata({
       title: `${title} | chiriedube.ro`,
       description,
       path,
+      images: [
+        {
+          url: "/images/hero-hq-v20.jpg",
+          alt: `Închirieri dube ${area.name}`,
+        },
+      ],
     }),
     twitter: pageTwitter({
       title: `${title} | chiriedube.ro`,
       description,
+      images: ["/images/hero-hq-v20.jpg"],
     }),
     robots: {
       index: true,
@@ -136,9 +145,33 @@ export default async function ServiceAreaPage({ params }: PageProps) {
     <>
       <Header />
       <main className="flex-1 bg-white">
-        <section className="border-b border-slate-100 bg-surface/60">
-          <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
-            <Reveal variant="up">
+        <section className="relative min-h-[320px] overflow-hidden border-b border-slate-100 sm:min-h-[380px] lg:min-h-[420px]">
+          <div className="absolute inset-0">
+            <Image
+              src="/images/hero-hq-v20.jpg"
+              alt={`Autoutilitară chiriedube.ro pentru clienți din ${area.name}`}
+              fill
+              priority
+              className="object-cover object-[58%_48%] sm:object-[55%_50%]"
+              sizes="100vw"
+              quality={85}
+            />
+            <div
+              aria-hidden
+              className="absolute inset-y-0 left-0 w-[88%] sm:w-[62%] lg:w-[52%]"
+              style={{
+                background:
+                  "linear-gradient(90deg, #ffffff 0%, #ffffff 30%, rgba(255,255,255,0.94) 55%, rgba(255,255,255,0.45) 78%, transparent 100%)",
+              }}
+            />
+            <div
+              aria-hidden
+              className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-white/85 to-transparent"
+            />
+          </div>
+
+          <div className="relative z-10 mx-auto flex min-h-[320px] max-w-6xl flex-col justify-center px-4 py-10 sm:min-h-[380px] sm:px-6 sm:py-14 lg:min-h-[420px] lg:px-8">
+            <Reveal variant="clip">
               <Breadcrumbs
                 items={[
                   { label: "Acasă", href: "/" },
@@ -155,19 +188,19 @@ export default async function ServiceAreaPage({ params }: PageProps) {
             </Reveal>
 
             <Reveal variant="up" delay={120}>
-              <h1 className="mt-3 max-w-3xl text-[2rem] font-extrabold leading-[1.08] tracking-tight text-ink sm:text-[2.75rem]">
+              <h1 className="mt-3 max-w-xl text-[2rem] font-extrabold leading-[1.08] tracking-tight text-ink sm:text-[2.75rem]">
                 {area.headline}
               </h1>
             </Reveal>
 
             <Reveal variant="up" delay={180}>
-              <p className="mt-4 max-w-2xl text-[15px] font-medium leading-relaxed text-muted sm:text-[17px]">
+              <p className="mt-4 max-w-lg text-[15px] font-medium leading-relaxed text-muted sm:text-[17px]">
                 {area.intro}
               </p>
             </Reveal>
 
             <Reveal variant="up" delay={240}>
-              <div className="mt-6 flex flex-col gap-2.5 sm:flex-row sm:items-center">
+              <div className="mt-6 flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:items-center">
                 <a
                   href={contact.whatsappHref}
                   target="_blank"
@@ -179,7 +212,7 @@ export default async function ServiceAreaPage({ params }: PageProps) {
                 </a>
                 <a
                   href="/flota"
-                  className="inline-flex h-12 items-center justify-center gap-2 rounded-xl border border-brand/25 bg-white px-5 text-[15px] font-extrabold text-ink transition hover:border-brand hover:text-brand"
+                  className="inline-flex h-12 items-center justify-center gap-2 rounded-xl border border-brand/25 bg-white/90 px-5 text-[15px] font-extrabold text-ink backdrop-blur-sm transition hover:border-brand hover:text-brand"
                 >
                   <Truck className="size-5" strokeWidth={2.2} aria-hidden />
                   Vezi flota
@@ -187,7 +220,7 @@ export default async function ServiceAreaPage({ params }: PageProps) {
                 </a>
                 <a
                   href={contact.phoneHref}
-                  className="inline-flex h-12 items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-5 text-[15px] font-extrabold text-ink transition hover:border-brand hover:text-brand"
+                  className="inline-flex h-12 items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white/90 px-5 text-[15px] font-extrabold text-ink backdrop-blur-sm transition hover:border-brand hover:text-brand"
                 >
                   <Phone className="size-5" strokeWidth={2.2} aria-hidden />
                   {contact.phoneDisplay}
@@ -274,29 +307,7 @@ export default async function ServiceAreaPage({ params }: PageProps) {
           </div>
         </section>
 
-        <section className="border-t border-slate-100 bg-surface/50">
-          <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-14 lg:px-8">
-            <Reveal variant="up">
-              <h2 className="text-[1.45rem] font-extrabold tracking-tight text-ink sm:text-[1.7rem]">
-                Întrebări frecvente · {area.name}
-              </h2>
-            </Reveal>
-            <div className="mt-6 space-y-3">
-              {area.faqs.map((item, index) => (
-                <Reveal key={item.question} variant="up" delay={60 + index * 60}>
-                  <details className="group rounded-2xl border border-slate-100 bg-white px-4 py-3.5 open:shadow-[0_10px_30px_rgba(15,23,42,0.05)]">
-                    <summary className="cursor-pointer list-none text-[15px] font-extrabold text-ink marker:content-none">
-                      {item.question}
-                    </summary>
-                    <p className="mt-2.5 text-[14px] font-medium leading-relaxed text-muted">
-                      {item.answer}
-                    </p>
-                  </details>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </section>
+        <AreaFaqAccordion cityName={area.name} faqs={area.faqs} />
 
         <section className="border-t border-slate-100">
           <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
