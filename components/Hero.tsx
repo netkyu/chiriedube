@@ -5,8 +5,8 @@ import FeaturesBar from "./FeaturesBar";
 import SectionLabel from "./SectionLabel";
 
 export default function Hero() {
-  // Inject early image preload (before parse reaches deep JSON-LD / chrome)
-  preload("/images/hero-lcp-480.webp", {
+  // Mobile LCP: sharp enough 800w (not the mushy 480-only path)
+  preload("/images/hero-lcp-800.webp", {
     as: "image",
     type: "image/webp",
     fetchPriority: "high",
@@ -14,26 +14,26 @@ export default function Hero() {
 
   return (
     <section id="acasa" className="relative overflow-x-clip bg-white">
-      <div className="relative w-full overflow-hidden bg-white sm:h-[392px] lg:h-[420px]">
-        <div className="relative h-[min(36vh,250px)] min-h-[140px] sm:absolute sm:inset-y-0 sm:right-0 sm:left-auto sm:h-auto sm:min-h-0 sm:w-[72%] lg:w-[70%]">
+      <div className="relative w-full overflow-hidden bg-white sm:h-[520px] lg:h-[560px]">
+        <div className="relative h-[min(36vh,250px)] min-h-[160px] sm:absolute sm:inset-y-0 sm:right-0 sm:left-auto sm:h-auto sm:min-h-0 sm:w-[68%] lg:w-[66%]">
           <div className="absolute inset-0">
             <picture>
-              {/* Force the light 480w file on phones — DPR would otherwise pick 800/1200 */}
               <source
                 media="(max-width: 639px)"
-                srcSet="/images/hero-lcp-480.webp"
+                srcSet="/images/hero-lcp-640.webp 640w, /images/hero-lcp-800.webp 800w, /images/hero-lcp-960.webp 960w"
+                sizes="100vw"
                 type="image/webp"
               />
               <img
-                src="/images/hero-lcp-800.webp"
-                srcSet="/images/hero-lcp-800.webp 800w, /images/hero-lcp-1200.webp 1200w, /images/hero-lcp.webp 1600w"
-                sizes="72vw"
+                src="/images/hero-lcp.webp"
+                srcSet="/images/hero-lcp-1200.webp 1200w, /images/hero-lcp.webp 1600w, /images/hero-lcp-2400.webp 2400w"
+                sizes="(max-width: 1024px) 70vw, 66vw"
                 alt="Dubă ChirieDube pe șosea, la apus, disponibilă pentru închiriere"
-                width={800}
-                height={450}
+                width={1600}
+                height={900}
                 fetchPriority="high"
-                decoding="sync"
-                className="absolute inset-0 h-full w-full object-cover object-[58%_48%] sm:object-[55%_50%]"
+                decoding="async"
+                className="absolute inset-0 h-full w-full object-cover object-[58%_48%] sm:object-[52%_50%]"
               />
             </picture>
           </div>
@@ -49,28 +49,31 @@ export default function Hero() {
 
           <div
             aria-hidden
-            className="pointer-events-none absolute inset-y-0 left-0 hidden w-[42%] sm:block"
+            className="pointer-events-none absolute inset-y-0 left-0 hidden w-[36%] sm:block"
             style={{
               background:
-                "linear-gradient(90deg, #ffffff 0%, rgba(255,255,255,0.92) 32%, rgba(255,255,255,0.4) 68%, transparent 100%)",
+                "linear-gradient(90deg, #ffffff 0%, rgba(255,255,255,0.9) 28%, rgba(255,255,255,0.35) 65%, transparent 100%)",
             }}
           />
         </div>
 
         <div className="pointer-events-none absolute inset-x-0 bottom-0 hidden h-14 bg-gradient-to-t from-white/40 to-transparent sm:block" />
 
-        <div className="relative z-10 mx-auto -mt-16 flex w-full max-w-6xl px-4 pb-1 sm:mt-0 sm:h-full sm:items-center sm:px-6 sm:pb-28 sm:pt-6 lg:px-8 lg:pb-32">
-          <div className="max-w-xl sm:pl-2 lg:max-w-[42%] lg:pl-4">
+        {/* Full-bleed gutters like before — text left, room to breathe, no squeeze into the van */}
+        <div className="relative z-10 mx-auto -mt-14 flex w-full max-w-[1400px] px-4 pb-1 sm:mt-0 sm:h-full sm:items-center sm:px-8 sm:pb-24 sm:pt-6 lg:px-10 lg:pb-28">
+          <div className="w-full max-w-[22rem] sm:max-w-[28rem] lg:max-w-[32rem]">
             <SectionLabel icon={MapPin}>
               Închirieri dube în toată România
             </SectionLabel>
 
-            <h1 className="mt-2 text-[24px] font-extrabold leading-[1.08] tracking-tight text-ink sm:mt-4 sm:text-[3.18rem] lg:text-[3.71rem]">
-              Închiriază o dubă simplu și{" "}
-              <span className="text-brand">rapid</span>
+            <h1 className="mt-2 text-[26px] font-extrabold leading-[1.1] tracking-tight text-ink sm:mt-4 sm:text-[2.65rem] lg:text-[3.05rem]">
+              Închiriază o dubă{" "}
+              <span className="whitespace-nowrap">
+                simplu și <span className="text-brand">rapid</span>
+              </span>
             </h1>
 
-            <p className="mt-2 line-clamp-3 max-w-lg text-[12px] leading-relaxed text-muted sm:mt-4 sm:line-clamp-none sm:text-[1.2rem] lg:text-[1.3rem]">
+            <p className="mt-2 max-w-md text-[13px] leading-relaxed text-muted sm:mt-4 sm:text-[1.05rem] lg:text-[1.125rem]">
               Dube moderne, fiabile și gata de drum pentru mutări, transport
               marfă și proiecte profesionale. Rezervare rapidă, prețuri
               corecte și suport prompt.
@@ -79,17 +82,17 @@ export default function Hero() {
             <div className="mt-3.5 grid grid-cols-2 gap-2 sm:mt-7 sm:flex sm:items-center sm:gap-3">
               <a
                 href="/flota"
-                className="inline-flex h-[31px] items-center justify-center gap-2 rounded-xl bg-brand px-3 text-[12px] font-extrabold text-white transition hover:bg-brand-dark sm:h-auto sm:gap-2.5 sm:px-6 sm:py-3.5 sm:text-[13px]"
+                className="inline-flex h-[40px] items-center justify-center gap-2 rounded-xl bg-brand px-3 text-[13px] font-extrabold text-white transition hover:bg-brand-dark sm:h-auto sm:gap-2.5 sm:px-6 sm:py-3.5 sm:text-[15px]"
               >
-                <Truck className="size-[13px] sm:size-5" strokeWidth={2.2} aria-hidden />
+                <Truck className="size-[16px] sm:size-5" strokeWidth={2.2} aria-hidden />
                 Vezi flota
                 <ArrowRight className="hidden size-4 sm:block" strokeWidth={2.4} aria-hidden />
               </a>
               <a
                 href={contact.phoneHref}
-                className="inline-flex h-[31px] items-center justify-center gap-2 rounded-xl border-[1px] border-brand bg-white px-3 text-[12px] font-extrabold text-brand transition hover:bg-brand-soft sm:h-auto sm:gap-2.5 sm:px-6 sm:py-3.5 sm:text-[13px]"
+                className="inline-flex h-[40px] items-center justify-center gap-2 rounded-xl border-[1.5px] border-brand bg-white px-3 text-[13px] font-extrabold text-brand transition hover:bg-brand-soft sm:h-auto sm:gap-2.5 sm:px-6 sm:py-3.5 sm:text-[15px]"
               >
-                <Phone className="size-[13px] sm:size-5" strokeWidth={2.2} aria-hidden />
+                <Phone className="size-[16px] sm:size-5" strokeWidth={2.2} aria-hidden />
                 Sună acum
               </a>
             </div>
@@ -98,7 +101,7 @@ export default function Hero() {
       </div>
 
       <div className="relative z-20 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="mt-3 sm:-mt-[36px]">
+        <div className="mt-3 sm:-mt-[44px]">
           <FeaturesBar />
         </div>
       </div>
