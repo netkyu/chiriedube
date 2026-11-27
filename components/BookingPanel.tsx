@@ -73,10 +73,10 @@ export default function BookingPanel({
 
   return (
     <div
-      className={`rounded-[22px] border border-slate-100 bg-white shadow-[0_12px_40px_rgba(15,23,42,0.06)] ${className}`}
+      className={`rounded-[15px] border border-slate-100 bg-white shadow-[0_12px_40px_rgba(15,23,42,0.06)] ${className}`}
     >
-      <div className="rounded-t-[22px] border-b border-slate-100 bg-[#F8FAFC] px-3.5 py-2.5 sm:px-5 sm:py-3">
-        <p className="text-[10.5px] font-extrabold uppercase tracking-[0.12em] text-brand sm:text-[11px]">
+      <div className="rounded-t-[15px] border-b border-slate-100 bg-[#F8FAFC] px-3.5 py-2.5 sm:px-5 sm:py-3">
+        <p className="text-[7px] font-extrabold uppercase tracking-[0.12em] text-brand sm:text-[8px]">
           Calculator ofertă
         </p>
         <h2 className="mt-0.5 text-[0.95rem] font-extrabold tracking-tight text-ink sm:text-[1.05rem]">
@@ -119,7 +119,7 @@ export default function BookingPanel({
 
         {van?.hasKmLimit ? (
           <label className="block">
-            <span className="mb-1 block text-[11px] font-extrabold uppercase tracking-[0.08em] text-muted sm:mb-1.5 sm:text-[12px]">
+            <span className="mb-1 block text-[8px] font-extrabold uppercase tracking-[0.08em] text-muted sm:mb-1.5 sm:text-[8px]">
               Km necesari (estimare)
             </span>
             <input
@@ -141,14 +141,14 @@ export default function BookingPanel({
               onBlur={() => {
                 if (neededKmInput === "") setNeededKmInput("0");
               }}
-              className="w-full rounded-xl border border-slate-200 bg-surface px-3.5 py-2.5 text-[15px] font-semibold text-ink outline-none transition focus:border-brand focus:bg-white focus:ring-2 focus:ring-brand/20 sm:py-3"
+              className="w-full rounded-xl border border-slate-200 bg-surface px-3.5 py-2.5 text-[10px] font-semibold text-ink outline-none transition focus:border-brand focus:bg-white focus:ring-2 focus:ring-brand/20 sm:py-3"
             />
-            <span className="mt-1 block text-[11px] font-medium text-muted">
+            <span className="mt-1 block text-[8px] font-medium text-muted">
               Incluși: {pricingRulesKmHint(days)} · extra 50 lei / 100 km
             </span>
           </label>
         ) : van ? (
-          <p className="rounded-xl border border-slate-100 bg-[#F8FAFC] px-3.5 py-2.5 text-[12.5px] font-medium text-muted sm:py-3 sm:text-[13px]">
+          <p className="rounded-xl border border-slate-100 bg-[#F8FAFC] px-3.5 py-2.5 text-[9px] font-medium text-muted sm:py-3 sm:text-[9px]">
             Remorcă: fără limită de kilometri și fără garanție.
           </p>
         ) : null}
@@ -156,8 +156,8 @@ export default function BookingPanel({
         {quote && van ? (
           <div className="overflow-hidden rounded-xl border border-brand/15 bg-gradient-to-br from-brand-soft to-white p-3 sm:p-3.5">
             <div className="flex items-start justify-between gap-3">
-              <div className="min-w-0 space-y-0.5 text-[12px] font-medium text-muted sm:space-y-1">
-                <p className="truncate text-[14px] font-extrabold text-ink">
+              <div className="min-w-0 space-y-0.5 text-[8px] font-medium text-muted sm:space-y-1">
+                <p className="truncate text-[10px] font-extrabold text-ink">
                   {van.name}
                 </p>
                 <p>
@@ -186,7 +186,7 @@ export default function BookingPanel({
                 </p>
               </div>
               <div className="shrink-0 text-right">
-                <p className="text-[10px] font-extrabold uppercase tracking-[0.12em] text-brand">
+                <p className="text-[7px] font-extrabold uppercase tracking-[0.12em] text-brand">
                   Total
                 </p>
                 <p className="mt-1 text-[1.45rem] font-extrabold leading-none text-ink">
@@ -196,7 +196,7 @@ export default function BookingPanel({
             </div>
           </div>
         ) : (
-          <p className="text-[13px] font-medium text-muted">
+          <p className="text-[9px] font-medium text-muted">
             Alege o perioadă validă pentru estimare.
           </p>
         )}
@@ -206,7 +206,7 @@ export default function BookingPanel({
           target="_blank"
           rel="noopener noreferrer"
           aria-disabled={!valid}
-          className={`inline-flex min-h-[46px] w-full items-center justify-center gap-2 rounded-xl px-4 py-3 text-[14px] font-extrabold text-white transition ${
+          className={`inline-flex min-h-[32px] w-full items-center justify-center gap-2 rounded-xl px-4 py-3 text-[10px] font-extrabold text-white transition ${
             valid
               ? "bg-[#25D366] hover:bg-[#1ebe57]"
               : "pointer-events-none bg-slate-300"
@@ -215,7 +215,7 @@ export default function BookingPanel({
           <MessageCircle className="size-4" strokeWidth={2.2} aria-hidden />
           Trimite oferta pe WhatsApp
         </a>
-        <p className="text-center text-[11px] font-medium leading-snug text-muted">
+        <p className="text-center text-[8px] font-medium leading-snug text-muted">
           Trimițând solicitarea, accepti{" "}
           <a
             href="/termeni-si-conditii"

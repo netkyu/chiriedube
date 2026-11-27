@@ -23,7 +23,7 @@ export default function VanCard({ van }: { van: FleetVan }) {
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 360px"
             quality={75}
           />
-          <span className="absolute left-2.5 top-2.5 rounded-full bg-white/95 px-2 py-0.5 text-[11px] font-extrabold uppercase tracking-[0.04em] text-brand shadow-sm sm:left-3 sm:top-3 sm:px-2.5 sm:py-1 sm:text-[12px]">
+          <span className="absolute left-2.5 top-2.5 rounded-full bg-white/95 px-2 py-0.5 text-[8px] font-extrabold uppercase tracking-[0.04em] text-brand shadow-sm sm:left-3 sm:top-3 sm:px-2.5 sm:py-1 sm:text-[8px]">
             {van.categoryLabel}
           </span>
         </div>
@@ -38,16 +38,16 @@ export default function VanCard({ van }: { van: FleetVan }) {
           </Link>
           {/* Mobile: price sits next to the title so the card stays short */}
           <p className="shrink-0 text-right leading-none sm:hidden">
-            <span className="block text-[11px] font-semibold text-muted">de la</span>
-            <span className="text-[17px] font-extrabold text-ink">
+            <span className="block text-[8px] font-semibold text-muted">de la</span>
+            <span className="text-[12px] font-extrabold text-ink">
               {van.priceFrom} lei
-              <span className="text-[12px] font-bold">/zi</span>
+              <span className="text-[8px] font-bold">/zi</span>
             </span>
           </p>
         </div>
 
         <div className="mt-2.5 flex flex-col gap-2.5 sm:mt-3 sm:flex-row sm:items-end sm:justify-between sm:gap-3">
-          <ul className="grid grid-cols-2 gap-x-2.5 gap-y-1 text-[11.5px] font-semibold text-muted sm:grid-cols-1 sm:gap-y-1.5 sm:text-[14px]">
+          <ul className="grid grid-cols-2 gap-x-2.5 gap-y-1 text-[8px] font-semibold text-muted sm:grid-cols-1 sm:gap-y-1.5 sm:text-[10px]">
             <li className="flex min-w-0 items-center gap-1.5">
               <Box className="size-3.5 shrink-0 text-brand" strokeWidth={2} aria-hidden />
               <span className="truncate">{van.volume}</span>
@@ -96,15 +96,15 @@ export default function VanCard({ van }: { van: FleetVan }) {
 
           <div className="flex items-center justify-between gap-3 sm:shrink-0 sm:flex-col sm:items-end sm:text-right">
             <div className="hidden sm:block">
-              <p className="text-[12px] font-semibold text-muted">de la</p>
-              <p className="text-[21px] font-extrabold leading-none text-ink">
+              <p className="text-[8px] font-semibold text-muted">de la</p>
+              <p className="text-[15px] font-extrabold leading-none text-ink">
                 {van.priceFrom} lei
-                <span className="text-[14px] font-bold">/zi</span>
+                <span className="text-[10px] font-bold">/zi</span>
               </p>
             </div>
             <Link
               href={`/flota/${van.id}`}
-              className="inline-flex h-[42px] w-full items-center justify-center gap-1.5 rounded-xl bg-brand px-3.5 text-[13px] font-extrabold text-white transition hover:bg-brand-dark sm:mt-2.5 sm:h-auto sm:w-auto sm:py-2.5 sm:text-[0.9375rem]"
+              className="inline-flex h-[29px] w-full items-center justify-center gap-1.5 rounded-xl bg-brand px-3.5 text-[9px] font-extrabold text-white transition hover:bg-brand-dark sm:mt-2.5 sm:h-auto sm:w-auto sm:py-2.5 sm:text-[0.9375rem]"
             >
               Detalii
               <ArrowRight className="size-4" strokeWidth={2.6} aria-hidden />

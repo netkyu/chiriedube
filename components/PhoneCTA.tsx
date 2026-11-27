@@ -45,14 +45,14 @@ export default function PhoneCTA() {
           </Reveal>
 
           <Reveal variant="up" delay={80}>
-            <h2 className="mt-2.5 text-[24px] font-extrabold leading-[1.08] tracking-tight text-white sm:mt-3 sm:text-[2.92rem]">
+            <h2 className="mt-2.5 text-[17px] font-extrabold leading-[1.08] tracking-tight text-white sm:mt-3 sm:text-[2.92rem]">
               Ai nevoie de o dubă?{" "}
               <span className="text-brand">Sună sau scrie</span>
             </h2>
           </Reveal>
 
           <Reveal variant="blur" delay={160}>
-            <p className="mt-2 max-w-lg text-[14px] font-medium leading-relaxed text-slate-300 sm:mt-3 sm:text-[16px]">
+            <p className="mt-2 max-w-lg text-[10px] font-medium leading-relaxed text-slate-300 sm:mt-3 sm:text-[11px]">
               Spune ce ai de mutat și în ce perioadă. Îți răspundem cu ce e liber
               și cu prețul. Program: {contact.hoursShort}.
             </p>
@@ -72,7 +72,7 @@ export default function PhoneCTA() {
           <Reveal variant="up" delay={280}>
             <a
               href={`mailto:${contact.email}`}
-              className="mt-2 inline-flex text-[14px] font-semibold text-slate-300 transition hover:text-white sm:text-[15px]"
+              className="mt-2 inline-flex text-[10px] font-semibold text-slate-300 transition hover:text-white sm:text-[10px]"
             >
               {contact.email}
             </a>

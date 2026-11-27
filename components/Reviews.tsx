@@ -69,7 +69,7 @@ export default async function Reviews() {
               </h2>
             </Reveal>
             <Reveal variant="up" delay={140}>
-              <p className="mx-auto mt-3 max-w-md text-[15px] font-medium leading-relaxed text-muted sm:text-[16px]">
+              <p className="mx-auto mt-3 max-w-md text-[10px] font-medium leading-relaxed text-muted sm:text-[11px]">
                 Poveștile celor care au închiriat de la noi, de la prima discuție până la predarea mașinii.
               </p>
             </Reveal>
@@ -78,8 +78,8 @@ export default async function Reviews() {
                 <span className="mx-auto inline-flex size-14 items-center justify-center rounded-2xl bg-brand text-white shadow-[0_10px_24px_rgba(248,104,0,0.3)]">
                   <MessageSquarePlus className="size-7" strokeWidth={1.8} aria-hidden />
                 </span>
-                <p className="mt-5 text-[17px] font-extrabold text-ink">Fii primul care povestește</p>
-                <p className="mx-auto mt-2 max-w-md text-[14px] font-medium leading-relaxed text-muted">
+                <p className="mt-5 text-[12px] font-extrabold text-ink">Fii primul care povestește</p>
+                <p className="mx-auto mt-2 max-w-md text-[10px] font-medium leading-relaxed text-muted">
                   Ai închiriat de la noi? Spune cum a fost, în câteva rânduri.
                 </p>
                 <div className="mt-6 flex justify-center">
@@ -103,20 +103,20 @@ export default async function Reviews() {
               </Reveal>
 
               <Reveal variant="blur" delay={150}>
-                <p className="mt-3 max-w-md text-[15px] font-medium leading-relaxed text-muted sm:text-[16.5px]">
+                <p className="mt-3 max-w-md text-[10px] font-medium leading-relaxed text-muted sm:text-[12px]">
                   Poveștile celor care au închiriat de la noi, de la prima discuție până la predarea mașinii.
                 </p>
               </Reveal>
 
               <Reveal variant="up" delay={210}>
                 <div className="mt-6 inline-flex items-center gap-3.5 rounded-2xl border border-orange-100 bg-white py-3 pl-4 pr-5 shadow-[0_14px_30px_-14px_rgba(0,31,56,0.18)]">
-                  <span className="text-[26px] font-extrabold leading-none tracking-tight text-ink">
+                  <span className="text-[18px] font-extrabold leading-none tracking-tight text-ink">
                     {avg.toFixed(1).replace(".", ",")}
                   </span>
                   <span className="h-9 w-px bg-slate-100" aria-hidden />
                   <span>
                     <StarsRow rating={Math.round(avg)} />
-                    <span className="mt-1 block text-[12.5px] font-semibold leading-none text-muted">
+                    <span className="mt-1 block text-[9px] font-semibold leading-none text-muted">
                       din {reviews.length} {reviews.length === 1 ? "recenzie" : "recenzii"}
                     </span>
                   </span>

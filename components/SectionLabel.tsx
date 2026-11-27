@@ -19,7 +19,7 @@ export default function SectionLabel({
 
   return (
     <span
-      className={`inline-flex items-center gap-2 text-[11px] font-extrabold uppercase tracking-[0.14em] ${color} sm:text-[12px] ${className}`}
+      className={`inline-flex items-center gap-2 text-[8px] font-extrabold uppercase tracking-[0.14em] ${color} sm:text-[8px] ${className}`}
     >
       <Icon className="size-3.5 shrink-0" strokeWidth={2.4} aria-hidden />
       {children}

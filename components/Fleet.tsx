@@ -25,7 +25,7 @@ export default function Fleet() {
               </h2>
             </Reveal>
             <Reveal variant="blur" delay={200}>
-              <p className="mt-2 max-w-xl text-[14px] font-medium leading-relaxed text-muted sm:mt-3 sm:text-[1.0625rem]">
+              <p className="mt-2 max-w-xl text-[10px] font-medium leading-relaxed text-muted sm:mt-3 sm:text-[1.0625rem]">
                 Autoutilitare, remorci și auto. Prețuri clare și rezervare pe
                 WhatsApp.
               </p>
@@ -34,7 +34,7 @@ export default function Fleet() {
           <Reveal variant="right" delay={180} className="hidden sm:block">
             <a
               href="/flota"
-              className="inline-flex w-full shrink-0 items-center justify-center gap-2 rounded-xl bg-ink px-5 py-3 text-[15px] font-extrabold text-white transition hover:bg-ink/90 sm:w-auto"
+              className="inline-flex w-full shrink-0 items-center justify-center gap-2 rounded-xl bg-ink px-5 py-3 text-[10px] font-extrabold text-white transition hover:bg-ink/90 sm:w-auto"
             >
               Vezi toată flota
               <ArrowRight className="size-4" strokeWidth={2.6} aria-hidden />
@@ -48,7 +48,7 @@ export default function Fleet() {
           <FleetCarousel />
         </Reveal>
         <Reveal variant="up" delay={220}>
-          <p className="mt-3 text-center text-[12px] font-medium italic text-muted sm:mt-5 sm:text-[14px]">
+          <p className="mt-3 text-center text-[8px] font-medium italic text-muted sm:mt-5 sm:text-[10px]">
             *Mașinile pot să difere față de imagini.
           </p>
         </Reveal>
@@ -56,7 +56,7 @@ export default function Fleet() {
         <Reveal variant="up" delay={120} className="mt-4 sm:hidden">
           <a
             href="/flota"
-            className="inline-flex h-[46px] w-full items-center justify-center gap-2 rounded-xl bg-ink px-5 text-[14px] font-extrabold text-white transition hover:bg-ink/90"
+            className="inline-flex h-[32px] w-full items-center justify-center gap-2 rounded-xl bg-ink px-5 text-[10px] font-extrabold text-white transition hover:bg-ink/90"
           >
             Vezi toată flota
             <ArrowRight className="size-4" strokeWidth={2.6} aria-hidden />

@@ -6,7 +6,7 @@ import { ChevronLeft, ChevronRight, Quote, Star } from "lucide-react";
 import type { Review } from "@/lib/reviews";
 
 function Stars({ rating, size = "sm" }: { rating: number; size?: "sm" | "md" }) {
-  const cls = size === "md" ? "size-[17px]" : "size-3.5";
+  const cls = size === "md" ? "size-[12px]" : "size-3.5";
   return (
     <div className="flex shrink-0 gap-0.5" role="img" aria-label={`${rating} din 5 stele`}>
       {Array.from({ length: 5 }).map((_, i) => (
@@ -42,7 +42,7 @@ function Avatar({ name, url }: { name: string; url?: string | null }) {
     );
   }
   return (
-    <span className="inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-brand-soft text-[12px] font-extrabold tracking-wide text-brand">
+    <span className="inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-brand-soft text-[8px] font-extrabold tracking-wide text-brand">
       {initials(name)}
     </span>
   );
@@ -53,11 +53,11 @@ function AuthorRow({ review }: { review: Review }) {
     <div className="flex min-w-0 items-center gap-2.5">
       <Avatar name={review.author_name} url={review.avatar_url} />
       <div className="min-w-0">
-        <p className="truncate text-[13.5px] font-extrabold leading-tight text-ink">
+        <p className="truncate text-[9px] font-extrabold leading-tight text-ink">
           {review.author_name}
         </p>
         {review.role ? (
-          <p className="mt-0.5 truncate text-[12px] font-medium leading-tight text-muted">
+          <p className="mt-0.5 truncate text-[8px] font-medium leading-tight text-muted">
             {review.role}
           </p>
         ) : null}
@@ -70,7 +70,7 @@ function AuthorRow({ review }: { review: Review }) {
 function PhotoReviewCard({ review }: { review: Review }) {
   return (
     <article className="flex h-full w-full flex-col overflow-hidden rounded-[1.35rem] border border-slate-200/80 bg-white shadow-[0_20px_44px_-10px_rgba(0,31,56,0.2)]">
-      <div className="relative h-[148px] w-full shrink-0 overflow-hidden bg-ink sm:h-[158px]">
+      <div className="relative h-[104px] w-full shrink-0 overflow-hidden bg-ink sm:h-[111px]">
         <Image
           src={review.image_url!}
           alt={`Fotografie trimisă de ${review.author_name}`}
@@ -85,7 +85,7 @@ function PhotoReviewCard({ review }: { review: Review }) {
       </div>
 
       <div className="flex min-h-0 flex-1 flex-col px-5 py-4 sm:px-5 sm:py-4.5">
-        <p className="line-clamp-4 min-h-0 flex-1 text-[14px] font-medium leading-relaxed text-ink sm:text-[14.5px]">
+        <p className="line-clamp-4 min-h-0 flex-1 text-[10px] font-medium leading-relaxed text-ink sm:text-[10px]">
           „{review.body}”
         </p>
         <div className="mt-3 shrink-0 border-t border-slate-100 pt-3">
@@ -114,7 +114,7 @@ function QuoteReviewCard({ review }: { review: Review }) {
           <Stars rating={review.rating} size="md" />
         </div>
 
-        <p className="mt-4 line-clamp-6 flex-1 text-[15px] font-semibold leading-relaxed text-ink sm:text-[15.5px]">
+        <p className="mt-4 line-clamp-6 flex-1 text-[10px] font-semibold leading-relaxed text-ink sm:text-[11px]">
           „{review.body}”
         </p>
 
@@ -157,7 +157,7 @@ export default function ReviewsCarousel({ reviews }: { reviews: Review[] }) {
   return (
     <div className="mx-auto w-full max-w-[520px] lg:ml-auto lg:mr-0">
       <div
-        className="relative h-[400px] w-full sm:h-[430px]"
+        className="relative h-[280px] w-full sm:h-[301px]"
         onTouchStart={(e) => {
           touchX.current = e.touches[0]?.clientX ?? null;
         }}
@@ -182,7 +182,7 @@ export default function ReviewsCarousel({ reviews }: { reviews: Review[] }) {
             <div
               key={review.id}
               aria-hidden={!isFront}
-              className="absolute left-1/2 top-[46%] flex h-[340px] w-[min(100%,400px)] items-center justify-center will-change-transform sm:h-[360px] sm:w-[400px]"
+              className="absolute left-1/2 top-[46%] flex h-[238px] w-[min(100%,400px)] items-center justify-center will-change-transform sm:h-[252px] sm:w-[400px]"
               style={{
                 transform: `translate(-50%, -50%) translate(${pose.x}px, ${pose.y}px) rotate(${pose.r}deg) scale(${pose.s})`,
                 zIndex: pose.z,
@@ -248,7 +248,7 @@ export default function ReviewsCarousel({ reviews }: { reviews: Review[] }) {
           </button>
         </div>
 
-        <p className="text-[12px] font-bold tracking-wide text-muted" aria-live="polite">
+        <p className="text-[8px] font-bold tracking-wide text-muted" aria-live="polite">
           {index + 1} / {count}
           <span className="sr-only">: {front.author_name}</span>
         </p>

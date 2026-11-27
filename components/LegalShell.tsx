@@ -21,16 +21,16 @@ export default function LegalShell({
       <main className="flex-1 bg-white">
         <section className="border-b border-slate-100 bg-[#F8FAFC]">
           <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6 sm:py-12 lg:px-8">
-            <p className="text-[12px] font-extrabold uppercase tracking-[0.12em] text-brand">
+            <p className="text-[8px] font-extrabold uppercase tracking-[0.12em] text-brand">
               Informații legale
             </p>
             <h1 className="mt-3 text-[2rem] font-extrabold leading-[1.08] tracking-tight text-ink sm:text-[2.6rem]">
               {title}
             </h1>
-            <p className="mt-3 text-[15px] font-medium leading-relaxed text-muted sm:text-[16px]">
+            <p className="mt-3 text-[10px] font-medium leading-relaxed text-muted sm:text-[11px]">
               {description}
             </p>
-            <p className="mt-4 text-[13px] font-semibold text-slate-500">
+            <p className="mt-4 text-[9px] font-semibold text-slate-500">
               Ultima actualizare: {company.legalUpdated} · Operator:{" "}
               {company.legalName}
             </p>
@@ -46,22 +46,22 @@ export default function LegalShell({
               <a
                 key={link.href}
                 href={link.href}
-                className="rounded-xl bg-surface px-3 py-2 text-[13px] font-extrabold text-ink transition hover:bg-brand-soft hover:text-brand"
+                className="rounded-xl bg-surface px-3 py-2 text-[9px] font-extrabold text-ink transition hover:bg-brand-soft hover:text-brand"
               >
                 {link.label}
               </a>
             ))}
           </nav>
 
-          <div className="legal-prose space-y-8 text-[15px] font-medium leading-relaxed text-ink/90">
+          <div className="legal-prose space-y-8 text-[10px] font-medium leading-relaxed text-ink/90">
             {children}
           </div>
 
           <aside className="mt-12 rounded-2xl border border-slate-100 bg-[#F8FAFC] p-5 sm:p-6">
-            <p className="text-[12px] font-extrabold uppercase tracking-[0.12em] text-brand">
+            <p className="text-[8px] font-extrabold uppercase tracking-[0.12em] text-brand">
               Date societate
             </p>
-            <dl className="mt-3 grid gap-2 text-[14px] sm:grid-cols-2">
+            <dl className="mt-3 grid gap-2 text-[10px] sm:grid-cols-2">
               <div>
                 <dt className="font-semibold text-muted">Denumire</dt>
                 <dd className="font-extrabold text-ink">{company.legalName}</dd>

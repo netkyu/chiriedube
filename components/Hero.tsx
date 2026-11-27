@@ -14,8 +14,8 @@ export default function Hero() {
 
   return (
     <section id="acasa" className="relative overflow-x-clip bg-white">
-      <div className="relative w-full overflow-hidden bg-white sm:h-[560px] lg:h-[600px]">
-        <div className="relative h-[min(36vh,250px)] min-h-[200px] sm:absolute sm:inset-y-0 sm:right-0 sm:left-auto sm:h-auto sm:min-h-0 sm:w-[72%] lg:w-[70%]">
+      <div className="relative w-full overflow-hidden bg-white sm:h-[392px] lg:h-[420px]">
+        <div className="relative h-[min(36vh,250px)] min-h-[140px] sm:absolute sm:inset-y-0 sm:right-0 sm:left-auto sm:h-auto sm:min-h-0 sm:w-[72%] lg:w-[70%]">
           <div className="absolute inset-0">
             <picture>
               {/* Force the light 480w file on phones — DPR would otherwise pick 800/1200 */}
@@ -65,12 +65,12 @@ export default function Hero() {
               Închirieri dube în toată România
             </SectionLabel>
 
-            <h1 className="mt-2 text-[28px] font-extrabold leading-[1.08] tracking-tight text-ink sm:mt-4 sm:text-[3.18rem] lg:text-[3.71rem]">
+            <h1 className="mt-2 text-[20px] font-extrabold leading-[1.08] tracking-tight text-ink sm:mt-4 sm:text-[3.18rem] lg:text-[3.71rem]">
               Închiriază o dubă simplu și{" "}
               <span className="text-brand">rapid</span>
             </h1>
 
-            <p className="mt-2 line-clamp-3 max-w-lg text-[14px] leading-relaxed text-muted sm:mt-4 sm:line-clamp-none sm:text-[1.2rem] lg:text-[1.3rem]">
+            <p className="mt-2 line-clamp-3 max-w-lg text-[10px] leading-relaxed text-muted sm:mt-4 sm:line-clamp-none sm:text-[1.2rem] lg:text-[1.3rem]">
               Dube moderne, fiabile și gata de drum pentru mutări, transport
               marfă și proiecte profesionale. Rezervare rapidă, prețuri
               corecte și suport prompt.
@@ -79,17 +79,17 @@ export default function Hero() {
             <div className="mt-3.5 grid grid-cols-2 gap-2 sm:mt-7 sm:flex sm:items-center sm:gap-3">
               <a
                 href="/flota"
-                className="inline-flex h-[44px] items-center justify-center gap-2 rounded-xl bg-brand px-3 text-[14px] font-extrabold text-white transition hover:bg-brand-dark sm:h-auto sm:gap-2.5 sm:px-6 sm:py-3.5 sm:text-[16px]"
+                className="inline-flex h-[31px] items-center justify-center gap-2 rounded-xl bg-brand px-3 text-[10px] font-extrabold text-white transition hover:bg-brand-dark sm:h-auto sm:gap-2.5 sm:px-6 sm:py-3.5 sm:text-[11px]"
               >
-                <Truck className="size-[18px] sm:size-5" strokeWidth={2.2} aria-hidden />
+                <Truck className="size-[13px] sm:size-5" strokeWidth={2.2} aria-hidden />
                 Vezi flota
                 <ArrowRight className="hidden size-4 sm:block" strokeWidth={2.4} aria-hidden />
               </a>
               <a
                 href={contact.phoneHref}
-                className="inline-flex h-[44px] items-center justify-center gap-2 rounded-xl border-[1.5px] border-brand bg-white px-3 text-[14px] font-extrabold text-brand transition hover:bg-brand-soft sm:h-auto sm:gap-2.5 sm:px-6 sm:py-3.5 sm:text-[16px]"
+                className="inline-flex h-[31px] items-center justify-center gap-2 rounded-xl border-[1px] border-brand bg-white px-3 text-[10px] font-extrabold text-brand transition hover:bg-brand-soft sm:h-auto sm:gap-2.5 sm:px-6 sm:py-3.5 sm:text-[11px]"
               >
-                <Phone className="size-[18px] sm:size-5" strokeWidth={2.2} aria-hidden />
+                <Phone className="size-[13px] sm:size-5" strokeWidth={2.2} aria-hidden />
                 Sună acum
               </a>
             </div>
@@ -98,7 +98,7 @@ export default function Hero() {
       </div>
 
       <div className="relative z-20 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="mt-3 sm:-mt-[52px]">
+        <div className="mt-3 sm:-mt-[36px]">
           <FeaturesBar />
         </div>
       </div>

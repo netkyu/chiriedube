@@ -166,7 +166,7 @@ function DesktopCarousel() {
               setAnimate(true);
               setIndex(fleet.length + i);
             }}
-            className="flex h-[36px] items-center"
+            className="flex h-[25px] items-center"
           >
             <span
               className={`block h-2 rounded-full transition-all duration-300 ${

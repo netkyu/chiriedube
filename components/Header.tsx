@@ -76,9 +76,9 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-100 bg-white pt-[env(safe-area-inset-top,0px)]">
-      <div className="mx-auto flex h-[60px] max-w-6xl items-center justify-between gap-2 px-4 sm:h-[84px] sm:gap-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex h-[42px] max-w-6xl items-center justify-between gap-2 px-4 sm:h-[59px] sm:gap-4 sm:px-6 lg:px-8">
         <a href="/" className="flex shrink-0 items-center py-1.5 sm:py-2">
-          <span className="relative block h-[40px] w-[118px] sm:h-[58px] sm:w-[168px] lg:h-[62px] lg:w-[180px]">
+          <span className="relative block h-[28px] w-[83px] sm:h-[41px] sm:w-[118px] lg:h-[43px] lg:w-[126px]">
             <Image
               src="/images/logo-chiriedube-v2.png"
               alt="ChirieDube.ro, Dube, platforme, auto"
@@ -97,10 +97,10 @@ export default function Header() {
               <a
                 key={link.href}
                 href={link.href}
-                className={`relative pb-1 text-[15px] transition-colors duration-200 lg:text-[16px] ${
+                className={`relative pb-1 text-[10px] transition-colors duration-200 lg:text-[11px] ${
                   isActive
-                    ? "font-extrabold text-brand after:absolute after:inset-x-0 after:-bottom-0.5 after:h-[3px] after:origin-left after:scale-x-100 after:rounded-full after:bg-brand after:transition-transform after:duration-300"
-                    : "font-medium text-ink after:absolute after:inset-x-0 after:-bottom-0.5 after:h-[3px] after:origin-left after:scale-x-0 after:rounded-full after:bg-brand after:transition-transform after:duration-300 hover:text-brand hover:after:scale-x-100"
+                    ? "font-extrabold text-brand after:absolute after:inset-x-0 after:-bottom-0.5 after:h-[2px] after:origin-left after:scale-x-100 after:rounded-full after:bg-brand after:transition-transform after:duration-300"
+                    : "font-medium text-ink after:absolute after:inset-x-0 after:-bottom-0.5 after:h-[2px] after:origin-left after:scale-x-0 after:rounded-full after:bg-brand after:transition-transform after:duration-300 hover:text-brand hover:after:scale-x-100"
                 }`}
               >
                 {link.label}
@@ -114,7 +114,7 @@ export default function Header() {
             href={contact.whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex h-[40px] items-center gap-1.5 rounded-xl bg-brand px-3 text-[13px] font-bold text-white transition duration-200 hover:bg-brand-dark active:scale-[0.97] sm:h-auto sm:gap-2 sm:px-4 sm:py-2.5 sm:text-[0.9375rem] sm:font-semibold"
+            className="inline-flex h-[28px] items-center gap-1.5 rounded-xl bg-brand px-3 text-[9px] font-bold text-white transition duration-200 hover:bg-brand-dark active:scale-[0.97] sm:h-auto sm:gap-2 sm:px-4 sm:py-2.5 sm:text-[0.9375rem] sm:font-semibold"
           >
             <CalendarDays className="size-4" strokeWidth={2.2} aria-hidden />
             <span className="hidden sm:inline">Rezervă acum</span>
@@ -122,7 +122,7 @@ export default function Header() {
           </a>
           <button
             type="button"
-            className="relative -mr-2 inline-flex size-[44px] items-center justify-center rounded-xl text-ink transition duration-200 active:bg-surface md:hidden"
+            className="relative -mr-2 inline-flex size-[31px] items-center justify-center rounded-xl text-ink transition duration-200 active:bg-surface md:hidden"
             aria-label={open ? "Închide meniul" : "Deschide meniul"}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
@@ -171,7 +171,7 @@ export default function Header() {
                     style={{
                       transitionDelay: open ? `${60 + index * 45}ms` : "0ms",
                     }}
-                    className={`flex min-h-[44px] items-center justify-between rounded-xl px-3 py-2 transition duration-300 ease-out ${
+                    className={`flex min-h-[31px] items-center justify-between rounded-xl px-3 py-2 transition duration-300 ease-out ${
                       open
                         ? "translate-y-0 opacity-100"
                         : "translate-y-2 opacity-0"
@@ -183,12 +183,12 @@ export default function Header() {
                     onClick={() => setOpen(false)}
                   >
                     <span
-                      className={`text-[15px] ${isActive ? "font-extrabold" : "font-semibold"}`}
+                      className={`text-[10px] ${isActive ? "font-extrabold" : "font-semibold"}`}
                     >
                       {link.label}
                     </span>
                     {link.subtitle ? (
-                      <span className="text-[12px] font-medium text-muted">
+                      <span className="text-[8px] font-medium text-muted">
                         {link.subtitle}
                       </span>
                     ) : null}
@@ -206,7 +206,7 @@ export default function Header() {
             >
               <a
                 href={contact.phoneHref}
-                className="inline-flex h-[44px] items-center justify-center gap-2 rounded-xl border border-brand bg-white text-[14px] font-extrabold text-brand transition active:scale-[0.98]"
+                className="inline-flex h-[31px] items-center justify-center gap-2 rounded-xl border border-brand bg-white text-[10px] font-extrabold text-brand transition active:scale-[0.98]"
               >
                 <Phone className="size-4" strokeWidth={2.2} aria-hidden />
                 {contact.phoneDisplay}
@@ -215,7 +215,7 @@ export default function Header() {
                 href={contact.whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-[44px] items-center justify-center gap-2 rounded-xl bg-[#25D366] text-[14px] font-extrabold text-white transition active:scale-[0.98]"
+                className="inline-flex h-[31px] items-center justify-center gap-2 rounded-xl bg-[#25D366] text-[10px] font-extrabold text-white transition active:scale-[0.98]"
               >
                 <MessageCircle className="size-4" strokeWidth={2.2} aria-hidden />
                 WhatsApp

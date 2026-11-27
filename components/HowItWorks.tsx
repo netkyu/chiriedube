@@ -15,11 +15,11 @@ export default function HowItWorks() {
     <Reveal variant="up" duration={850}>
       <div className="rounded-2xl bg-brand-soft px-4 py-4 sm:px-8 sm:py-6 lg:px-10 lg:py-6">
         <div className="flex flex-col gap-4 sm:gap-5 lg:flex-row lg:items-center lg:gap-8 xl:gap-12">
-          <Reveal variant="left" delay={80} className="shrink-0 lg:w-[220px] xl:w-[260px]">
+          <Reveal variant="left" delay={80} className="shrink-0 lg:w-[154px] xl:w-[260px]">
             <h2 className="text-[1.3rem] font-extrabold tracking-tight text-ink sm:text-[1.86rem]">
               Cum funcționează
             </h2>
-            <p className="mt-1 text-[13px] font-medium leading-snug text-muted sm:mt-1.5 sm:text-[15px]">
+            <p className="mt-1 text-[9px] font-medium leading-snug text-muted sm:mt-1.5 sm:text-[10px]">
               Trei pași, de la mesaj pe WhatsApp până la chei.
             </p>
           </Reveal>
@@ -35,16 +35,16 @@ export default function HowItWorks() {
                   >
                     <div className="flex items-center gap-3">
                       <div className="relative flex size-10 shrink-0 items-center justify-center rounded-full bg-brand text-white sm:size-11">
-                        <Icon className="size-[18px] sm:size-5" strokeWidth={2.2} aria-hidden />
-                        <span className="absolute -right-1 -top-1 flex size-5 items-center justify-center rounded-full bg-ink text-[11px] font-bold text-white">
+                        <Icon className="size-[13px] sm:size-5" strokeWidth={2.2} aria-hidden />
+                        <span className="absolute -right-1 -top-1 flex size-5 items-center justify-center rounded-full bg-ink text-[8px] font-bold text-white">
                           {item.step}
                         </span>
                       </div>
                       <div className="min-w-0">
-                        <h3 className="text-[14px] font-extrabold text-ink sm:text-[15px]">
+                        <h3 className="text-[10px] font-extrabold text-ink sm:text-[10px]">
                           {item.title}
                         </h3>
-                        <p className="mt-0.5 text-[12.5px] font-medium leading-snug text-muted sm:text-[13px]">
+                        <p className="mt-0.5 text-[9px] font-medium leading-snug text-muted sm:text-[9px]">
                           {item.description}
                         </p>
                       </div>

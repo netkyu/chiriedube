@@ -28,7 +28,7 @@ export default function AdminShell({
   return (
     <div className="relative min-h-screen overflow-x-clip bg-[#F7F8FA] text-ink">
       <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-[420px] bg-[radial-gradient(ellipse_at_top,_rgba(248,104,0,0.12),_transparent_58%)]"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[294px] bg-[radial-gradient(ellipse_at_top,_rgba(248,104,0,0.12),_transparent_58%)]"
         aria-hidden
       />
 
@@ -36,7 +36,7 @@ export default function AdminShell({
         <div className="mx-auto flex h-[4.25rem] max-w-6xl items-center justify-between gap-6 px-5 sm:h-[4.75rem] sm:px-8 lg:px-10">
           <div className="flex min-w-0 items-center gap-7 sm:gap-10">
             <Link href="/admin/reviews" className="shrink-0">
-              <span className="relative block h-11 w-[140px] sm:h-12 sm:w-[168px]">
+              <span className="relative block h-11 w-[98px] sm:h-12 sm:w-[118px]">
                 <Image
                   src="/images/logo-chiriedube-v2.png"
                   alt="ChirieDube.ro"
@@ -56,9 +56,9 @@ export default function AdminShell({
                   <Link
                     key={href}
                     href={href}
-                    className={`relative inline-flex items-center gap-2 py-1 text-[14px] transition sm:text-[15px] ${
+                    className={`relative inline-flex items-center gap-2 py-1 text-[10px] transition sm:text-[10px] ${
                       active
-                        ? "font-extrabold text-brand after:absolute after:inset-x-0 after:-bottom-1 after:h-[2.5px] after:rounded-full after:bg-brand"
+                        ? "font-extrabold text-brand after:absolute after:inset-x-0 after:-bottom-1 after:h-[2px] after:rounded-full after:bg-brand"
                         : "font-semibold text-ink/55 hover:text-ink"
                     }`}
                   >
@@ -74,18 +74,18 @@ export default function AdminShell({
             <Link
               href="/"
               target="_blank"
-              className="hidden items-center gap-1.5 text-[13px] font-bold text-muted transition hover:text-brand sm:inline-flex"
+              className="hidden items-center gap-1.5 text-[9px] font-bold text-muted transition hover:text-brand sm:inline-flex"
             >
               Vezi site
               <ExternalLink className="size-3.5" strokeWidth={2.2} aria-hidden />
             </Link>
-            <span className="hidden max-w-[180px] truncate text-[12px] font-semibold text-muted xl:inline">
+            <span className="hidden max-w-[180px] truncate text-[8px] font-semibold text-muted xl:inline">
               {email}
             </span>
             <form action={adminLogout}>
               <button
                 type="submit"
-                className="inline-flex h-10 items-center gap-1.5 rounded-xl bg-brand px-3.5 text-[13px] font-extrabold text-white shadow-[0_8px_18px_rgba(248,104,0,0.28)] transition hover:bg-brand-dark sm:px-4"
+                className="inline-flex h-10 items-center gap-1.5 rounded-xl bg-brand px-3.5 text-[9px] font-extrabold text-white shadow-[0_8px_18px_rgba(248,104,0,0.28)] transition hover:bg-brand-dark sm:px-4"
               >
                 <LogOut className="size-3.5" strokeWidth={2.4} aria-hidden />
                 Ieșire

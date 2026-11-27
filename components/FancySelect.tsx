@@ -55,7 +55,7 @@ export default function FancySelect({
     <div ref={rootRef} className="relative block">
       <span
         id={labelId}
-        className="mb-1 block text-[11px] font-extrabold uppercase tracking-[0.1em] text-muted sm:mb-1.5 sm:text-[12px]"
+        className="mb-1 block text-[8px] font-extrabold uppercase tracking-[0.1em] text-muted sm:mb-1.5 sm:text-[8px]"
       >
         {label}
       </span>
@@ -66,7 +66,7 @@ export default function FancySelect({
         aria-controls={listId}
         aria-labelledby={labelId}
         onClick={() => setOpen((prev) => !prev)}
-        className={`flex min-h-[46px] w-full items-center justify-between rounded-xl border bg-[#F8FAFC] px-3.5 py-2.5 text-left outline-none transition sm:rounded-2xl sm:px-4 sm:py-3.5 ${
+        className={`flex min-h-[32px] w-full items-center justify-between rounded-xl border bg-[#F8FAFC] px-3.5 py-2.5 text-left outline-none transition sm:rounded-2xl sm:px-4 sm:py-3.5 ${
           open
             ? "border-brand bg-white ring-2 ring-brand/20"
             : "border-slate-200 hover:border-slate-300"
@@ -74,14 +74,14 @@ export default function FancySelect({
       >
         <span className="min-w-0">
           <span
-            className={`block truncate text-[14px] font-extrabold sm:text-[15px] ${
+            className={`block truncate text-[10px] font-extrabold sm:text-[10px] ${
               selected ? "text-ink" : "text-slate-400"
             }`}
           >
             {selected?.label ?? placeholder}
           </span>
           {selected?.hint ? (
-            <span className="mt-0.5 block truncate text-[12px] font-medium text-muted">
+            <span className="mt-0.5 block truncate text-[8px] font-medium text-muted">
               {selected.hint}
             </span>
           ) : null}
@@ -117,19 +117,19 @@ export default function FancySelect({
                     onChange(option.value);
                     setOpen(false);
                   }}
-                  className={`flex min-h-[44px] w-full items-center justify-between gap-3 rounded-xl px-3 py-2 text-left transition sm:px-3.5 sm:py-3 ${
+                  className={`flex min-h-[31px] w-full items-center justify-between gap-3 rounded-xl px-3 py-2 text-left transition sm:px-3.5 sm:py-3 ${
                     isSelected
                       ? "bg-brand-soft text-brand"
                       : "text-ink hover:bg-surface"
                   }`}
                 >
                   <span className="min-w-0">
-                    <span className="block truncate text-[14px] font-extrabold sm:text-[15px]">
+                    <span className="block truncate text-[10px] font-extrabold sm:text-[10px]">
                       {option.label}
                     </span>
                     {option.hint ? (
                       <span
-                        className={`mt-0.5 block truncate text-[12px] font-medium ${
+                        className={`mt-0.5 block truncate text-[8px] font-medium ${
                           isSelected ? "text-brand/80" : "text-muted"
                         }`}
                       >

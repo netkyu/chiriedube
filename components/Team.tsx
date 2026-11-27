@@ -92,7 +92,7 @@ export default function Team() {
             </Reveal>
 
             <Reveal variant="blur" delay={110}>
-              <p className="mt-3.5 text-[14.5px] font-medium leading-[1.7] text-muted sm:mt-4 sm:text-[15.5px]">
+              <p className="mt-3.5 text-[10px] font-medium leading-[1.7] text-muted sm:mt-4 sm:text-[11px]">
                 Numele meu este{" "}
                 <span className="font-extrabold text-ink">{member.name}</span> și
                 mă ocup personal de întreaga activitate de închirieri dube. De
@@ -133,20 +133,20 @@ export default function Team() {
                       }`}
                     >
                       <Icon
-                        className="size-[18px] sm:size-5"
+                        className="size-[13px] sm:size-5"
                         strokeWidth={2}
                         aria-hidden
                       />
                     </span>
                     <div className="min-w-0 pt-0.5">
                       <p
-                        className={`text-[14.5px] font-extrabold leading-tight sm:text-[16px] ${
+                        className={`text-[10px] font-extrabold leading-tight sm:text-[11px] ${
                           isBrand ? "text-brand" : "text-ink"
                         }`}
                       >
                         {point.title}
                       </p>
-                      <p className="mt-1 text-[13px] font-medium leading-snug text-muted sm:text-[14px]">
+                      <p className="mt-1 text-[9px] font-medium leading-snug text-muted sm:text-[10px]">
                         {point.detail}
                       </p>
                     </div>
@@ -159,19 +159,19 @@ export default function Team() {
               <div className="mt-7 flex flex-col gap-2.5 border-t border-slate-200/80 pt-5 sm:mt-8 sm:gap-3 sm:pt-6">
                 <a
                   href={contact.phoneHref}
-                  className="inline-flex items-center gap-2.5 text-[14px] font-extrabold text-ink transition hover:text-brand sm:text-[15px]"
+                  className="inline-flex items-center gap-2.5 text-[10px] font-extrabold text-ink transition hover:text-brand sm:text-[10px]"
                 >
                   <Phone className="size-4 text-brand" strokeWidth={2.2} aria-hidden />
                   {contact.phoneDisplay}
                 </a>
                 <a
                   href={`mailto:${contact.email}`}
-                  className="inline-flex items-center gap-2.5 text-[14px] font-semibold text-muted transition hover:text-brand sm:text-[15px]"
+                  className="inline-flex items-center gap-2.5 text-[10px] font-semibold text-muted transition hover:text-brand sm:text-[10px]"
                 >
                   <Mail className="size-4 text-brand" strokeWidth={2.2} aria-hidden />
                   {contact.email}
                 </a>
-                <p className="inline-flex items-center gap-2.5 text-[13.5px] font-semibold text-muted sm:text-[14px]">
+                <p className="inline-flex items-center gap-2.5 text-[9px] font-semibold text-muted sm:text-[10px]">
                   <Clock3 className="size-4 text-brand" strokeWidth={2.2} aria-hidden />
                   {contact.hoursShort}
                 </p>

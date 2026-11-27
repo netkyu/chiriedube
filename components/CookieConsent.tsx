@@ -107,7 +107,7 @@ export default function CookieConsent() {
             <div className="flex items-start justify-between gap-3">
               <h2
                 id="cookie-title"
-                className="inline-flex items-center gap-1.5 text-[14px] font-extrabold text-ink sm:text-[1.05rem]"
+                className="inline-flex items-center gap-1.5 text-[10px] font-extrabold text-ink sm:text-[1.05rem]"
               >
                 <Cookie className="size-4 text-brand sm:hidden" aria-hidden />
                 Cookies
@@ -125,7 +125,7 @@ export default function CookieConsent() {
             </div>
             <p
               id="cookie-desc"
-              className="mt-1 line-clamp-2 text-[12px] font-medium leading-snug text-muted sm:mt-1.5 sm:line-clamp-none sm:text-[14px]"
+              className="mt-1 line-clamp-2 text-[8px] font-medium leading-snug text-muted sm:mt-1.5 sm:line-clamp-none sm:text-[10px]"
             >
               Folosim cookies esențiale. Cu acordul tău și analitice / marketing.{" "}
               <a
@@ -147,10 +147,10 @@ export default function CookieConsent() {
                     className="mt-1 accent-brand"
                   />
                   <span>
-                    <span className="block text-[14px] font-extrabold text-ink">
+                    <span className="block text-[10px] font-extrabold text-ink">
                       Esențiale
                     </span>
-                    <span className="text-[12px] font-medium text-muted">
+                    <span className="text-[8px] font-medium text-muted">
                       Necesare pentru site și memorarea consimțământului.
                     </span>
                   </span>
@@ -163,10 +163,10 @@ export default function CookieConsent() {
                     className="mt-1 accent-brand"
                   />
                   <span>
-                    <span className="block text-[14px] font-extrabold text-ink">
+                    <span className="block text-[10px] font-extrabold text-ink">
                       Analitice
                     </span>
-                    <span className="text-[12px] font-medium text-muted">
+                    <span className="text-[8px] font-medium text-muted">
                       Ne ajută să înțelegem cum e folosit site-ul.
                     </span>
                   </span>
@@ -179,10 +179,10 @@ export default function CookieConsent() {
                     className="mt-1 accent-brand"
                   />
                   <span>
-                    <span className="block text-[14px] font-extrabold text-ink">
+                    <span className="block text-[10px] font-extrabold text-ink">
                       Marketing
                     </span>
-                    <span className="text-[12px] font-medium text-muted">
+                    <span className="text-[8px] font-medium text-muted">
                       Măsurarea campaniilor (doar dacă sunt active).
                     </span>
                   </span>
@@ -194,14 +194,14 @@ export default function CookieConsent() {
               <button
                 type="button"
                 onClick={acceptAll}
-                className="inline-flex min-h-[44px] items-center justify-center rounded-xl bg-brand px-3 py-2 text-[13px] font-extrabold text-white transition hover:bg-brand-dark sm:min-h-0 sm:px-4 sm:py-2.5 sm:text-[14px]"
+                className="inline-flex min-h-[31px] items-center justify-center rounded-xl bg-brand px-3 py-2 text-[9px] font-extrabold text-white transition hover:bg-brand-dark sm:min-h-0 sm:px-4 sm:py-2.5 sm:text-[10px]"
               >
                 Acceptă
               </button>
               <button
                 type="button"
                 onClick={essentialOnly}
-                className="inline-flex min-h-[44px] items-center justify-center rounded-xl border border-slate-200 bg-white px-3 py-2 text-[13px] font-extrabold text-ink transition hover:bg-surface sm:min-h-0 sm:px-4 sm:py-2.5 sm:text-[14px]"
+                className="inline-flex min-h-[31px] items-center justify-center rounded-xl border border-slate-200 bg-white px-3 py-2 text-[9px] font-extrabold text-ink transition hover:bg-surface sm:min-h-0 sm:px-4 sm:py-2.5 sm:text-[10px]"
               >
                 Esențiale
               </button>
@@ -209,7 +209,7 @@ export default function CookieConsent() {
                 <button
                   type="button"
                   onClick={savePreferences}
-                  className="col-span-3 inline-flex min-h-[44px] items-center justify-center gap-1.5 rounded-xl bg-ink px-3 py-2 text-[13px] font-extrabold text-white transition hover:bg-slate-800 sm:col-span-1 sm:min-h-0 sm:px-4 sm:py-2.5 sm:text-[14px]"
+                  className="col-span-3 inline-flex min-h-[31px] items-center justify-center gap-1.5 rounded-xl bg-ink px-3 py-2 text-[9px] font-extrabold text-white transition hover:bg-slate-800 sm:col-span-1 sm:min-h-0 sm:px-4 sm:py-2.5 sm:text-[10px]"
                 >
                   Salvează
                 </button>
@@ -218,7 +218,7 @@ export default function CookieConsent() {
                   type="button"
                   onClick={() => setPanel(true)}
                   aria-label="Personalizează cookies"
-                  className="inline-flex size-[44px] items-center justify-center rounded-xl border border-slate-200 bg-white text-ink transition hover:bg-surface sm:h-auto sm:w-auto sm:gap-1.5 sm:px-4 sm:py-2.5 sm:text-[14px] sm:font-extrabold"
+                  className="inline-flex size-[31px] items-center justify-center rounded-xl border border-slate-200 bg-white text-ink transition hover:bg-surface sm:h-auto sm:w-auto sm:gap-1.5 sm:px-4 sm:py-2.5 sm:text-[10px] sm:font-extrabold"
                 >
                   <Settings2 className="size-4" aria-hidden />
                   <span className="hidden sm:inline">Personalizează</span>

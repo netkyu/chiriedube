@@ -86,7 +86,7 @@ export default function TowSubscriptionsPage() {
       <JsonLd data={serviceLd()} />
       <Header />
       <main className="flex-1 bg-white">
-        <section className="relative min-h-[340px] overflow-hidden border-b border-slate-100 sm:min-h-[400px]">
+        <section className="relative min-h-[238px] overflow-hidden border-b border-slate-100 sm:min-h-[280px]">
           <div className="absolute inset-0">
             <Image
               src="/images/tow-hero-gradient-v4.jpg"
@@ -110,7 +110,7 @@ export default function TowSubscriptionsPage() {
             />
           </div>
 
-          <div className="relative z-10 mx-auto flex min-h-[340px] max-w-7xl flex-col justify-center px-4 py-10 sm:min-h-[400px] sm:px-6 sm:py-14 lg:px-8 lg:py-16">
+          <div className="relative z-10 mx-auto flex min-h-[238px] max-w-7xl flex-col justify-center px-4 py-10 sm:min-h-[280px] sm:px-6 sm:py-14 lg:px-8 lg:py-16">
             <Reveal variant="clip">
               <Breadcrumbs
                 items={[
@@ -122,7 +122,7 @@ export default function TowSubscriptionsPage() {
             <Reveal variant="clip" delay={40}>
               <a
                 href="/"
-                className="mt-3 inline-flex items-center gap-1.5 text-[14px] font-bold text-brand transition hover:text-brand-dark"
+                className="mt-3 inline-flex items-center gap-1.5 text-[10px] font-bold text-brand transition hover:text-brand-dark"
               >
                 <ArrowLeft className="size-4" strokeWidth={2.4} aria-hidden />
                 Înapoi acasă
@@ -143,7 +143,7 @@ export default function TowSubscriptionsPage() {
             </Reveal>
 
             <Reveal variant="blur" delay={140}>
-              <p className="mt-4 max-w-2xl text-[16px] font-medium leading-relaxed text-muted sm:text-[18px]">
+              <p className="mt-4 max-w-2xl text-[11px] font-medium leading-relaxed text-muted sm:text-[13px]">
                 Oferim abonamente de tractare pe perioade convenite, cu
                 acoperire adaptată zonei și tipului de vehicul. Tariful se
                 comunică la cerere, după evaluarea datelor transmise.
@@ -156,14 +156,14 @@ export default function TowSubscriptionsPage() {
                   href={contact.whatsappHref}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-[#25D366] px-6 text-[15px] font-extrabold text-white transition hover:bg-[#1ebe57]"
+                  className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-[#25D366] px-6 text-[10px] font-extrabold text-white transition hover:bg-[#1ebe57]"
                 >
                   <MessageCircle className="size-4" strokeWidth={2.2} aria-hidden />
                   Scrie pe WhatsApp
                 </a>
                 <a
                   href={contact.phoneHref}
-                  className="inline-flex h-12 items-center justify-center gap-2 rounded-xl border border-brand/25 bg-white/90 px-6 text-[15px] font-extrabold text-ink backdrop-blur-sm transition hover:border-brand hover:text-brand"
+                  className="inline-flex h-12 items-center justify-center gap-2 rounded-xl border border-brand/25 bg-white/90 px-6 text-[10px] font-extrabold text-ink backdrop-blur-sm transition hover:border-brand hover:text-brand"
                 >
                   <Phone className="size-4 text-brand" strokeWidth={2.4} aria-hidden />
                   {contact.phoneDisplay}
@@ -181,7 +181,7 @@ export default function TowSubscriptionsPage() {
                 <h2 className="mt-3 text-[1.55rem] font-extrabold tracking-tight text-ink sm:text-[1.9rem]">
                   Condiții stabilite la contractare
                 </h2>
-                <p className="mt-3 max-w-xl text-[15px] font-medium leading-relaxed text-muted sm:text-[16px]">
+                <p className="mt-3 max-w-xl text-[10px] font-medium leading-relaxed text-muted sm:text-[11px]">
                   Abonamentul este destinat persoanelor fizice și juridice
                   care doresc acces prioritar la serviciul de tractare.
                   Zona, perioada și tariful se stabilesc înainte de
@@ -192,7 +192,7 @@ export default function TowSubscriptionsPage() {
                   {covers.map((item) => (
                     <li
                       key={item}
-                      className="flex items-start gap-3 text-[15px] font-semibold text-ink sm:text-[16px]"
+                      className="flex items-start gap-3 text-[10px] font-semibold text-ink sm:text-[11px]"
                     >
                       <span className="mt-0.5 inline-flex size-6 shrink-0 items-center justify-center rounded-full bg-brand-soft text-brand">
                         <Check className="size-3.5" strokeWidth={2.6} aria-hidden />
@@ -210,14 +210,14 @@ export default function TowSubscriptionsPage() {
                 <ol className="mt-5 space-y-5">
                   {steps.map((step) => (
                     <li key={step.n} className="flex gap-3.5">
-                      <span className="text-[13px] font-extrabold tracking-[0.08em] text-brand">
+                      <span className="text-[9px] font-extrabold tracking-[0.08em] text-brand">
                         {step.n}
                       </span>
                       <div>
-                        <p className="text-[16px] font-extrabold text-ink">
+                        <p className="text-[11px] font-extrabold text-ink">
                           {step.title}
                         </p>
-                        <p className="mt-1 text-[14px] font-medium leading-snug text-muted">
+                        <p className="mt-1 text-[10px] font-medium leading-snug text-muted">
                           {step.detail}
                         </p>
                       </div>
@@ -226,21 +226,21 @@ export default function TowSubscriptionsPage() {
                 </ol>
 
                 <div className="mt-7 space-y-2.5 border-t border-slate-200/80 pt-5">
-                  <p className="text-[14px] font-medium text-muted">Contact</p>
+                  <p className="text-[10px] font-medium text-muted">Contact</p>
                   <a
                     href={contact.phoneHref}
-                    className="inline-flex items-center gap-2 text-[17px] font-extrabold text-ink transition hover:text-brand"
+                    className="inline-flex items-center gap-2 text-[12px] font-extrabold text-ink transition hover:text-brand"
                   >
                     <Phone className="size-4 text-brand" strokeWidth={2.4} aria-hidden />
                     {contact.phoneDisplay}
                   </a>
                   <a
                     href={`mailto:${contact.email}`}
-                    className="block text-[14px] font-semibold text-muted transition hover:text-brand"
+                    className="block text-[10px] font-semibold text-muted transition hover:text-brand"
                   >
                     {contact.email}
                   </a>
-                  <p className="text-[13.5px] font-semibold text-muted">
+                  <p className="text-[9px] font-semibold text-muted">
                     {contact.hoursShort}
                   </p>
                 </div>

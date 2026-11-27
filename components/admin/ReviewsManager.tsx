@@ -29,10 +29,10 @@ import PhotoPicker from "@/components/PhotoPicker";
 import FancySelect from "@/components/ui/FancySelect";
 
 const fieldClass =
-  "mt-2 h-11 w-full rounded-xl border border-slate-200 bg-[#F8FAFC] px-4 text-[14px] font-medium text-ink outline-none transition ring-brand/20 focus:border-brand/40 focus:bg-white focus:ring-2";
+  "mt-2 h-11 w-full rounded-xl border border-slate-200 bg-[#F8FAFC] px-4 text-[10px] font-medium text-ink outline-none transition ring-brand/20 focus:border-brand/40 focus:bg-white focus:ring-2";
 
 const areaClass =
-  "mt-2 w-full rounded-xl border border-slate-200 bg-[#F8FAFC] px-4 py-3 text-[14px] font-medium text-ink outline-none transition ring-brand/20 focus:border-brand/40 focus:bg-white focus:ring-2";
+  "mt-2 w-full rounded-xl border border-slate-200 bg-[#F8FAFC] px-4 py-3 text-[10px] font-medium text-ink outline-none transition ring-brand/20 focus:border-brand/40 focus:bg-white focus:ring-2";
 
 const ratingOptions = [5, 4, 3, 2, 1].map((n) => ({
   value: String(n),
@@ -120,13 +120,13 @@ export default function ReviewsManager({ reviews }: { reviews: Review[] }) {
   return (
     <div className="mx-auto max-w-4xl space-y-8">
       <div className="text-center sm:text-left">
-        <p className="text-[11px] font-extrabold uppercase tracking-[0.16em] text-brand sm:text-[12px]">
+        <p className="text-[8px] font-extrabold uppercase tracking-[0.16em] text-brand sm:text-[8px]">
           Moderare
         </p>
         <h1 className="mt-2 text-[1.9rem] font-extrabold tracking-tight text-ink sm:text-[2.4rem]">
           Recenzii <span className="text-brand">clienți</span>
         </h1>
-        <p className="mt-2 max-w-xl text-[14px] font-medium leading-relaxed text-muted sm:text-[15px]">
+        <p className="mt-2 max-w-xl text-[10px] font-medium leading-relaxed text-muted sm:text-[10px]">
           Aprobă, respinge, editează sau publică tu o recenzie pe landing.
         </p>
       </div>
@@ -155,10 +155,10 @@ export default function ReviewsManager({ reviews }: { reviews: Review[] }) {
                   <span className="block text-[1.45rem] font-extrabold leading-none text-ink sm:text-[1.6rem]">
                     {counts[key]}
                   </span>
-                  <span className="mt-1.5 block text-[13px] font-extrabold text-ink sm:text-[14px]">
+                  <span className="mt-1.5 block text-[9px] font-extrabold text-ink sm:text-[10px]">
                     {label}
                   </span>
-                  <span className="mt-0.5 block text-[12px] font-medium text-muted">
+                  <span className="mt-0.5 block text-[8px] font-medium text-muted">
                     {hint}
                   </span>
                 </span>
@@ -169,7 +169,7 @@ export default function ReviewsManager({ reviews }: { reviews: Review[] }) {
       </div>
 
       {message ? (
-        <p className="rounded-xl bg-emerald-50 px-4 py-3 text-center text-[13px] font-semibold text-emerald-900 sm:text-left">
+        <p className="rounded-xl bg-emerald-50 px-4 py-3 text-center text-[9px] font-semibold text-emerald-900 sm:text-left">
           {message}
         </p>
       ) : null}
@@ -184,9 +184,9 @@ export default function ReviewsManager({ reviews }: { reviews: Review[] }) {
             <span className="inline-flex size-10 items-center justify-center rounded-xl bg-brand text-white">
               <MessageSquarePlus className="size-4.5" strokeWidth={2.2} aria-hidden />
             </span>
-            <span className="text-[15px] font-extrabold text-ink">Adaugă recenzie</span>
+            <span className="text-[10px] font-extrabold text-ink">Adaugă recenzie</span>
           </span>
-          <span className="text-[13px] font-extrabold text-brand">
+          <span className="text-[9px] font-extrabold text-brand">
             {addOpen ? "Închide" : "Deschide"}
           </span>
         </button>
@@ -204,7 +204,7 @@ export default function ReviewsManager({ reviews }: { reviews: Review[] }) {
           >
             <div className="grid gap-4 sm:grid-cols-2 sm:gap-5">
               <label className="block">
-                <span className="text-[11px] font-extrabold uppercase tracking-widest text-muted">
+                <span className="text-[8px] font-extrabold uppercase tracking-widest text-muted">
                   Nume
                 </span>
                 <input
@@ -215,7 +215,7 @@ export default function ReviewsManager({ reviews }: { reviews: Review[] }) {
                 />
               </label>
               <label className="block">
-                <span className="text-[11px] font-extrabold uppercase tracking-widest text-muted">
+                <span className="text-[8px] font-extrabold uppercase tracking-widest text-muted">
                   Context
                 </span>
                 <input
@@ -239,7 +239,7 @@ export default function ReviewsManager({ reviews }: { reviews: Review[] }) {
             </div>
 
             <label className="block">
-              <span className="text-[11px] font-extrabold uppercase tracking-widest text-muted">
+              <span className="text-[8px] font-extrabold uppercase tracking-widest text-muted">
                 Text
               </span>
               <textarea
@@ -271,7 +271,7 @@ export default function ReviewsManager({ reviews }: { reviews: Review[] }) {
               <button
                 type="submit"
                 disabled={pending}
-                className="inline-flex h-11 min-w-40 items-center justify-center gap-2 rounded-xl bg-brand px-6 text-[14px] font-extrabold text-white transition hover:bg-brand-dark disabled:opacity-60"
+                className="inline-flex h-11 min-w-40 items-center justify-center gap-2 rounded-xl bg-brand px-6 text-[10px] font-extrabold text-white transition hover:bg-brand-dark disabled:opacity-60"
               >
                 <Check className="size-4" strokeWidth={2.5} aria-hidden />
                 {pending ? "Se salvează..." : "Salvează"}
@@ -290,7 +290,7 @@ export default function ReviewsManager({ reviews }: { reviews: Review[] }) {
             <p className="mt-5 text-[1.15rem] font-extrabold text-ink">
               Nicio recenzie aici
             </p>
-            <p className="mx-auto mt-2 max-w-md text-[14px] font-medium leading-relaxed text-muted">
+            <p className="mx-auto mt-2 max-w-md text-[10px] font-medium leading-relaxed text-muted">
               Când clienții trimit păreri de pe site, apar la „În așteptare” pentru
               aprobare.
             </p>
@@ -347,11 +347,11 @@ export default function ReviewsManager({ reviews }: { reviews: Review[] }) {
                           <p className="text-[1.05rem] font-extrabold text-ink">
                             {review.author_name}
                           </p>
-                          <span className="rounded-lg bg-slate-100 px-2 py-0.5 text-[11px] font-extrabold uppercase tracking-wide text-muted">
+                          <span className="rounded-lg bg-slate-100 px-2 py-0.5 text-[8px] font-extrabold uppercase tracking-wide text-muted">
                             {REVIEW_STATUS_LABEL[review.status]}
                           </span>
                         </div>
-                        <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-[13px] font-semibold text-muted">
+                        <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-[9px] font-semibold text-muted">
                           <StarsRow rating={review.rating} />
                           <span>{review.role || "Fără context"}</span>
                           <span>{new Date(review.created_at).toLocaleString("ro-RO")}</span>
@@ -364,7 +364,7 @@ export default function ReviewsManager({ reviews }: { reviews: Review[] }) {
                             type="button"
                             disabled={pending}
                             onClick={() => run(() => setReviewStatus(review.id, "approved"))}
-                            className="inline-flex items-center gap-1.5 rounded-xl bg-emerald-600 px-3.5 py-2 text-[12px] font-extrabold text-white disabled:opacity-60"
+                            className="inline-flex items-center gap-1.5 rounded-xl bg-emerald-600 px-3.5 py-2 text-[8px] font-extrabold text-white disabled:opacity-60"
                           >
                             <Check className="size-3.5" strokeWidth={2.5} aria-hidden />
                             Aprobă
@@ -375,7 +375,7 @@ export default function ReviewsManager({ reviews }: { reviews: Review[] }) {
                             type="button"
                             disabled={pending}
                             onClick={() => run(() => setReviewStatus(review.id, "rejected"))}
-                            className="inline-flex items-center gap-1.5 rounded-xl bg-amber-500 px-3.5 py-2 text-[12px] font-extrabold text-white disabled:opacity-60"
+                            className="inline-flex items-center gap-1.5 rounded-xl bg-amber-500 px-3.5 py-2 text-[8px] font-extrabold text-white disabled:opacity-60"
                           >
                             <X className="size-3.5" strokeWidth={2.5} aria-hidden />
                             Respinge
@@ -384,7 +384,7 @@ export default function ReviewsManager({ reviews }: { reviews: Review[] }) {
                         <button
                           type="button"
                           onClick={() => setEditing(review)}
-                          className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 bg-[#F8FAFC] px-3.5 py-2 text-[12px] font-extrabold text-ink"
+                          className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 bg-[#F8FAFC] px-3.5 py-2 text-[8px] font-extrabold text-ink"
                         >
                           <Pencil className="size-3.5" strokeWidth={2.3} aria-hidden />
                           Editează
@@ -397,14 +397,14 @@ export default function ReviewsManager({ reviews }: { reviews: Review[] }) {
                               run(() => deleteReview(review.id));
                             }
                           }}
-                          className="inline-flex items-center gap-1.5 rounded-xl border border-rose-200 px-3.5 py-2 text-[12px] font-extrabold text-rose-700 disabled:opacity-60"
+                          className="inline-flex items-center gap-1.5 rounded-xl border border-rose-200 px-3.5 py-2 text-[8px] font-extrabold text-rose-700 disabled:opacity-60"
                         >
                           <Trash2 className="size-3.5" strokeWidth={2.3} aria-hidden />
                           Șterge
                         </button>
                       </div>
                     </div>
-                    <p className="mt-4 border-t border-slate-100 pt-4 text-[15px] font-medium leading-relaxed text-ink/90">
+                    <p className="mt-4 border-t border-slate-100 pt-4 text-[10px] font-medium leading-relaxed text-ink/90">
                       „{review.body}”
                     </p>
                   </div>
@@ -438,13 +438,13 @@ function EditForm({
       }}
     >
       <section className="rounded-2xl border border-slate-100 bg-[#F8FAFC] p-4 sm:p-5">
-        <h3 className="mb-4 text-[12px] font-extrabold uppercase tracking-[0.12em] text-ink">
+        <h3 className="mb-4 text-[8px] font-extrabold uppercase tracking-[0.12em] text-ink">
           Autor
         </h3>
         <div className="grid gap-5 lg:grid-cols-[1fr_1.15fr]">
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-1">
             <label className="block">
-              <span className="text-[11px] font-extrabold uppercase tracking-widest text-muted">
+              <span className="text-[8px] font-extrabold uppercase tracking-widest text-muted">
                 Nume
               </span>
               <input
@@ -455,7 +455,7 @@ function EditForm({
               />
             </label>
             <label className="block">
-              <span className="text-[11px] font-extrabold uppercase tracking-widest text-muted">
+              <span className="text-[8px] font-extrabold uppercase tracking-widest text-muted">
                 Context
               </span>
               <input
@@ -477,7 +477,7 @@ function EditForm({
       </section>
 
       <section className="rounded-2xl border border-slate-100 bg-[#F8FAFC] p-4 sm:p-5">
-        <h3 className="mb-4 text-[12px] font-extrabold uppercase tracking-[0.12em] text-ink">
+        <h3 className="mb-4 text-[8px] font-extrabold uppercase tracking-[0.12em] text-ink">
           Conținut recenzie
         </h3>
         <div className="grid gap-3">
@@ -490,7 +490,7 @@ function EditForm({
             />
           </div>
           <label className="block">
-            <span className="text-[11px] font-extrabold uppercase tracking-widest text-muted">
+            <span className="text-[8px] font-extrabold uppercase tracking-widest text-muted">
               Text
             </span>
             <textarea
@@ -515,14 +515,14 @@ function EditForm({
         <button
           type="submit"
           disabled={pending}
-          className="inline-flex h-11 items-center rounded-xl bg-brand px-5 text-[13px] font-extrabold text-white disabled:opacity-60"
+          className="inline-flex h-11 items-center rounded-xl bg-brand px-5 text-[9px] font-extrabold text-white disabled:opacity-60"
         >
           Salvează
         </button>
         <button
           type="button"
           onClick={onCancel}
-          className="inline-flex h-11 items-center rounded-xl border border-slate-200 bg-white px-5 text-[13px] font-bold text-ink"
+          className="inline-flex h-11 items-center rounded-xl border border-slate-200 bg-white px-5 text-[9px] font-bold text-ink"
         >
           Anulează
         </button>

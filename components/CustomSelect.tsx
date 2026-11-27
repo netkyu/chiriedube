@@ -46,7 +46,7 @@ export default function CustomSelect({
   }, [open]);
 
   return (
-    <div ref={rootRef} className="relative block text-[14px] sm:text-[0.9375rem]">
+    <div ref={rootRef} className="relative block text-[10px] sm:text-[0.9375rem]">
       <span id={labelId} className="mb-1.5 block font-extrabold text-ink">
         {label}
       </span>
@@ -58,7 +58,7 @@ export default function CustomSelect({
         aria-controls={listId}
         aria-labelledby={labelId}
         onClick={() => setOpen((prev) => !prev)}
-        className={`flex min-h-[44px] w-full items-center justify-between rounded-xl border bg-surface px-3.5 py-2.5 text-left font-medium outline-none transition focus:border-brand focus:bg-white focus:ring-2 focus:ring-brand/20 sm:py-3 ${
+        className={`flex min-h-[31px] w-full items-center justify-between rounded-xl border bg-surface px-3.5 py-2.5 text-left font-medium outline-none transition focus:border-brand focus:bg-white focus:ring-2 focus:ring-brand/20 sm:py-3 ${
           open
             ? "border-brand bg-white ring-2 ring-brand/20"
             : "border-slate-200"

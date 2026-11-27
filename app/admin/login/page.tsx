@@ -12,7 +12,7 @@ export default function AdminLoginPage() {
       />
 
       <Link href="/" className="relative z-10 mb-8 block">
-        <span className="relative mx-auto block h-[56px] w-[168px] sm:h-[64px] sm:w-[190px]">
+        <span className="relative mx-auto block h-[39px] w-[118px] sm:h-[45px] sm:w-[133px]">
           <Image
             src="/images/logo-chiriedube-v2.png"
             alt="ChirieDube.ro"
@@ -28,7 +28,7 @@ export default function AdminLoginPage() {
       <div className="relative z-10 w-full max-w-md">
         <Suspense
           fallback={
-            <div className="rounded-2xl border border-slate-100 bg-white p-8 text-center text-[14px] font-medium text-muted shadow-[0_18px_50px_rgba(248,104,0,0.12)]">
+            <div className="rounded-2xl border border-slate-100 bg-white p-8 text-center text-[10px] font-medium text-muted shadow-[0_18px_50px_rgba(248,104,0,0.12)]">
               Se încarcă...
             </div>
           }

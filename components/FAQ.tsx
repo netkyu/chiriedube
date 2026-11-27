@@ -31,7 +31,7 @@ export default function FAQ() {
             </h2>
           </Reveal>
           <Reveal variant="blur" delay={200}>
-            <p className="mt-2 text-[14px] font-medium leading-relaxed text-slate-300 sm:mt-3 sm:text-[16px]">
+            <p className="mt-2 text-[10px] font-medium leading-relaxed text-slate-300 sm:mt-3 sm:text-[11px]">
               Kilometri, garanție, acte și ce e inclus în preț.
             </p>
           </Reveal>
@@ -42,9 +42,9 @@ export default function FAQ() {
             variant="left"
             delay={120}
             duration={950}
-            className="hidden h-full min-h-[280px] lg:block"
+            className="hidden h-full min-h-[196px] lg:block"
           >
-            <aside className="relative h-full min-h-[280px] overflow-hidden rounded-[24px]">
+            <aside className="relative h-full min-h-[196px] overflow-hidden rounded-[17px]">
               <Image
                 src="/images/faq-road-v4.jpg"
                 alt="Dubă pe drum"
@@ -57,7 +57,7 @@ export default function FAQ() {
                 <p className="text-[1rem] font-extrabold text-white sm:text-[1.2rem]">
                   Înainte să rezervi
                 </p>
-                <p className="mt-0.5 max-w-xs text-[12.5px] font-medium text-white/80 sm:mt-1 sm:text-[0.9375rem]">
+                <p className="mt-0.5 max-w-xs text-[9px] font-medium text-white/80 sm:mt-1 sm:text-[0.9375rem]">
                   Citește aici sau scrie-ne pe WhatsApp dacă ceva nu e clar.
                 </p>
               </div>
@@ -84,12 +84,12 @@ export default function FAQ() {
                   >
                     <button
                       type="button"
-                      className="flex min-h-[48px] w-full items-center gap-2.5 px-3 py-2.5 text-left sm:gap-4 sm:px-5 sm:py-4"
+                      className="flex min-h-[34px] w-full items-center gap-2.5 px-3 py-2.5 text-left sm:gap-4 sm:px-5 sm:py-4"
                       aria-expanded={isOpen}
                       onClick={() => setOpenIndex(isOpen ? null : index)}
                     >
                       <span
-                        className={`inline-flex size-7 shrink-0 items-center justify-center rounded-lg text-[12px] font-extrabold sm:size-8 sm:text-[13px] ${
+                        className={`inline-flex size-7 shrink-0 items-center justify-center rounded-lg text-[8px] font-extrabold sm:size-8 sm:text-[9px] ${
                           isOpen
                             ? "bg-brand text-white"
                             : "bg-brand-soft text-brand"
@@ -97,11 +97,11 @@ export default function FAQ() {
                       >
                         {String(index + 1).padStart(2, "0")}
                       </span>
-                      <span className="flex-1 text-[13.5px] font-extrabold leading-snug text-ink sm:text-[16px]">
+                      <span className="flex-1 text-[9px] font-extrabold leading-snug text-ink sm:text-[11px]">
                         {faq.question}
                       </span>
                       <ChevronDown
-                        className={`size-[18px] shrink-0 text-brand transition-transform duration-300 sm:size-5 ${
+                        className={`size-[13px] shrink-0 text-brand transition-transform duration-300 sm:size-5 ${
                           isOpen ? "rotate-180" : ""
                         }`}
                         strokeWidth={2.4}
@@ -115,14 +115,14 @@ export default function FAQ() {
                     >
                       <div className="min-h-0 overflow-hidden">
                         <div className="border-t border-slate-100 px-3 pb-3.5 pt-2.5 sm:px-5 sm:pb-4 sm:pl-[3.75rem] sm:pt-3">
-                          <p className="text-[13px] font-medium leading-relaxed text-muted sm:text-[15px]">
+                          <p className="text-[9px] font-medium leading-relaxed text-muted sm:text-[10px]">
                             {faq.intro}
                           </p>
                           <ul className="mt-2 space-y-1.5 sm:mt-2.5 sm:space-y-2">
                             {faq.points.map((point) => (
                               <li
                                 key={point}
-                                className="flex gap-2.5 text-[13px] font-medium leading-snug text-muted sm:gap-3 sm:text-[15px] sm:leading-relaxed"
+                                className="flex gap-2.5 text-[9px] font-medium leading-snug text-muted sm:gap-3 sm:text-[10px] sm:leading-relaxed"
                               >
                                 <span
                                   className="mt-[0.45em] size-1.5 shrink-0 rounded-full bg-brand sm:mt-[0.5em]"
