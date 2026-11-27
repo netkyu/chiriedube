@@ -64,7 +64,7 @@ export async function generateMetadata({
       path,
       images: [
         {
-          url: "/images/hero-hq-v20.jpg",
+          url: "/images/hero-lcp.webp",
           alt: `Închirieri dube ${area.name}`,
         },
       ],
@@ -72,7 +72,7 @@ export async function generateMetadata({
     twitter: pageTwitter({
       title: `${title} | chiriedube.ro`,
       description,
-      images: ["/images/hero-hq-v20.jpg"],
+      images: ["/images/hero-lcp.webp"],
     }),
     robots: {
       index: true,
@@ -145,88 +145,103 @@ export default async function ServiceAreaPage({ params }: PageProps) {
     <>
       <Header />
       <main className="flex-1 bg-white">
-        <section className="relative min-h-[320px] overflow-hidden border-b border-slate-100 sm:min-h-[380px] lg:min-h-[420px]">
-          <div className="absolute inset-0">
-            <Image
-              src="/images/hero-hq-v20.jpg"
-              alt={`Autoutilitară chiriedube.ro pentru clienți din ${area.name}`}
-              fill
-              priority
-              className="object-cover object-[58%_48%] sm:object-[55%_50%]"
-              sizes="100vw"
-              quality={85}
-            />
-            <div
-              aria-hidden
-              className="absolute inset-y-0 left-0 w-[88%] sm:w-[62%] lg:w-[52%]"
-              style={{
-                background:
-                  "linear-gradient(90deg, #ffffff 0%, #ffffff 30%, rgba(255,255,255,0.94) 55%, rgba(255,255,255,0.45) 78%, transparent 100%)",
-              }}
-            />
-            <div
-              aria-hidden
-              className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-white/85 to-transparent"
-            />
-          </div>
-
-          <div className="relative z-10 mx-auto flex min-h-[320px] max-w-6xl flex-col justify-center px-4 py-10 sm:min-h-[380px] sm:px-6 sm:py-14 lg:min-h-[420px] lg:px-8">
-            <Reveal variant="clip">
-              <Breadcrumbs
-                items={[
-                  { label: "Acasă", href: "/" },
-                  { label: "Flotă", href: "/flota" },
-                  { label: area.name },
-                ]}
-              />
-            </Reveal>
-
-            <Reveal variant="up" delay={80}>
-              <SectionLabel icon={MapPin} className="mt-5">
-                {area.name}, jud. {area.county} · {area.driveHint}
-              </SectionLabel>
-            </Reveal>
-
-            <Reveal variant="up" delay={120}>
-              <h1 className="mt-3 max-w-xl text-[2rem] font-extrabold leading-[1.08] tracking-tight text-ink sm:text-[2.75rem]">
-                {area.headline}
-              </h1>
-            </Reveal>
-
-            <Reveal variant="up" delay={180}>
-              <p className="mt-4 max-w-lg text-[15px] font-medium leading-relaxed text-muted sm:text-[17px]">
-                {area.intro}
-              </p>
-            </Reveal>
-
-            <Reveal variant="up" delay={240}>
-              <div className="mt-6 flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:items-center">
-                <a
-                  href={contact.whatsappHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-[#25D366] px-5 text-[15px] font-extrabold text-white transition hover:bg-[#1ebe57]"
-                >
-                  <MessageCircle className="size-5" strokeWidth={2.2} aria-hidden />
-                  Rezervă pe WhatsApp
-                </a>
-                <a
-                  href="/flota"
-                  className="inline-flex h-12 items-center justify-center gap-2 rounded-xl border border-brand/25 bg-white/90 px-5 text-[15px] font-extrabold text-ink backdrop-blur-sm transition hover:border-brand hover:text-brand"
-                >
-                  <Truck className="size-5" strokeWidth={2.2} aria-hidden />
-                  Vezi flota
-                  <ArrowRight className="size-4" strokeWidth={2.4} aria-hidden />
-                </a>
-                <a
-                  href={contact.phoneHref}
-                  className="inline-flex h-12 items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white/90 px-5 text-[15px] font-extrabold text-ink backdrop-blur-sm transition hover:border-brand hover:text-brand"
-                >
-                  <Phone className="size-5" strokeWidth={2.2} aria-hidden />
-                  {contact.phoneDisplay}
-                </a>
+        <section className="relative overflow-x-clip border-b border-slate-100 bg-white">
+          <div className="relative w-full overflow-hidden bg-white sm:h-[480px] lg:h-[520px]">
+            {/* Same layout as homepage hero: image panel on the right */}
+            <div className="relative h-[min(36vh,250px)] min-h-[160px] sm:absolute sm:inset-y-0 sm:right-0 sm:left-auto sm:h-auto sm:min-h-0 sm:w-[68%] lg:w-[66%]">
+              <div className="absolute inset-0">
+                <Image
+                  src="/images/hero-lcp.webp"
+                  alt={`Autoutilitară chiriedube.ro pentru clienți din ${area.name}`}
+                  fill
+                  priority
+                  className="object-cover object-[58%_48%] sm:object-[52%_50%]"
+                  sizes="(max-width: 640px) 100vw, 68vw"
+                  quality={85}
+                />
               </div>
-            </Reveal>
+
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0 sm:hidden"
+                style={{
+                  background:
+                    "linear-gradient(to top, #ffffff 0%, rgba(255,255,255,0.92) 18%, rgba(255,255,255,0.35) 42%, transparent 62%)",
+                }}
+              />
+
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-y-0 left-0 hidden w-[36%] sm:block"
+                style={{
+                  background:
+                    "linear-gradient(90deg, #ffffff 0%, rgba(255,255,255,0.9) 28%, rgba(255,255,255,0.35) 65%, transparent 100%)",
+                }}
+              />
+            </div>
+
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 hidden h-14 bg-gradient-to-t from-white/40 to-transparent sm:block" />
+
+            <div className="relative z-10 mx-auto -mt-14 flex w-full max-w-[1400px] px-4 pb-6 sm:mt-0 sm:h-full sm:items-center sm:px-8 sm:pb-24 sm:pt-6 lg:px-10 lg:pb-28">
+              <div className="w-full max-w-[22rem] sm:max-w-[28rem] lg:max-w-[32rem]">
+                <Reveal variant="clip">
+                  <Breadcrumbs
+                    items={[
+                      { label: "Acasă", href: "/" },
+                      { label: "Flotă", href: "/flota" },
+                      { label: area.name },
+                    ]}
+                  />
+                </Reveal>
+
+                <Reveal variant="up" delay={80}>
+                  <SectionLabel icon={MapPin} className="mt-4">
+                    {area.name}, jud. {area.county} · {area.driveHint}
+                  </SectionLabel>
+                </Reveal>
+
+                <Reveal variant="up" delay={120}>
+                  <h1 className="mt-3 text-[26px] font-extrabold leading-[1.1] tracking-tight text-ink sm:mt-4 sm:text-[2.65rem] lg:text-[3.05rem]">
+                    {area.headline}
+                  </h1>
+                </Reveal>
+
+                <Reveal variant="up" delay={180}>
+                  <p className="mt-3 max-w-md text-[13px] font-medium leading-relaxed text-muted sm:mt-4 sm:text-[1.05rem] lg:text-[1.125rem]">
+                    {area.intro}
+                  </p>
+                </Reveal>
+
+                <Reveal variant="up" delay={240}>
+                  <div className="mt-5 flex flex-col gap-2.5 sm:mt-7 sm:flex-row sm:flex-wrap sm:items-center">
+                    <a
+                      href={contact.whatsappHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex h-[40px] items-center justify-center gap-2 rounded-xl bg-[#25D366] px-4 text-[13px] font-extrabold text-white transition hover:bg-[#1ebe57] sm:h-auto sm:px-6 sm:py-3.5 sm:text-[15px]"
+                    >
+                      <MessageCircle className="size-4 sm:size-5" strokeWidth={2.2} aria-hidden />
+                      Rezervă pe WhatsApp
+                    </a>
+                    <a
+                      href="/flota"
+                      className="inline-flex h-[40px] items-center justify-center gap-2 rounded-xl border-[1.5px] border-brand bg-white px-4 text-[13px] font-extrabold text-brand transition hover:bg-brand-soft sm:h-auto sm:px-6 sm:py-3.5 sm:text-[15px]"
+                    >
+                      <Truck className="size-4 sm:size-5" strokeWidth={2.2} aria-hidden />
+                      Vezi flota
+                      <ArrowRight className="hidden size-4 sm:block" strokeWidth={2.4} aria-hidden />
+                    </a>
+                    <a
+                      href={contact.phoneHref}
+                      className="inline-flex h-[40px] items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 text-[13px] font-extrabold text-ink transition hover:border-brand hover:text-brand sm:h-auto sm:px-6 sm:py-3.5 sm:text-[15px]"
+                    >
+                      <Phone className="size-4 sm:size-5" strokeWidth={2.2} aria-hidden />
+                      {contact.phoneDisplay}
+                    </a>
+                  </div>
+                </Reveal>
+              </div>
+            </div>
           </div>
         </section>
 
