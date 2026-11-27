@@ -1,5 +1,5 @@
 import { MessageSquarePlus, MessageSquareQuote, Star } from "lucide-react";
-import { createClient } from "@/lib/supabase/server";
+import { createPublicClient } from "@/lib/supabase/public";
 import type { Review } from "@/lib/reviews";
 import SectionLabel from "./SectionLabel";
 import Reveal from "./Reveal";
@@ -22,7 +22,9 @@ function StarsRow({ rating }: { rating: number }) {
 
 async function getApprovedReviews(): Promise<Review[]> {
   try {
-    const supabase = await createClient();
+    // Public client (no cookies) so the homepage can be statically generated
+    // and is not blocked on auth/cookie dynamic rendering.
+    const supabase = createPublicClient();
     const { data, error } = await supabase
       .from("reviews")
       .select(

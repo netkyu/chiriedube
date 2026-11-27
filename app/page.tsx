@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import dynamic from "next/dynamic";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
@@ -5,6 +6,7 @@ import Fleet from "@/components/Fleet";
 import PriceIncludes from "@/components/PriceIncludes";
 import Services from "@/components/Services";
 import Team from "@/components/Team";
+import Reviews from "@/components/Reviews";
 import PhoneCTA from "@/components/PhoneCTA";
 import PickupReady from "@/components/PickupReady";
 import ContactCTA from "@/components/ContactCTA";
@@ -13,9 +15,11 @@ import { faqAnswerText, faqs } from "@/lib/data";
 import { fleetItemListLd } from "@/lib/seo";
 
 const FAQ = dynamic(() => import("@/components/FAQ"));
-const Reviews = dynamic(() => import("@/components/Reviews"));
 const B2BOffer = dynamic(() => import("@/components/B2BOffer"));
 const Footer = dynamic(() => import("@/components/Footer"));
+
+/** Cache homepage HTML so TTFB stays low; refresh reviews periodically. */
+export const revalidate = 300;
 
 const faqLd = {
   "@context": "https://schema.org",
@@ -30,6 +34,16 @@ const faqLd = {
   })),
 };
 
+function ReviewsFallback() {
+  return (
+    <section
+      id="recenzii"
+      className="relative overflow-x-clip bg-white py-16 sm:py-20 lg:py-24"
+      aria-hidden
+    />
+  );
+}
+
 export default function Home() {
   return (
     <>
@@ -41,14 +55,15 @@ export default function Home() {
         <Services />
         <Team />
         <FAQ />
-        <Reviews />
+        <Suspense fallback={<ReviewsFallback />}>
+          <Reviews />
+        </Suspense>
         <PhoneCTA />
         <PickupReady />
         <B2BOffer />
       </main>
       <Footer />
       <ContactCTA />
-      {/* Schema after visible content — keeps LCP image early in HTML */}
       <JsonLd data={faqLd} />
       <JsonLd data={fleetItemListLd()} />
     </>
