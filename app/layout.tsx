@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import { siteConfig } from "@/lib/data";
 import JsonLd from "@/components/JsonLd";
-import CookieConsent from "@/components/CookieConsent";
+import LazyCookieConsent from "@/components/LazyCookieConsent";
 import {
   ogImage,
   organizationLd,
@@ -17,6 +17,7 @@ const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
   display: "swap",
+  preload: true,
 });
 
 const homeTitle = "chiriedube.ro | Autoutilitare și remorci în Satu Mare";
@@ -79,11 +80,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ro" className={`${plusJakarta.variable} h-full antialiased`}>
+      <head>
+        <link
+          rel="preload"
+          as="image"
+          href="/images/hero-hq-v20.jpg"
+          fetchPriority="high"
+          type="image/jpeg"
+        />
+      </head>
       <body className="min-h-full flex flex-col font-sans">
         <JsonLd data={organizationLd()} />
         <JsonLd data={websiteLd()} />
         {children}
-        <CookieConsent />
+        <LazyCookieConsent />
       </body>
     </html>
   );

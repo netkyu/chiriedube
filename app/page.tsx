@@ -8,7 +8,6 @@ import Team from "@/components/Team";
 import PhoneCTA from "@/components/PhoneCTA";
 import PickupReady from "@/components/PickupReady";
 import ContactCTA from "@/components/ContactCTA";
-import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import { faqAnswerText, faqs } from "@/lib/data";
 import { fleetItemListLd } from "@/lib/seo";
@@ -16,6 +15,7 @@ import { fleetItemListLd } from "@/lib/seo";
 const FAQ = dynamic(() => import("@/components/FAQ"));
 const Reviews = dynamic(() => import("@/components/Reviews"));
 const B2BOffer = dynamic(() => import("@/components/B2BOffer"));
+const Footer = dynamic(() => import("@/components/Footer"));
 
 const faqLd = {
   "@context": "https://schema.org",

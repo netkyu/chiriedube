@@ -23,48 +23,41 @@ export default function Header() {
       return;
     }
 
-    let ticking = false;
-    function updateActive() {
-      const headerOffset = 100;
-      let current = navLinks[0]?.href ?? "/#acasa";
+    // IntersectionObserver avoids forced reflows from getBoundingClientRect on scroll
+    const observers: IntersectionObserver[] = [];
+    const visible = new Map<string, number>();
 
-      for (const link of navLinks) {
-        const id = sectionId(link.href);
-        if (!id) continue;
-        const el = document.getElementById(id);
-        if (!el) continue;
-        const top = el.getBoundingClientRect().top;
-        if (top - headerOffset <= 0) {
-          current = link.href;
-        }
-      }
+    for (const link of navLinks) {
+      const id = sectionId(link.href);
+      if (!id) continue;
+      const el = document.getElementById(id);
+      if (!el) continue;
 
-      const scrollBottom = window.innerHeight + window.scrollY;
-      const docHeight = document.documentElement.scrollHeight;
-      if (docHeight - scrollBottom < 80) {
-        const lastHash = [...navLinks].reverse().find((l) => sectionId(l.href));
-        current = lastHash?.href ?? current;
-      }
-
-      setActive((prev) => (prev === current ? prev : current));
-      ticking = false;
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            visible.set(link.href, entry.intersectionRatio);
+          } else {
+            visible.delete(link.href);
+          }
+          let best = navLinks[0]?.href ?? "/#acasa";
+          let bestRatio = -1;
+          for (const [href, ratio] of visible) {
+            if (ratio > bestRatio) {
+              bestRatio = ratio;
+              best = href;
+            }
+          }
+          setActive((prev) => (prev === best ? prev : best));
+        },
+        { rootMargin: "-20% 0px -55% 0px", threshold: [0, 0.25, 0.5, 0.75, 1] },
+      );
+      observer.observe(el);
+      observers.push(observer);
     }
-
-    function onScroll() {
-      if (ticking) return;
-      ticking = true;
-      window.requestAnimationFrame(updateActive);
-    }
-
-    updateActive();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    window.addEventListener("hashchange", updateActive);
 
     return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-      window.removeEventListener("hashchange", updateActive);
+      for (const observer of observers) observer.disconnect();
     };
   }, [pathname]);
 
