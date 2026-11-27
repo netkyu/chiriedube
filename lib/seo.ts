@@ -228,6 +228,7 @@ export function breadcrumbLd(
 }
 
 export function fleetItemListLd() {
+  // Keep homepage ItemList light (URLs only). Full Product+Offer lives on /flota/[id].
   return {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -237,7 +238,8 @@ export function fleetItemListLd() {
     itemListElement: fleet.map((van, index) => ({
       "@type": "ListItem",
       position: index + 1,
-      item: productOfferLd(van),
+      url: absoluteUrl(`/flota/${van.id}`),
+      name: van.name,
     })),
   };
 }

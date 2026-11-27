@@ -1,30 +1,38 @@
+import { preload } from "react-dom";
 import { ArrowRight, MapPin, Phone, Truck } from "lucide-react";
 import { contact } from "@/lib/data";
 import FeaturesBar from "./FeaturesBar";
 import SectionLabel from "./SectionLabel";
 
 export default function Hero() {
+  // Inject early image preload (before parse reaches deep JSON-LD / chrome)
+  preload("/images/hero-lcp-800.webp", {
+    as: "image",
+    type: "image/webp",
+    fetchPriority: "high",
+    imageSizes: "(max-width: 640px) 100vw, 72vw",
+    imageSrcSet:
+      "/images/hero-lcp-800.webp 800w, /images/hero-lcp-1200.webp 1200w, /images/hero-lcp.webp 1600w",
+  });
+
   return (
     <section id="acasa" className="relative overflow-x-clip bg-white">
       <div className="relative w-full overflow-hidden bg-white sm:h-[560px] lg:h-[600px]">
         <div className="relative h-[min(36vh,250px)] min-h-[200px] sm:absolute sm:inset-y-0 sm:right-0 sm:left-auto sm:h-auto sm:min-h-0 sm:w-[72%] lg:w-[70%]">
           <div className="absolute inset-0">
-            {/* Native LCP image — avoids /_next/image discovery delay */}
-            <picture>
-              <source srcSet="/images/hero-lcp.webp" type="image/webp" />
-              <img
-                src="/images/hero-hq-v20.jpg"
-                alt="Dubă ChirieDube pe șosea, la apus, disponibilă pentru închiriere"
-                width={1600}
-                height={900}
-                fetchPriority="high"
-                decoding="sync"
-                className="absolute inset-0 h-full w-full object-cover object-[58%_48%] sm:object-[55%_50%]"
-              />
-            </picture>
+            <img
+              src="/images/hero-lcp-800.webp"
+              srcSet="/images/hero-lcp-800.webp 800w, /images/hero-lcp-1200.webp 1200w, /images/hero-lcp.webp 1600w"
+              sizes="(max-width: 640px) 100vw, 72vw"
+              alt="Dubă ChirieDube pe șosea, la apus, disponibilă pentru închiriere"
+              width={800}
+              height={450}
+              fetchPriority="high"
+              decoding="async"
+              className="absolute inset-0 h-full w-full object-cover object-[58%_48%] sm:object-[55%_50%]"
+            />
           </div>
 
-          {/* Mobile: fade into white copy below */}
           <div
             aria-hidden
             className="pointer-events-none absolute inset-0 sm:hidden"
@@ -34,7 +42,6 @@ export default function Hero() {
             }}
           />
 
-          {/* Seamless white fade where the photo meets the text side */}
           <div
             aria-hidden
             className="pointer-events-none absolute inset-y-0 left-0 hidden w-[42%] sm:block"
@@ -47,7 +54,6 @@ export default function Hero() {
 
         <div className="pointer-events-none absolute inset-x-0 bottom-0 hidden h-14 bg-gradient-to-t from-white/40 to-transparent sm:block" />
 
-        {/* Above-the-fold copy without Reveal — paints immediately for FCP/LCP */}
         <div className="relative z-10 mx-auto -mt-16 flex w-full max-w-[1400px] px-4 pb-1 sm:mt-0 sm:h-full sm:items-center sm:pb-28 sm:pt-6 lg:px-5 lg:pb-32">
           <div className="max-w-xl lg:max-w-[42%]">
             <SectionLabel icon={MapPin}>

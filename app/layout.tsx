@@ -18,6 +18,7 @@ const plusJakarta = Plus_Jakarta_Sans({
   weight: ["400", "500", "600", "700", "800"],
   display: "swap",
   preload: true,
+  adjustFontFallback: true,
 });
 
 const homeTitle = "chiriedube.ro | Autoutilitare și remorci în Satu Mare";
@@ -80,19 +81,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ro" className={`${plusJakarta.variable} h-full antialiased`}>
-      <head>
-        <link
-          rel="preload"
-          as="image"
-          href="/images/hero-lcp.webp"
-          fetchPriority="high"
-          type="image/webp"
-        />
-      </head>
       <body className="min-h-full flex flex-col font-sans">
+        {/* Content first so LCP image is early in HTML; schema after */}
+        {children}
         <JsonLd data={organizationLd()} />
         <JsonLd data={websiteLd()} />
-        {children}
         <LazyCookieConsent />
       </body>
     </html>

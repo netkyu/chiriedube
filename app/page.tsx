@@ -33,8 +33,6 @@ const faqLd = {
 export default function Home() {
   return (
     <>
-      <JsonLd data={faqLd} />
-      <JsonLd data={fleetItemListLd()} />
       <Header />
       <main className="flex-1">
         <Hero />
@@ -50,6 +48,9 @@ export default function Home() {
       </main>
       <Footer />
       <ContactCTA />
+      {/* Schema after visible content — keeps LCP image early in HTML */}
+      <JsonLd data={faqLd} />
+      <JsonLd data={fleetItemListLd()} />
     </>
   );
 }
